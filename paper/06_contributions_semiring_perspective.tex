@@ -1,0 +1,113 @@
+\section{Novel Contributions from the Semiring Perspective}
+
+The algebraic framework developed in this paper does not merely unify linear regression and PCA in a common operator language. It also to design several novel 
+conceptual tools for statistical modeling, each highlighting different aspects of coincidence and contradiction between the two methods. 
+We describe three aspects below.
+
+\subsection{Non-commutativity as a diagnostic measure}
+
+Within the semiring of structured operators, the composition of two modeling procedures is in general non-commutative: applying regression after PCA differs from applying PCA after linear regression. This lack of commutativity can itself be used as a \emph{diagnostic tool}. Within the semiring of structured operators $\mathcal{A} \subseteq P$, consider two operators $A, B \in \mathcal{A}$ representing, for instance, regression-type and PCA-type transformations. The \emph{degree of contradiction} quantifies the extent to which these two operators fail to commute:
+
+\begin{defn}[Degree of Contradiction]
+Let $\|\cdot\|_F$ denote the Frobenius norm. The degree of contradiction between $A$ and $B$ is defined as
+\[
+\Delta(A,B) := \| AB - BA \|_F.
+\]
+\end{defn}
+
+\paragraph{Interpretation.}
+\begin{itemize}
+    \item In the semiring context, $\mathcal{A}$ is equipped with an additive operation $\oplus$ 
+          and a multiplicative operation $\otimes$ (matrix multiplication). 
+          Commutativity under $\otimes$ is not guaranteed in general. 
+    \item $\Delta(A,B) = 0$ implies $AB = BA$, i.e., the two operators \emph{commute} within the semiring. 
+          In this case, there exists a well-defined joint action of $A$ and $B$, and a unique optimal operator 
+          $H^* \in \mathcal{A}$ may be identified that simultaneously satisfies both objectives.
+    \item $\Delta(A,B) > 0$ indicates a \emph{structural contradiction} between the operators: 
+          their actions on some subspace of the predictors are incompatible. 
+          Algebraically, there exists no single element in $\mathcal{A}$ that preserves both transformations exactly.
+\end{itemize}
+
+\paragraph{Implication for Joint Estimation.}
+Formally, consider the problem of finding a joint optimal operator
+\[
+H^* := \arg\min_{H \in \mathcal{A}} \left\{ \rho_\mathrm{reg}(H) + \rho_\mathrm{PCA}(H) \right\},
+\]
+where $\rho_\mathrm{reg}$ and $\rho_\mathrm{PCA}$ denote the loss functionals corresponding to regression and PCA, respectively. 
+\begin{itemize}
+    \item If $\Delta(A,B) = 0$, then the minimization above admits a clear solution 
+          $H^* = AB = BA$; the semiring structure guarantees closure under $\otimes$, and the joint loss is minimized by the common operator.
+    \item If $\Delta(A,B) > 0$, no such element $H^*$ exists that simultaneously minimizes both losses exactly. 
+          The optimization must instead select a compromise operator, e.g., an \emph{argmin} over a combined loss, reflecting the algebraic incompatibility.
+\end{itemize}
+
+This measure turns the algebraic structure into a quantitative measure to assess \emph{ex ante} whether PCA and linear regression are likely to produce coherent or contradictory conclusions on a given dataset. 
+
+\subsection{Sufficiency Gap in the Semiring Framework}
+
+In classical statistics, regression and PCA rely on different sufficient statistics:
+\[
+T_{\text{reg}}(X,Y) = (X^\top X, X^\top Y), \qquad
+T_{\text{PCA}}(X) = X^\top X.
+\]
+Regression retains all information about the parameter $\beta$, while PCA retains only information about the variance structure of $X$. The concept of sufficiency gaps explains, why PCA cannot generally substitute for regression. The idea is, that the sufficient statistic it relies on omits all information about the response variable $Y$. 
+
+\paragraph{Semiring perspective.}  
+Let $P$ denote the semiring of structured operators, with subsets
+$L_\ell \subset P$ representing regression operators and
+$\mathcal{H}_r \subset P$ representing PCA operators. 
+Each operator $A \in P$ acts on the data matrix $X$ and extracts a subspace
+\(\mathrm{Im}(A) \subseteq \mathbb{R}^{k-1}\). 
+We can interpret sufficiency in terms of these subspaces: an operator is sufficient for a parameter if the parameter is a functional of the projected data.
+
+\begin{defn}[Sufficiency Gap]  
+Let $A_{\text{reg}} \in L_\ell$ and $A_{\text{PCA}} \in \mathcal{H}_r$. 
+We define the \emph{sufficiency gap} of PCA relative to regression as the dimension of the missing subspace:
+\[
+\text{Gap}(A_{\text{PCA}} \parallel A_{\text{reg}}) 
+:= \dim \Big( \mathrm{Im}(A_{\text{reg}}) \;\setminus\; \mathrm{Im}(A_{\text{PCA}}) \Big) = I(\beta; T_{\text{reg}}) - I(\beta; T_{\text{PCA}}),,
+\]
+where $\mathrm{Im}(A)$ denotes the image of $A$.  
+Equivalently, one can consider the Frobenius-norm of the difference between the projections:
+\[
+\text{Gap}(A_{\text{PCA}} \parallel A_{\text{reg}}) 
+\approx \| A_{\text{reg}} - A_{\text{PCA}} A_{\text{reg}} \|_F.
+\]
+\end{defn}
+
+\paragraph{Interpretation.}  
+\begin{itemize}
+    \item $\text{Gap} = 0$: PCA preserves all subspaces relevant for regression; operators are fully compatible.
+    \item $\text{Gap} > 0$: PCA discards information relevant for regression; the operators diverge in the semiring sense.
+\end{itemize}
+
+\paragraph{Connection to semiring structure.}  
+The semiring operations of addition and multiplication allow us to analyze combined procedures:
+\begin{itemize}
+    \item Addition $A + B$ combines subspaces (union of images) of two operators.
+    \item Multiplication $AB$ corresponds to sequential application; non-commutativity $AB \neq BA$ quantifies incompatibility.
+\end{itemize}
+The sufficiency gap formalizes this incompatibility in terms of lost regression-relevant subspaces, making it a semiring-consistent measure of divergence between PCA and regression.
+\subsection{Contradiction maps in operator space}
+
+We further describe regions of operator-parameter space where regression- and 
+PCA-type procedures coincide or diverge. Let $A \in P$ encode a Gaussian model
+\[
+Y = X \beta + \varepsilon, \qquad X \sim \mathcal{N}(0, \Sigma),
+\]
+with regression part $A_\beta$ and PCA projection part $A_\mu$.
+
+Define the \emph{coincidence set} of operators
+\[
+\mathcal{C}_r := \{ A \in P : \operatorname{Im}(A_\beta) \subseteq \operatorname{Im}(A_\mu), \; \operatorname{rank}(A_\mu) = r \},
+\]
+i.e., the set of operators where the regression signal lies entirely within the PCA-projected subspace. In this region, regression and PCA-based reconstruction yield identical fitted values for the predictors.
+
+The complement
+\[
+\mathcal{C}_r^c := P \setminus \mathcal{C}_r
+\]
+is the \emph{contradiction set}, where PCA projections discard part of the regression signal encoded in $A_\beta$.
+
+\paragraph{Interpretation.}  
+Visualizing $\mathcal{C}_r$ and $\mathcal{C}_r^c$ as subsets of the semiring $P$ produces \emph{contradiction maps}: geometric representations of where and why regression and PCA disagree in operator space.

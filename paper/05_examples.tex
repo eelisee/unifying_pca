@@ -1,0 +1,66 @@
+\section{Examples of Coincidence and Contradictions}
+
+%5. Examples of Coincidence and contradictions
+%	•	Correlated predictors
+%	•	orthogonal predictors
+%	•	loss of signal by protection?
+%	•	heavy-tailed / stable distributions where classical variance is undefined
+
+Having identified regression- and PCA-type operator families, we now analyze their intersections and divergences. Algebraically, coincidence occurs when a regression-type operator $A \in L_\ell$ can also be represented as a PCA-type operator $H \in \mathcal{H}_r$ (i.e., a low-rank reconstruction operator). Divergence occurs whenever the two operator types select different subspaces of the predictor space.
+
+\paragraph{General principle.}  
+\begin{itemize}
+  \item Coincidence requires that a regression operator, which retains only a subset of predictors via $A_\beta$ and $A_\mu$, can be expressed as a low-rank reconstruction $H$ that preserves exactly the same subspace of predictors.
+  \item Divergence occurs whenever the PCA projection $A_\mu$ spans a subspace that is not aligned with the coordinate axes associated with the regression selection $L_\ell$.
+\end{itemize}
+
+\paragraph{Interpretation.}  
+From a data representation perspective, coincidence means that both procedures reconstruct exactly the same components of $X$. PCA chooses a principal direction that coincides with a coordinate axis, and regression restricts itself to the same predictor. Divergence reflects the difference between axis-aligned selection (regression) and subspace reconstruction (PCA), which may involve linear combinations of multiple predictors.
+
+\begin{prop}[Coincidence under diagonal covariance]
+Let $X=(X_1,\dots,X_{k-1})$ be centered predictors with covariance matrix $\Sigma \in \mathbb{R}^{(k-1)\times(k-1)}$.  
+Assume that $\Sigma$ is diagonal, i.e., $\operatorname{Cov}(X_i,X_j) = 0$ for $i \neq j$. Then:
+\begin{enumerate}
+    \item Each standard basis vector $e_j \in \mathbb{R}^{k-1}$ is an eigenvector of $\Sigma$ with eigenvalue $\lambda_j = \operatorname{Var}(X_j)$.
+    \item The rank-$1$ PCA operator $H_1 = e_{j^*} e_{j^*}^\top$ that minimizes the reconstruction loss over $\mathcal{H}_1$ coincides with the regression operator $A \in L_1$ selecting the predictor $X_{j^*}$ of maximal variance $\lambda_{j^*}$.
+    \item More generally, for any $r$, the PCA operator $H_r = \sum_{s=1}^r e_{j_s} e_{j_s}^\top \in \mathcal{H}_r$ coincides with $A \in L_\ell$, where $\ell = r$ and the selected predictors correspond to the $r$ largest variances.
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+Since $\Sigma$ is diagonal, the eigenvectors of $\Sigma$ are exactly the standard basis vectors $e_1,\dots,e_{k-1}$.  
+For rank-$1$ PCA, the optimal reconstruction operator $H_1$ minimizes
+\[
+\rho(X, H_1 X) = \| X - H_1 X \|_F^2 = \sum_{j=1}^{k-1} \| X_j - (H_1 X)_j \|_2^2.
+\]
+This is minimized by choosing $H_1 = e_{j^*} e_{j^*}^\top$, where $j^* = \arg\max_j \| X_j \|_2^2 = \arg\max_j \operatorname{Var}(X_j)$.  
+
+For rank-$r$ PCA, the optimal reconstruction operator is
+\[
+H_r = \sum_{s=1}^r e_{j_s} e_{j_s}^\top,
+\]
+where $j_1,\dots,j_r$ correspond to the $r$ largest diagonal entries of $\Sigma$. By construction, $H_r X$ preserves exactly these predictors and zeroes out all others.  
+
+In terms of regression operators, $L_\ell$ selects the first $\ell$ predictors, or more generally the $\ell$ chosen coordinates. In the diagonal covariance case, by aligning the ordering of $\ell$ with the $r$ largest eigenvalues, the PCA operator $H_r$ and the regression operator $A \in L_\ell$ act identically on $X$. Hence, coincidence holds.
+\end{proof}
+
+This proposition formalizes the intuitive idea, that regression-type variable selection and PCA-type reconstruction coincide exactly when the predictors are uncorrelated and the selected PCA subspace aligns with coordinate axes. In the general case of correlated predictors, PCA spans rotated subspaces and the two procedures generally diverge.
+
+We now turn to concrete examples in which the two approaches either coincide or diverge. This serves two purposes: (i) it illustrates how the abstract operator classes $L_\ell$ (regression) and $\mathcal{H}_r$ (PCA) behave in practice, and (ii) it highlights the role of covariance structure, signal alignment, and distributional assumptions in determining when the two procedures can agree.
+
+\paragraph{Orthogonal Predictors as a Trivial Semiring Case}
+
+Suppose $X_1, \dots, X_p \sim \mathcal{N}(0,1)$ independent, and let $Y = X_1 + \varepsilon$, $\varepsilon \sim \mathcal{N}(0,1)$. Here the covariance matrix is diagonal, so PCA selects the coordinate axes as eigenvectors. Linear regression selects $X_1$ as the relevant predictor. Thus, PCA and regression coincide, and both correspond to a semiring element $A \in L_k \cap \mathcal{H}_r$ that projects onto $X_1$. This example illustrates the trivial intersection of the linear regression semiring and the PCA semiring (since only one projector semigroup works as a semiring), both are aligned with the coordinate basis.
+
+\paragraph{Correlated Predictors as a Contradiction}
+
+Now let $X_2 = X_1 + \eta$ with $\eta \sim \mathcal{N}(0,0.01)$, and again $Y = X_1 + \varepsilon$. Then regression identifies $X_1$ as the unique source of signal, 
+but PCA selects approximately $X_1 + X_2$, the direction of maximal variance. Algebraically, the operator $A_\beta$ encoding the linear regression functional lies outside the image of the PCA projection $\mathcal{H}_1$. Thus, the semiring elements representing PCA and linear regression diverge. This example demonstrates that the two structures, though unified algebraically, may generate incompatible models.
+
+\paragraph{Loss of Signal under Projection}
+
+Let $X = (X_1,X_2)$ with $\mathrm{Var}(X_1)\gg \mathrm{Var}(X_2)$ and $\beta=(0,1)$. Then PCA selects $X_1$ as first component, but the signal lies in $X_2$. In operator terms, $A_\beta$ is orthogonal to $\mathrm{Im}(A_X)$. Thus the regression functional is annihilated by the PCA projection. This illustrates how projection may erase inferentially relevant information, that cannot be captured by variance maximization of PCA alone.
+
+\paragraph{Heavy-tailed Distributions}
+
+If $X \sim S(\alpha)$ is $\alpha$-stable with $\alpha < 2$, the covariance matrix does not exist, and PCA cannot be defined in its classical form. Regression, however, can still be expressed through conditional expectation. This shows that the PCA semiring $\mathcal{H}_r$ is undefined, while the regression semiring $L_\ell$ remains meaningful. Hence, the semiring framework distinguishes between procedures that depend on second-order structure (PCA) and those that do not (regression). This provides a structural explanation for why PCA is not universally applicable.

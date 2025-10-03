@@ -1,0 +1,105 @@
+\section{Theoretical Groundwork}
+\label{sec:theoretical-groundwork}
+
+%	•	Linear regression and its statistical linear model, variable selection in linear model
+%	•	PCA in its original interpretation of Pearson (motivation of different best fit)
+%	•	Motivation of PCA / Derivation of Method
+
+\subsection{Linear Regression and its Variable Selection}
+
+\begin{defn}{(Linear Model)}
+
+Let $(\Omega, \mathcal{F}, \mathbb{P}_\theta)_{\theta \in \Theta}$ be a family of distributions. In the linear model, we observe
+\[ Y = X\beta + \varepsilon, \quad \varepsilon \sim (0, \Sigma), \]
+with $X \in \mathbb{R}^{n \times p}$ fixed, $Y \in \mathbb{R}^n$, $\beta \in \mathbb{R}^p$ and $\Sigma \in \mathbb{R}^{p\times p}$ the covariance matrix.
+
+The corresponding statistical model is the family of probability distributions
+\[
+\mathcal{P} = \{ \mathbb{P}_\theta : \theta = (\beta, \Sigma) \in \Theta \subseteq \mathbb{R}^p \times \mathcal{S}^n \},
+\]
+where \( \mathcal{S}_{+}^n \) denotes the set of all symmetric positive semi-definite \( n \times n \) matrices.
+\end{defn}
+
+In the special case where the covariance matrix is parameterized as
+\[
+C = \sigma^2 C_0,
+\]
+with known \( C_0 \in \mathbb{R}^{n \times n} \), the parameter becomes \( \theta = (\beta, \sigma^2) \in \mathbb{R}^p \times (0, \infty) \), and the statistical model becomes
+\[
+\mathcal{P} = \{ \mathbb{P}_{\beta, \sigma^2} : \beta \in \mathbb{R}^p, \sigma^2 > 0 \}.
+\]
+
+\paragraph{Remark.}
+Linear regression is a method used to estimate the unknown parameter \( \beta \) in the linear model. A common assumption on the covariance matrix of the errors is that 
+\(\Sigma = \sigma^2 I_n\) (i.e., the errors are uncorrelated and have equal variance). In the special case \(\Sigma = \sigma^2 I_n\), the Ordinary Least Squares (OLS) estimator is obtained by minimizing the residual sum of squares:
+\[
+\hat{\beta}_{\text{OLS}} := \arg\min_{\beta \in \mathbb{R}^p} \| Y - X\beta \|_2^2.
+\]
+The unique solution is given by
+\[
+\hat{\beta}_{\text{OLS}} = (X^\top X)^{-1} X^\top Y,
+\]
+provided that \( X \) has full rank (i.e., \( X^\top X \) is invertible). Regarding optimality, the OLS estimator is the Best Linear Unbiased Estimator (BLUE) under the Gauss-Markov assumptions (the covariance matrix \(\Sigma\) is positive definite). In the general case of positiv definite matrices $\Sigma$, the estimator is given by
+\[
+\hat\beta_{\text{GLS}} = (X^\top \Sigma^{-1} X)^{-1} X^\top \Sigma^{-1}.
+\]    
+If \(X\) is rank-deficient and thus $X^TX$ is singular or \(\Sigma\) only positive semidefinite, then certain linear combinations of the errors have zero variance (i.e., vectors in the null space of $\Sigma$), which implies redundancy in the information contained in the sample. One may replace it by the pseudoinverse $\Sigma^+$, which yields a generalized estimator that is no longer unique in the parameter space, but still provides a well-defined projection of $Y$ onto the column space of $X$.
+
+
+\subsection{Pearson's original formulation of PCA}
+
+In his original 1901 paper, Karl Pearson introduced PCA as a problem of optimal approximation. Given high-dimensional observations $x_{i,\cdot} \in \mathbb{R}^p$, $i=1,\dots,n$, the task is to find a $k$-dimensional linear subspace onto which the data can be projected with minimal loss of information.
+
+Formally, let $X \in \mathbb{R}^{n \times p}$ be the data matrix with centered and standardized columns. Pearson’s problem can be written as
+\[
+\min_{U \in \mathbb{R}^{p \times k}, \, U^\top U = I_k} 
+\sum_{i=1}^n \| x_{i,\cdot} - U U^\top x_{i,\cdot} \|^2,
+\]
+i.e.\ find the orthogonal projection $UU^Tx_{i,\cdot}$ onto a $k$-dimensional subspace that minimizes the total squared distance between the original points and their projections, quantifying the information loss as the squared reconstruction error.
+
+\paragraph{Low-rank reconstruction of $X$.} 
+
+The Eckart–Young theorem states that the solution is given by projecting $X$ onto the subspace spanned by the first $k$ eigenvectors of the sample correlation (or covariance) matrix
+\[
+R = \tfrac{1}{n} X^\top X = Q \Lambda Q^\top,
+\]
+where $\Lambda = \operatorname{diag}(\lambda_1, \dots, \lambda_p)$ with $\lambda_1 \ge \dots \ge \lambda_p \ge 0$ 
+and $Q = [q_1,\dots,q_p]$ orthonormal.
+
+The associated principal components are defined as
+\[
+Z = X Q_k \in \mathbb{R}^{n \times k},
+\]
+which are the coordinates of the projected data in the $k$-dimensional subspace spanned by the eigenvectors $q_1, \dots, q_k$. Reconstruction in the original space is then obtained as
+\[
+\widehat{X} = Z Q_k^\top = X Q_k Q_k^\top, \qquad Q_k = [q_1,\dots,q_k],
+\]
+and called the reconstructed data matrix, which is precisely the orthogonal projection of $X$ onto the span of the leading eigenvectors, and by the Eckart–Young theorem this projection is the unique best rank-$k$ approximation of $X$ in the Frobenius norm.
+
+\paragraph{Variance of principal components.} 
+By construction, the columns of $Z$ are mutually orthogonal. The empirical variance of the $j$-th component $Z_j = X q_j$, $j = 1, \dots, k$ is
+\[
+\mathrm{Var}(Z_j) = \frac{1}{n} Z_j^\top Z_j = \frac{1}{n} (X q_j)^\top (X q_j) = \frac{1}{n} ||X q_j||^2 = q_j^\top \underbrace{\frac{1}{n} X^\top X}_{R} q_j = q_j^\top R q_j.
+\]
+
+Since $q_j$ is an eigenvector of $R$ with eigenvalue $\lambda_j$, this gives
+\[
+\mathrm{Var}(Z_j) = q_j^\top R q_j = q_j^\top (\lambda_j q_j) = \lambda_j.
+\]
+
+Maximizing this variance under the normalization constraint leads to the Rayleigh quotient problem
+\[
+\max_{v \in \mathbb{R}^p, \, \|v\|=1} v^\top R v.
+\]
+The solution is the eigenvector $q_1$ of $R$ corresponding to the largest eigenvalue $\lambda_1$. 
+The associated principal component is
+\[
+z^{(1)} = X q_1.
+\]
+
+Subsequent principal components are defined iteratively by maximizing $v^\top R v$ 
+subject to $\|v\|=1$ and orthogonality to the previous directions $q_1, \dots, q_{k-1}$. 
+This yields the ordered eigenvectors $q_1, \dots, q_p$ of $R$.
+
+In summary, PCA yields both the principal components $Z$, capturing the maximal variance in successive orthogonal directions, 
+and the reconstruction $\widehat{X}$, which minimizes the total squared reconstruction error among all rank-$k$ approximations of $X$. Thus, in Pearson’s view, PCA is an approximation method. It seeks the best low-rank linear representation of the data in the least squares sense. 

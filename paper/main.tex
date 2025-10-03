@@ -1,0 +1,116 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{mathtools}
+\usepackage{bbm}
+\usepackage{bbold}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{geometry}
+\geometry{margin=3.5cm}
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]  % Definitionen
+\newtheorem{remark}{Remark}[section]    % Bemerkungen
+\newtheorem{thm}{Theorem}[section]      % Theorem
+\newtheorem{lem}{Lemma}[section]        % Lemma
+\newtheorem{ex}{Example}[section]       % Example
+\newtheorem{prop}{Proposition}[section]       % Example
+
+\title{Unifying PCA and Linear Models via Statistical Structure and Semigroup Theory}
+\author{Elise Wolf \\ Based on discussions  with Prof. Schlather and ideas from Schlather \& Reinbott (2021)}
+\date{}
+
+% Structure
+%1. Introduction: Questions aimed to answer
+
+%2.	Theoretical groundwork:
+%	•	Linear regression and its statistical linear model, variable selection in linear model
+%	•	PCA in its original interpretation of Pearson (motivation of different best fit)
+%	•	Motivation of PCA / Derivation of Method
+
+%3. Statistical interpretation of both
+%	•	Statistical interpretation of PCA (statistical model)
+%	•	Sufficient statistics in linear model & difference in interpretation in PCA (why the estimators differ even with seemingly equal models)
+
+%4. Algebraic Framework:
+%	•	Matrix model formulation with PCA and Regression as an Operator
+%	•	Building a semiring structure 
+%	•	algebraic classification of operator subsets and their statistical interpretation
+%	•	Concidence and Divergence conditions
+%	•	Proving coincidence of linear regression and PCA variable selection under specific assumptions
+
+%5. Examples of Coincidence and contradictions
+%	•	Correlated predictors
+%	•	orthogonal predictors
+%	•	loss of signal by protection?
+%	•	heavy-tailed / stable distributions where classical variance is undefined
+
+%6. Contributions based on Semiring Perspectives
+%	•	Non-commutativity as a diagnostic tool
+%	•	Sufficiency gaps
+%	•	Geometric contradiction maps
+
+
+% Rest - Ideen:
+%	•	Semiring factorization of inference goals
+%	•	Robust semiring extensions
+%	•	Universal approximation via operator semirings
+%	•	Dynamic semiring evolution
+
+%6. Comparison with existing selection models
+%	•	Forward selection
+%	•	backward selection
+%	•	Lasso and Ridge
+
+%7. PCA-Regression
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+
+We study the relationship between variable selection in Principal Component Analysis (PCA) and in linear regression. Although both methods operate on the same underlying statistical model, their selection principles differ fundamentally. PCA selects directions by the best low-dimensional linear approximation of the data, while linear regression selects variables with maximal explanatory power for a fixed response variable $Y$. We provide a unified perspective on both by examining their foundations statistical modeling, through the lens of sufficient statistics. We construct an algebraic framework based on semiring structure that bridges both approaches and investigate its algebraic properties, building on the formalism introduced by Schlather and Reinbott (2021). This algebraic formulation explains why different variable selection methods cannot be expected to coincide.
+\end{abstract}
+
+\tableofcontents
+
+
+% Kapitel 1
+\include{chapters/01_introduction}
+
+% Kapitel 2
+\include{chapters/02_theoretical_groundwork}
+
+% Kapitel 3
+\include{chapters/03_statistical_interpretation}
+
+% Kapitel 4
+\include{chapters/04_algebraic_framework}
+
+% Kapitel 5
+\include{chapters/05_examples}
+
+% Kapitel 6
+\include{chapters/06_contributions_semiring_perspective}
+
+\newpage
+
+% Kapitel 10
+\include{chapters/10_rest}
+
+% Kapitel 7
+\include{chapters/07_comparison_selection_models}
+
+% Kapitel 8
+\include{chapters/08_pca_regression}
+
+% Kapitel 9
+\include{chapters/09_outlook}
+
+
+\bibliographystyle{plain}
+\bibliography{bibliography}
+
+\end{document}

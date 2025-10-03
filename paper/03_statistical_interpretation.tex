@@ -1,0 +1,109 @@
+\section{Statistical Interpretation of Linear Regression and PCA}
+
+%3. Statistical interpretation of both
+%	•	Statistical interpretation of PCA (statistical model)
+%	•	Sufficient statistics in linear model & difference in interpretation in PCA (why the estimators differ even with seemingly equal models)
+
+\subsection{Lack of Statistical Model in PCA}
+
+Although PCA is often regarded as a statistical approach, it can be naturally interpreted as a statistical model. From this perspective, PCA is no longer just a procedure to solve an optimization problem, but rather a parametric model. This interpretation allows us to formulate PCA in analogy to the linear model
+\[
+Y = X \beta + \varepsilon,
+\]
+while still being distinct in its formulation. Concretely, let $X \in \mathbb{R}^{n \times p}$ denote the centered data matrix. In PCA, we do not posit an external response Y, but instead seek to explain X by a low-rank linear transformation of itself. Thus, PCA can be viewed as a statistical model of self-approximation. The data are modeled as their own low-rank linear reconstruction plus noise. That is, we consider
+\[
+X \approx X \beta + \varepsilon,
+\]
+where $\beta \in \mathbb{R}^{p \times p}$ is a low-rank matrix constrained to be an orthogonal projection and $\varepsilon$ is the residual noise. The statistical model then takes the form
+\[
+\mathcal{P} = \{ \mathbb{P}_\theta : \theta = \beta, \; X \sim \mathcal{N}(X \beta, \Sigma) \},
+\]
+with noise covariance typically chosen as $\Sigma = \sigma^2 I_p$ or proportional to the sample correlation matrix $R$.
+
+The corresponding estimator in the Frobenius norm of $\beta$ is
+\[
+\hat{\beta} = \arg\min_{\beta} \| X - X \beta \|_F^2,
+\]
+which, under the orthogonality constraint, yields
+\[
+\hat{\beta} = Q_k Q_k^\top,
+\]
+and hence the familiar PCA projection
+\[
+\widehat{X} = X \hat{\beta} = X Q_k Q_k^\top.
+\]
+
+\subsection{Sufficient Statistic of the Linear Model vs. PCA}
+
+Comparing the linear regression model and PCA, we observe that both rely on the same statistical model, yet pursue fundamentally different goals. To understand those despite their shared statistical model, we examine the sufficient statistics in the classical linear model and their relation to the estimator.
+
+\begin{defn}
+Let $X : \Omega \rightarrow \Omega'$ be a random variable. A measurable function $T: \Omega' \rightarrow \Omega''$ is called a \emph{statistic}. A statistic $T(X)$ is \emph{sufficient} for a parameter $\theta$ if the conditional distribution of $X$ given $T(X)$ does not depend on $\theta$. Formally, for a parametric family $(\mathbb{P}_\theta)_{\theta \in \Theta}$:
+\[
+\mathbb{P}_\theta(X \in A \mid T(X) = t) = \mathbb{P}(X \in A \mid T(X) = t), \quad \forall A \in \mathcal{A}, \theta \in \Theta.
+\]
+\end{defn}
+
+\begin{ex}
+Consider the classical linear model with independent $X_i \in \mathbb{R}^n, i = 1, \dots, p$,
+\[
+Y = X \beta + \varepsilon, \quad \varepsilon \sim \mathcal{N}(0, \sigma^2 I_n),
+\]
+with known design matrix $X \in \mathbb{R}^{n \times p}$ and parameter $\beta \in \mathbb{R}^p$. The joint density of $Y$ is:
+\[
+f_Y(y; \beta) = \frac{1}{(2\pi \sigma^2)^{n/2}} \exp\left(-\frac{1}{2\sigma^2} \| y - X\beta \|^2 \right).
+\]
+
+This density depends on $\beta$ only through the quadratic form
+\[
+\| y - X\beta \|^2 = y^\top y - 2\beta^\top X^\top y + \beta^\top X^\top X \beta.
+\]
+Hence, the likelihood function $\mathcal{L}(\beta; y)$ depends on $y$ only through $X^\top y$ and $X^\top X$. Therefore, the statistic
+\[
+T(Y) := (X^\top X, X^\top Y)
+\]
+is sufficient for $\beta$.
+
+The corresponding estimator obtained by maximizing the likelihood (MLE) is:
+\[
+\hat{\beta}_{\text{MLE}} = (X^\top X)^{-1} X^\top Y,
+\]
+which coincides with the OLS estimator $\hat{\beta}_{\text{OLS}}$ and depends only on the sufficient statistic $T(Y)$.
+\end{ex}
+
+This shows how, in regression, the sufficient statistic compresses the data $Y$ without losing information about $\beta$. The estimator $\hat{\beta}$ is a function of that statistic $T(Y)$. The linear model is not a model created for variable selection. Instead, the every variable $X_i \in \mathbb{R}^n$, $i = 1, \dots, p$ is part of the model itself.
+
+\paragraph{Observation.}
+By contrast, the choice of variables is an integral part of PCA. The difference arises from the choice of sufficient statistics and the associated inferential goal. Even though PCA and linear regression share the same statistical model and therefore the same joint distribution (e.g., $(X,Y) \sim \mathcal{N}(\mu, \Sigma)$), PCA is not directly linked to a likelihood-based estimation problem. Whereas regression defines a conditional distribution to be modeled or predicted, PCA seeks directions in $X$ that maximize marginal variance. Thus, the sufficiency question for PCA is of a different nature. It concerns retaining structure and interpretability in a transformed coordinate system, rather than preserving information about a parameter. Consider PCA under the Gaussian model
+\[
+X_1,\dots,X_n \sim \mathcal{N}(\mu, \Sigma), \quad X_i \in \mathbb{R}^p.
+\]
+By the factorization theorem, the empirical mean and covariance,
+\[
+\bar{X} = \tfrac{1}{n} \sum_{i=1}^n X_i,
+\qquad
+S = \tfrac{1}{n}\sum_{i=1}^n (X_i - \bar{X})(X_i - \bar{X})^\top,
+\]
+are sufficient for $(\mu,\Sigma)$. In PCA, the data are usually centered, so $\bar{X} = 0$, and the sufficient statistic reduces to the sample covariance (or correlation) matrix $R$. Thus,
+\[
+T(X) = R
+\]
+is the sufficient statistic underlying PCA. PCA does not aim to preserve inferential information about a specific parameter, but rather to retain the structural variance captured by $S$. In PCA, $X$ itself is the object of approximation. The direction of approximation is not fixed beforehand and can be reinterpreted, as long as the optimization goal of maximizing variance is retained. 
+
+Thus, PCA allows not only the direction $X \to Y$ with $X$ explanatory and $Y$ response as in linear regression, but in principle any direction in the space of predictors: for each $X_j$, $j=1,\dots,p$, or more generally any linear combination of the $X_j$, depending on the chosen optimization criterion (variance, correlation, etc.). Hence, the interpretation of PCA is fundamentally multivalent. It is not fixed by a target variable, but by the optimization criterion and the projection space. The PCA estimator depends on the selection order of the predictors $X_j$, $j = 1, \dots, p$, or in other words the ordering of components, i.e. the two main strategies are:
+
+\begin{itemize}
+    \item \textbf{Forward selection}: starting with a null model and adding the principal components with the largest variance in a decreasing order,
+    \item \textbf{Exhaustive selection}: starting with the full model and deleting the principal component with the smallest effect on variance maximization in increasing order.
+\end{itemize}
+
+This implies a larger searchspace for possible solutions, 
+\[ \text{Searchspace}_{\text{PCA}} \supseteq \text{Searchspace}_{\text{Linear Regression}} \]
+and equal, if and only if $p=1$ for the dimensionality of the PCA.
+
+\paragraph{Interpretation.}
+The main difference is the directionality of the linear model in regression. It defines a mapping $X \mapsto Y$ and thereby expresses prediction. PCA, by contrast, does not impose any directional relation. In PCA all directions in $X_j$, $j = 1, \dots p$ are potential candidates. Based on this analysis, we propose the following alignment.:
+
+\begin{quote}
+\textit{To reconcile the statistical models of linear regression and PCA, one should require that the sufficient statistic preserves the directional role of the original variables $X$, i.e. their interpretability as coordinates in the data space.}
+\end{quote}
