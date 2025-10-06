@@ -1,0 +1,58 @@
+\section{Comparison with Existing Selection Models}
+
+%6. Comparison with existing selection models
+%	•	Forward selection
+%	•	backward selection
+%	•	Lasso and Ridge
+
+To better understand the divergence, we contrast PCA selection with other 
+classical selection procedures. 
+
+\subsection{Forward Selection}
+Forward selection chooses predictors by stepwise reduction in residual sum of squares. 
+It may include variables with small variance if they are highly correlated with $Y$. 
+In contrast, PCA ignores $Y$ and selects only based on variance.
+
+\subsection{Lasso and Ridge}
+Lasso solves
+\[
+\hat\beta = \arg\min_\beta \|Y - X\beta\|^2 + \lambda \|\beta\|_1,
+\]
+producing sparse solutions aligned with $Y$. Ridge regression shrinks coefficients but does not select variables. 
+Both differ fundamentally from PCA: Lasso depends on correlation with $Y$, PCA does not. 
+Interestingly, ridge regression directions often resemble PCA directions if variance dominates, but objectives are different.
+
+\subsection{Examples and Contradictions}
+
+We illustrate the theoretical results with explicit examples that show the divergence 
+between PCA- and regression-based selection.
+
+\begin{example}[Coincidence under Orthogonality]
+Let $X_1, X_2 \sim \mathcal{N}(0,1)$ independent, and define $Y = X_1 + \varepsilon$. 
+The covariance matrix is diagonal, so PCA directions coincide with the coordinate axes. 
+Both PCA and regression select $X_1$, and the procedures coincide. 
+\end{example}
+
+\begin{example}[Contradiction with Correlated Predictors]
+Let $X_1 \sim \mathcal{N}(0,1)$ and $X_2 = X_1 + \eta$ with $\eta \sim \mathcal{N}(0,0.01)$, 
+and define $Y = X_1 + \varepsilon$, $\varepsilon \sim \mathcal{N}(0,1)$. 
+Then $X_1$ carries the true signal. 
+However, PCA selects approximately the direction $X_1+X_2$ (largest variance), 
+whereas regression identifies $X_1$ as the relevant predictor. 
+Thus PCA-based variable selection and regression-based selection diverge. 
+\end{example}
+
+\begin{example}[Loss of Signal by Projection]
+Let $X = (X_1,X_2)$, $\beta = (0,1)$, and suppose PCA selects only $X_1$ 
+because $\mathrm{Var}(X_1) \gg \mathrm{Var}(X_2)$. 
+Then PCA regression discards the true signal $X_2$, and the fitted model becomes $Y=\varepsilon$, 
+i.e.\ pure noise. This illustrates the structural contradiction: 
+projection may eliminate the signal entirely. 
+\end{example}
+
+\begin{remark}
+These examples can be rephrased algebraically: 
+if $\beta \perp \mathrm{Im}(A_X)$ for a selection operator $A$, 
+then $AX\beta = 0$ and the resulting regression reduces to noise. 
+This makes explicit the conflict between PCA projection and regression selection. 
+\end{remark}

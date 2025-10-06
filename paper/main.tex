@@ -19,7 +19,7 @@
 
 \title{Unifying PCA and Linear Models via Statistical Structure and Semigroup Theory}
 \author{Elise Wolf \\ Based on discussions  with Prof. Schlather and ideas from Schlather \& Reinbott (2021)}
-\date{}
+\date{\today}
 
 % Structure
 %1. Introduction: Questions aimed to answer
@@ -71,7 +71,7 @@
 
 \begin{abstract}
 
-We study the relationship between variable selection in Principal Component Analysis (PCA) and in linear regression. Although both methods operate on the same underlying statistical model, their selection principles differ fundamentally. PCA selects directions by the best low-dimensional linear approximation of the data, while linear regression selects variables with maximal explanatory power for a fixed response variable $Y$. We provide a unified perspective on both by examining their foundations statistical modeling, through the lens of sufficient statistics. We construct an algebraic framework based on semiring structure that bridges both approaches and investigate its algebraic properties, building on the formalism introduced by Schlather and Reinbott (2021). This algebraic formulation explains why different variable selection methods cannot be expected to coincide.
+We study the relationship between variable selection in Principal Component Analysis (PCA) and in linear regression. Although both methods operate on the same underlying statistical model in the case of independent random predictor variables, their selection principles differ fundamentally. PCA selects directions by the best low-dimensional linear approximation of the data, while linear regression selects variables with maximal explanatory power for a fixed response variable $Y$. We provide a unified perspective on both by examining their foundations in statistical modeling, through the lens of sufficiency. We construct an algebraic framework based on semiring structure that bridges both approaches and investigate its algebraic properties, building on the formalism introduced by Schlather and Reinbott (2021). This algebraic formulation clarifies the structural relationship between different variable selection principles, showing that their apparent discrepancies arise from distinct notions of sufficiency within the underlying statistical model.
 \end{abstract}
 
 \tableofcontents
@@ -94,6 +94,9 @@ We study the relationship between variable selection in Principal Component Anal
 
 % Kapitel 6
 \include{chapters/06_contributions_semiring_perspective}
+
+% Kapitel 7
+\include{chapters/11_mccullagh}
 
 \newpage
 

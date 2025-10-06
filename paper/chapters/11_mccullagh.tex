@@ -1,0 +1,127 @@
+\section{Model Extension and Reduction: A McCullagh-Inspired View}
+
+The semiring operator framework provides a natural formalization of the model extension and reduction concepts emphasized by McCullagh \cite{mccullagh}. By treating regression and PCA as operators acting on the model space rather than on finite data, we can define these processes consistently at the distributional level, independently of any particular dataset.
+
+\subsection{Illustrations of Model Extendability and Operator Structure}
+
+McCullagh emphasizes that a statistical model is meaningful only if it admits natural extension, reduction, and invariance properties with respect to the inferential universe of interest. Using the operator class, we can reinterpret classical procedures such as PCA and linear regression in this light and highlight structural differences that are invisible at the data level. The following examples illustrate key phenomena.
+
+\paragraph{Example 1: Extendability and the non-natural PCA projector}
+
+\textbf{Phenomenon.}
+Inference requires that a model admit a natural extension to larger datasets, populations, or future units. PCA based on a finite sample may fail this criterion if the empirical principal subspace is highly sample-dependent.
+
+
+\textbf{Formal description.}
+Let $\tilde X^{(n)} \in \mathbb{R}^{k \times n}$ denote a dataset with $n$ units, and let $H^{(n)} = Q_r^{(n)} (Q_r^{(n)})^\top$ be the empirical rank-$r$ PCA projector. If the mapping $n \mapsto H^{(n)}$
+does not converge (in probability or almost surely) to a population-level operator $H^{(\infty)}$ intrinsic to the model, then the reduction is not natural in McCullagh’s sense. Predictions or inferential statements using $H^{(n)}$ cannot be canonically extended to new units.
+
+
+\textbf{Consequence.}
+The semiring viewpoint makes this explicit: PCA operators form a semigroup $\mathcal{H}_r$, but only functorial extendability guarantees valid inference. Lack of this property signals that PCA is primarily descriptive.
+
+
+\paragraph{Example 2: Natural parameters and coordinate transformations}
+
+Natural parameters should transform equivariantly under relevant experiment morphisms. In the operator framework, this corresponds to equivariance under coordinate permutations or other symmetries of the predictor space.
+
+\textbf{Formal description.}
+Let $P$ be a permutation matrix on predictors and $A \in P$ an operator in the semiring. Define the conjugated operator
+\[
+A^\Pi = \begin{bmatrix} 1 & 0 \\ 0 & P \end{bmatrix} A \begin{bmatrix} 1 & 0 \\ 0 & P^\top \end{bmatrix}.
+\]
+A parameter $\theta(A)$ is natural if $\theta(A^\Pi) = \Pi \cdot \theta(A),$ i.e., it transforms consistently with the permutation.
+
+\textbf{Implication.}
+Regression coefficients satisfy this property for coordinate relabelings, so $L_\ell$ admits a natural parameterization. PCA eigenvectors, however, are only defined up to sign and scaling, and may fail to transform naturally under general morphisms. The semiring framework precisely characterizes which transformations preserve which operator families.
+
+\paragraph{Example 3: Extensive vs. intensive aggregation and commutativity}
+
+\textbf{Phenomenon.}
+Operators should interact appropriately with aggregation over units (summing or averaging). This distinguishes extensive from intensive inferential properties.
+
+\textbf{Algebraic test.}
+Let $G_n : \mathbb{R}^{k \times n} \to \mathbb{R}^k$ denote aggregation (e.g., unit-wise mean). We ask whether there exists $A'$ in the same semiring such that
+$G_n(A \tilde X^{(n)}) = A' \, G_n(\tilde X^{(n)}) \quad \forall \tilde X^{(n)}.$
+If so, extraction and aggregation commute; otherwise, the reduction is aggregation-sensitive.
+
+\textbf{Implication.}
+PCA is sensitive to whether units are aggregated before or after projection, while regression estimators based on $(X^\top X, X^\top Y)$ commute naturally with aggregation.
+
+\paragraph{Example 4: Privacy/protection as an algebraic constraint}
+
+Projection operators can be interpreted as privacy-preserving transformations, which restrict the amount of recoverable information.
+
+\textbf{Algebraic observation.}
+Define $\mathcal{P}r = \{ A \in P : A_\sigma = 0, \; \operatorname{rank}(A_\mu) \le r \}.$
+Mapping $\tilde X \mapsto A \tilde X$ for $A \in \mathcal{P}_r$ preserves privacy by limiting reconstructable components. However, if the regression signal lies in the nullspace of $A_\mu$, identifiability is lost. The semiring formalism expresses this trade-off algebraically: privacy = membership in $\mathcal{P}_r$, identifiability = non-membership in the annihilator of $\mathcal{P}_r$.
+
+\paragraph{Example 5: Models beyond second-order structure}
+
+Relying on moments is implicit in many procedures. PCA depends on covariances (second-order structure), whereas regression via conditional expectations can extend beyond second moments.
+
+\textbf{Algebraic consequence.}
+For heavy-tailed distributions (e.g., $\alpha$-stable with $\alpha < 2$), the PCA semigroup $\mathcal{H}_r$ is ill-defined, while regression operators $L_\ell$ can remain meaningful under robust or tail-sensitive formulations. The semiring framework separates second-order-dependent families from more general operator families, exposing structural limitations of PCA.
+
+These examples illustrate core McCullagh principles: extendability, naturalness under morphisms, commutativity with aggregation, privacy constraints, and reliance on moment assumptions. By expressing them in semiring/operator terms, we make explicit which statistical procedures admit canonical extensions and which are only descriptive. The framework therefore provides a systematic language for evaluating the inferential suitability of linear regression, PCA, and their hybrids.
+
+
+\subsection{Model Extension: From Small to Large}
+
+Consider a family of centered Gaussian models for the predictors:
+\[
+X \sim \mathcal{N}(0, \Sigma), \qquad \Sigma \in \mathcal{S}_{+}^{k}.
+\]
+
+A smaller model corresponds to restricting attention to a subspace of the full predictor space. Formally, let $A_\mu^{(\ell)} \in P$ be a rank-$\ell$ operator selecting an $\ell$-dimensional subspace. The associated model family is
+\[
+\mathcal{P}\ell := \bigl\{ \mathcal{N}(0, A_\mu^{(\ell)} \, \Sigma \, (A_\mu^{(\ell)})^\top) : A_\mu^{(\ell)} \text{ is a rank-}\ell \text{ projection} \bigr\}.
+\]
+
+Extending to a larger model means embedding this operator into a higher-dimensional space while preserving the distributional structure:
+\[
+A_\mu^{(\ell)} \mapsto A_\mu^{(\ell’)} \in P, \quad \ell’ > \ell, \quad
+\mathcal{P}_\ell \subset \mathcal{P}_{\ell’} \subset \mathcal{P}.
+\]
+
+Here, the extension is defined at the operator-level. It enlarges the subspace and parameterization without reference to any particular finite sample. This formalizes McCullagh’s principle that enlarging a model should be a distributionally consistent operation, not an artifact of data.
+
+\subsection{Model Reduction: From Large to Small}
+
+Reduction corresponds to projecting a larger model onto a lower-dimensional subspace while preserving the family’s algebraic structure. Let $A \in P$ denote a structured operator in block form:
+\[
+A = \begin{bmatrix} A_\sigma & A_\beta \\ 0 & A_\mu \mathbb{1}_{(k-1) \times (k-1)}\end{bmatrix}.
+\]
+
+For regression operators $A \in L_\ell$, $A_\mu$ restricts the predictors to a coordinate subspace; for PCA operators $A \in \mathcal{H}_r$, $A_\mu$ restricts the predictors to an eigensubspace of $\Sigma$. The transformed model is
+$X \mapsto AX \sim \mathcal{N}\bigl(0, A \Sigma A^\top \bigr),$
+which preserves the Gaussian family while compressing the parameter space.
+
+Thus, reduction is a model-level operation: it replaces $\Sigma$ with $A \Sigma A^\top$ while retaining all algebraic relations. It is not defined in terms of a finite data realization but only in terms of the distribution and the chosen operator.
+
+\subsection{Data vs. Model: Estimation as a Separate Layer}
+
+Empirical datasets provide estimates of model parameters, e.g.,
+\[
+\hat\Sigma_n = \frac{1}{n} \sum_{i=1}^n X_i X_i^\top \to \Sigma \text{ as } n \to \infty.
+\]
+Applying PCA to $\hat\Sigma_n$ yields an empirical operator approximating the model-level PCA projection $Q_r Q_r^\top$. Importantly:
+
+\begin{itemize}
+\item The operator itself is defined at the model level and does not depend on any specific sample.
+\item More data improves the accuracy of estimation, but does not change the underlying operator or the model family.
+\end{itemize}
+
+This distinction resolves the classical “data vs. more data” paradox highlighted by McCullagh: models are defined independently of finite data, and larger samples refine only the estimates of their parameters, not the family itself.
+
+\subsection{Consequences for Unified Modeling}
+
+The semiring framework naturally accommodates both extension (embedding operators into larger subspaces) and reduction (projecting via $A \Sigma A^\top$) at the level of distributions.
+
+\begin{itemize}
+\item Regression and PCA operators can be interpreted as structured reductions or extensions, satisfying McCullagh’s requirement of distributional consistency.
+\item Data-level procedures (e.g., PCA on $\hat\Sigma_n$) can be understood as approximations of model-level operations.
+\item This unifies both classical variable selection and dimensionality reduction within a semiring-based algebra, where operations act on models rather than on finite datasets.
+\end{itemize}
+
+In this sense, the semiring perspective provides a model-first formalization of McCullagh’s principles, separating statistical modeling from empirical estimation and ensuring consistency under both extension and reduction.

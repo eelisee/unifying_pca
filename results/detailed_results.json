@@ -1,0 +1,4125 @@
+{
+  "abalone": {
+    "dataset_name": "abalone",
+    "metadata": {
+      "dataset_name": "abalone",
+      "target_name": "Rings",
+      "feature_names": [
+        "Length",
+        "Diameter",
+        "Height",
+        "Whole_weight",
+        "Shucked_weight",
+        "Viscera_weight",
+        "Shell_weight",
+        "Sex_I",
+        "Sex_M"
+      ],
+      "original_shape": [
+        4177,
+        10
+      ],
+      "processed_shape": [
+        3341,
+        9
+      ],
+      "preprocessing_steps": [
+        "StandardScaler/RobustScaler applied",
+        "Data centered (mean \u2248 0)",
+        "Categorical variables encoded",
+        "Train/test split (80/20)",
+        "Outliers handled with robust scaling"
+      ]
+    },
+    "data_shape": {
+      "n_samples_train": 3341,
+      "n_samples_test": 836,
+      "n_features": 9
+    },
+    "methods": {
+      "linear_regression": {
+        "train_mse": 4.783854094173274,
+        "test_mse": 4.891232447128585,
+        "train_r2": 0.5348243545188456,
+        "test_r2": 0.5481628137889257,
+        "n_parameters": 10,
+        "operator_info": {
+          "fitted": true,
+          "type": "LinearRegression",
+          "A_sigma": 2.187202344131259,
+          "A_beta": [
+            -0.03325638458713413,
+            1.4460408535139577,
+            0.5222662673377386,
+            6.323980288171955,
+            -6.421324697904524,
+            -1.5342060669245183,
+            1.745287077705846,
+            -0.7189744410491056,
+            0.10327613407556248
+          ],
+          "A_mu": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "intercept": 10.583401169839195,
+          "n_features": 9,
+          "regularization": null,
+          "alpha": null
+        }
+      },
+      "pca_regression": {
+        "n_components_1": {
+          "n_components": 1,
+          "train_mse": 6.931815967056352,
+          "test_mse": 7.032974096584391,
+          "train_r2": 0.3259593826744296,
+          "test_r2": 0.35031523019079214,
+          "explained_variance_ratio": 0.77162253668691
+        },
+        "n_components_2": {
+          "n_components": 2,
+          "train_mse": 6.884840154708059,
+          "test_mse": 6.978503971228586,
+          "train_r2": 0.3305272485417716,
+          "test_r2": 0.3553470148052771,
+          "explained_variance_ratio": 0.8603745536961629
+        },
+        "n_components_3": {
+          "n_components": 3,
+          "train_mse": 6.635889510533372,
+          "test_mse": 6.540411043948143,
+          "train_r2": 0.3547348799446526,
+          "test_r2": 0.39581670781231737,
+          "explained_variance_ratio": 0.9152152800410656
+        },
+        "n_components_4": {
+          "n_components": 4,
+          "train_mse": 6.5432499453610005,
+          "test_mse": 6.390209409200691,
+          "train_r2": 0.36374302874639786,
+          "test_r2": 0.4096918782815585,
+          "explained_variance_ratio": 0.9589214806132228
+        },
+        "n_components_5": {
+          "n_components": 5,
+          "train_mse": 6.523411682046144,
+          "test_mse": 6.381785817883867,
+          "train_r2": 0.36567207523507594,
+          "test_r2": 0.4104700240432918,
+          "explained_variance_ratio": 0.9783264490717442
+        },
+        "n_components_6": {
+          "n_components": 6,
+          "train_mse": 5.005935666349016,
+          "test_mse": 5.155069937226339,
+          "train_r2": 0.5132294361428549,
+          "test_r2": 0.5237903084068221,
+          "explained_variance_ratio": 0.991177084474758
+        },
+        "n_components_7": {
+          "n_components": 7,
+          "train_mse": 4.948554925385392,
+          "test_mse": 5.170008193126733,
+          "train_r2": 0.5188090635082572,
+          "test_r2": 0.5224103577326525,
+          "explained_variance_ratio": 0.9978817833937969
+        },
+        "n_components_8": {
+          "n_components": 8,
+          "train_mse": 4.944044188335425,
+          "test_mse": 5.162888933878753,
+          "train_r2": 0.5192476816135563,
+          "test_r2": 0.5230680132624778,
+          "explained_variance_ratio": 0.9993642823745408
+        },
+        "n_components_9": {
+          "n_components": 9,
+          "train_mse": 4.783854094173274,
+          "test_mse": 4.891232447128579,
+          "train_r2": 0.5348243545188456,
+          "test_r2": 0.5481628137889263,
+          "explained_variance_ratio": 1.0
+        },
+        "best_test_mse": 4.891232447128579,
+        "best_n_components": 9,
+        "all_components_tested": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      },
+      "generalized_pca": {
+        "n_components_1": {
+          "n_components": 1,
+          "train_mse": 108.5366547880898,
+          "test_mse": 108.01625134620515,
+          "train_r2": -9.553960772112584,
+          "test_r2": -8.978212976156774,
+          "A_sigma": 0.9970170941448195,
+          "A_beta_norm": 0.05453446733800157,
+          "A_mu_frobenius_norm": 0.002982905855180429,
+          "explained_variance_ratio": 0.9633655853235835
+        },
+        "n_components_2": {
+          "n_components": 2,
+          "train_mse": 108.66991838547902,
+          "test_mse": 108.13464968183192,
+          "train_r2": -9.566919148081903,
+          "test_r2": -8.989150254521672,
+          "A_sigma": 0.9976589254954733,
+          "A_beta_norm": 0.04832798231553764,
+          "A_mu_frobenius_norm": 1.0000027403111627,
+          "explained_variance_ratio": 0.9931849244162865
+        },
+        "n_components_3": {
+          "n_components": 3,
+          "train_mse": 108.7158133691961,
+          "test_mse": 108.18628281647261,
+          "train_r2": -9.571381915602538,
+          "test_r2": -8.993919966557135,
+          "A_sigma": 0.9978703647071443,
+          "A_beta_norm": 0.04609880634436256,
+          "A_mu_frobenius_norm": 1.4142151658593105,
+          "explained_variance_ratio": 0.9955687467218879
+        },
+        "n_components_4": {
+          "n_components": 4,
+          "train_mse": 108.73332138050166,
+          "test_mse": 108.20444804662591,
+          "train_r2": -9.573084371467587,
+          "test_r2": -8.995598015304166,
+          "A_sigma": 0.9979509357034788,
+          "A_beta_norm": 0.04522019053508966,
+          "A_mu_frobenius_norm": 1.7320520196184883,
+          "explained_variance_ratio": 0.997343210080743
+        },
+        "n_components_5": {
+          "n_components": 5,
+          "train_mse": 109.12307408052686,
+          "test_mse": 108.58231535080688,
+          "train_r2": -9.61098340857097,
+          "test_r2": -9.030504248309413,
+          "A_sigma": 0.9997409666126424,
+          "A_beta_norm": 0.016092429557457627,
+          "A_mu_frobenius_norm": 2.000000016774572,
+          "explained_variance_ratio": 0.9984356761200261
+        },
+        "best_test_mse": 108.01625134620515,
+        "best_n_components": 1,
+        "all_components_tested": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "summary": {
+      "mse_comparison": {
+        "Linear Regression": 4.891232447128585,
+        "PCA Regression": 4.891232447128579,
+        "Generalized PCA": 108.01625134620515
+      },
+      "best_method": "PCA Regression",
+      "best_mse": 4.891232447128579,
+      "improvements_over_lr": {
+        "PCA Regression_improvement": 1.2711006898784239e-13,
+        "Generalized PCA_improvement": -2108.364712039324
+      },
+      "valid_methods": [
+        "Linear Regression",
+        "PCA Regression",
+        "Generalized PCA"
+      ]
+    },
+    "timestamp": "2025-10-06T22:49:55.241897"
+  },
+  "airfoil_noise": {
+    "dataset_name": "airfoil_noise",
+    "metadata": {
+      "dataset_name": "airfoil_noise",
+      "target_name": "Scaled_sound_pressure_level",
+      "feature_names": [
+        "Frequency",
+        "Angle_of_attack",
+        "Chord_length",
+        "Free_stream_velocity",
+        "Suction_side_displacement"
+      ],
+      "original_shape": [
+        1503,
+        6
+      ],
+      "processed_shape": [
+        1202,
+        5
+      ],
+      "preprocessing_steps": [
+        "StandardScaler/RobustScaler applied",
+        "Data centered (mean \u2248 0)",
+        "Categorical variables encoded",
+        "Train/test split (80/20)",
+        "Outliers handled with robust scaling"
+      ]
+    },
+    "data_shape": {
+      "n_samples_train": 1202,
+      "n_samples_test": 301,
+      "n_features": 5
+    },
+    "methods": {
+      "linear_regression": {
+        "train_mse": 23.296080124160657,
+        "test_mse": 22.12864331824728,
+        "train_r2": 0.503447537119858,
+        "test_r2": 0.5582979754897284,
+        "n_parameters": 6,
+        "operator_info": {
+          "fitted": true,
+          "type": "LinearRegression",
+          "A_sigma": 4.826601301553782,
+          "A_beta": [
+            -4.069451406542566,
+            -3.2047113503553675,
+            -6.128666006290406,
+            3.107265454036781,
+            -1.745023175560159
+          ],
+          "A_mu": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "intercept": 129.55301796550768,
+          "n_features": 5,
+          "regularization": null,
+          "alpha": null
+        }
+      },
+      "pca_regression": {
+        "n_components_1": {
+          "n_components": 1,
+          "train_mse": 45.67421209191238,
+          "test_mse": 46.21311987007603,
+          "train_r2": 0.026461001873542056,
+          "test_r2": 0.07755625539337285,
+          "explained_variance_ratio": 0.4819939886669396
+        },
+        "n_components_2": {
+          "n_components": 2,
+          "train_mse": 31.66068817089881,
+          "test_mse": 33.10847449792831,
+          "train_r2": 0.3251571679033103,
+          "test_r2": 0.3391334478186191,
+          "explained_variance_ratio": 0.7986063610673588
+        },
+        "n_components_3": {
+          "n_components": 3,
+          "train_mse": 26.239039501212712,
+          "test_mse": 26.15289958322493,
+          "train_r2": 0.4407187982486417,
+          "test_r2": 0.4779712191755251,
+          "explained_variance_ratio": 0.9043988024264705
+        },
+        "n_components_4": {
+          "n_components": 4,
+          "train_mse": 25.85718420414506,
+          "test_mse": 25.983508916029734,
+          "train_r2": 0.4488579867821719,
+          "test_r2": 0.4813523663862792,
+          "explained_variance_ratio": 0.9717733863677269
+        },
+        "n_components_5": {
+          "n_components": 5,
+          "train_mse": 23.29608012416066,
+          "test_mse": 22.128643318247153,
+          "train_r2": 0.5034475371198579,
+          "test_r2": 0.558297975489731,
+          "explained_variance_ratio": 1.0
+        },
+        "best_test_mse": 22.128643318247153,
+        "best_n_components": 5,
+        "all_components_tested": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "generalized_pca": {
+        "n_components_1": {
+          "n_components": 1,
+          "train_mse": 15640.278636461753,
+          "test_mse": 15592.30908200685,
+          "train_r2": -332.3701994359261,
+          "test_r2": -310.23256809120204,
+          "A_sigma": 0.9999714775423252,
+          "A_beta_norm": 0.005340565901113186,
+          "A_mu_frobenius_norm": 2.8522457674724703e-05,
+          "explained_variance_ratio": 0.9997967321947441
+        },
+        "n_components_2": {
+          "n_components": 2,
+          "train_mse": 15640.403107505428,
+          "test_mse": 15592.436119739696,
+          "train_r2": -332.37285251760187,
+          "test_r2": -310.2351038464664,
+          "A_sigma": 0.9999754572317623,
+          "A_beta_norm": 0.0049540050353349355,
+          "A_mu_frobenius_norm": 1.0000000003011738,
+          "explained_variance_ratio": 0.9999019773268245
+        },
+        "n_components_3": {
+          "n_components": 3,
+          "train_mse": 15640.92229555991,
+          "test_mse": 15592.982920136661,
+          "train_r2": -332.38391893331544,
+          "test_r2": -310.2460183358397,
+          "A_sigma": 0.9999920557484836,
+          "A_beta_norm": 0.002818543667428677,
+          "A_mu_frobenius_norm": 1.414213562395409,
+          "explained_variance_ratio": 0.9999584342024845
+        },
+        "n_components_4": {
+          "n_components": 4,
+          "train_mse": 15641.11317072582,
+          "test_mse": 15593.166739029111,
+          "train_r2": -332.3879874089229,
+          "test_r2": -310.2496874797529,
+          "A_sigma": 0.9999981576537198,
+          "A_beta_norm": 0.0013573293210960102,
+          "A_mu_frobenius_norm": 1.7320508075698575,
+          "explained_variance_ratio": 0.9999786309357481
+        },
+        "n_components_5": {
+          "n_components": 5,
+          "train_mse": 15641.147297955386,
+          "test_mse": 15593.220550347787,
+          "train_r2": -332.3887148257159,
+          "test_r2": -310.2507615884571,
+          "A_sigma": 0.9999992486223312,
+          "A_beta_norm": 0.0008668201106183812,
+          "A_mu_frobenius_norm": 2.0000000000001417,
+          "explained_variance_ratio": 0.9999938437144733
+        },
+        "best_test_mse": 15592.30908200685,
+        "best_n_components": 1,
+        "all_components_tested": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "summary": {
+      "mse_comparison": {
+        "Linear Regression": 22.12864331824728,
+        "PCA Regression": 22.128643318247153,
+        "Generalized PCA": 15592.30908200685
+      },
+      "best_method": "PCA Regression",
+      "best_mse": 22.128643318247153,
+      "improvements_over_lr": {
+        "PCA Regression_improvement": 5.779734916299798e-13,
+        "Generalized PCA_improvement": -70362.11038680997
+      },
+      "valid_methods": [
+        "Linear Regression",
+        "PCA Regression",
+        "Generalized PCA"
+      ]
+    },
+    "timestamp": "2025-10-06T22:49:55.767854"
+  },
+  "bike_sharing_day": {
+    "dataset_name": "bike_sharing_day",
+    "metadata": {
+      "dataset_name": "bike_sharing_day",
+      "target_name": "cnt",
+      "feature_names": [
+        "instant",
+        "season",
+        "yr",
+        "mnth",
+        "holiday",
+        "weekday",
+        "workingday",
+        "weathersit",
+        "temp",
+        "atemp",
+        "hum",
+        "windspeed",
+        "casual",
+        "registered"
+      ],
+      "original_shape": [
+        731,
+        15
+      ],
+      "processed_shape": [
+        584,
+        14
+      ],
+      "preprocessing_steps": [
+        "StandardScaler/RobustScaler applied",
+        "Data centered (mean \u2248 0)",
+        "Categorical variables encoded",
+        "Train/test split (80/20)",
+        "Outliers handled with robust scaling"
+      ]
+    },
+    "data_shape": {
+      "n_samples_train": 584,
+      "n_samples_test": 147,
+      "n_features": 14
+    },
+    "methods": {
+      "linear_regression": {
+        "train_mse": 3.737000877982075e-22,
+        "test_mse": 3.838357193103419e-22,
+        "train_r2": 1.0,
+        "test_r2": 1.0,
+        "n_parameters": 15,
+        "operator_info": {
+          "fitted": true,
+          "type": "LinearRegression",
+          "A_sigma": 1.9331202557474098e-11,
+          "A_beta": [
+            7.746147746019738e-10,
+            -3.0723796149627647e-12,
+            -7.876430496840815e-10,
+            -3.2193110964084363e-10,
+            -1.1017551401913652e-12,
+            -1.2901394735130826e-12,
+            -4.669624770963093e-12,
+            6.672257614584071e-12,
+            5.3772539728640484e-11,
+            -5.1900038750666205e-11,
+            -4.291109339753389e-12,
+            -2.007351624246795e-12,
+            803.9999999999999,
+            2050.000000000007
+          ],
+          "A_mu": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "intercept": 4448.499999999661,
+          "n_features": 14,
+          "regularization": null,
+          "alpha": null
+        }
+      },
+      "pca_regression": {
+        "n_components_1": {
+          "n_components": 1,
+          "train_mse": 1530335.7278987244,
+          "test_mse": 1726897.1950252247,
+          "train_r2": 0.5825258255821286,
+          "test_r2": 0.5693396786379801,
+          "explained_variance_ratio": 0.3296719607217628
+        },
+        "n_components_2": {
+          "n_components": 2,
+          "train_mse": 314454.71959444945,
+          "test_mse": 275490.95707245416,
+          "train_r2": 0.9142170426650434,
+          "test_r2": 0.9312969964587727,
+          "explained_variance_ratio": 0.494405414595376
+        },
+        "n_components_3": {
+          "n_components": 3,
+          "train_mse": 296637.3746881837,
+          "test_mse": 260777.04350715602,
+          "train_r2": 0.919077597914103,
+          "test_r2": 0.9349664093009377,
+          "explained_variance_ratio": 0.6282690317307774
+        },
+        "n_components_4": {
+          "n_components": 4,
+          "train_mse": 296514.1248762341,
+          "test_mse": 262010.25384744495,
+          "train_r2": 0.9191112203490713,
+          "test_r2": 0.9346588665224875,
+          "explained_variance_ratio": 0.7247993594473388
+        },
+        "n_components_5": {
+          "n_components": 5,
+          "train_mse": 288620.49842947844,
+          "test_mse": 271466.6334721968,
+          "train_r2": 0.9212645943597189,
+          "test_r2": 0.9323005978890977,
+          "explained_variance_ratio": 0.8002164063104829
+        },
+        "n_components_6": {
+          "n_components": 6,
+          "train_mse": 234763.1607542509,
+          "test_mse": 229293.75912239432,
+          "train_r2": 0.9359568263794094,
+          "test_r2": 0.9428178328887068,
+          "explained_variance_ratio": 0.8737255247958613
+        },
+        "n_components_7": {
+          "n_components": 7,
+          "train_mse": 199904.1554564962,
+          "test_mse": 195253.31277691657,
+          "train_r2": 0.9454663308576786,
+          "test_r2": 0.9513069714458147,
+          "explained_variance_ratio": 0.9152849764669461
+        },
+        "n_components_8": {
+          "n_components": 8,
+          "train_mse": 160764.21214113018,
+          "test_mse": 145340.67238012006,
+          "train_r2": 0.9561436712768171,
+          "test_r2": 0.9637543793258172,
+          "explained_variance_ratio": 0.9503141001896689
+        },
+        "n_components_9": {
+          "n_components": 9,
+          "train_mse": 51246.050546588456,
+          "test_mse": 62767.364655832636,
+          "train_r2": 0.9860201246993762,
+          "test_r2": 0.9843468311190736,
+          "explained_variance_ratio": 0.9687112026859066
+        },
+        "n_components_10": {
+          "n_components": 10,
+          "train_mse": 2814.869305851142,
+          "test_mse": 3332.4134859355095,
+          "train_r2": 0.9992321062508499,
+          "test_r2": 0.999168949797997,
+          "explained_variance_ratio": 0.9842140717458427
+        },
+        "best_test_mse": 3332.4134859355095,
+        "best_n_components": 10,
+        "all_components_tested": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      },
+      "generalized_pca": {
+        "n_components_1": {
+          "n_components": 1,
+          "train_mse": 24468218.286056492,
+          "test_mse": 22322924.405293453,
+          "train_r2": -5.674907369818464,
+          "test_r2": -4.566977481820121,
+          "A_sigma": 0.9999999753684178,
+          "A_beta_norm": 0.0001569445173645837,
+          "A_mu_frobenius_norm": 2.4631582137516948e-08,
+          "explained_variance_ratio": 0.9999997499420521
+        },
+        "n_components_2": {
+          "n_components": 2,
+          "train_mse": 24468218.460444644,
+          "test_mse": 22322924.540134557,
+          "train_r2": -5.674907417391391,
+          "test_r2": -4.566977515447318,
+          "A_sigma": 0.9999999789319827,
+          "A_beta_norm": 0.0001451482580509106,
+          "A_mu_frobenius_norm": 0.9999999999999993,
+          "explained_variance_ratio": 0.9999998356222795
+        },
+        "n_components_3": {
+          "n_components": 3,
+          "train_mse": 24468218.46978921,
+          "test_mse": 22322924.55670619,
+          "train_r2": -5.67490741994058,
+          "test_r2": -4.566977519580017,
+          "A_sigma": 0.9999999791229359,
+          "A_beta_norm": 0.00014448897385155256,
+          "A_mu_frobenius_norm": 1.414213562373094,
+          "explained_variance_ratio": 0.999999880391317
+        },
+        "n_components_4": {
+          "n_components": 4,
+          "train_mse": 24468218.619626336,
+          "test_mse": 22322924.66057628,
+          "train_r2": -5.6749074608160095,
+          "test_r2": -4.566977545483542,
+          "A_sigma": 0.9999999821848083,
+          "A_beta_norm": 0.000133473560193507,
+          "A_mu_frobenius_norm": 1.7320508075688759,
+          "explained_variance_ratio": 0.9999999094994626
+        },
+        "n_components_5": {
+          "n_components": 5,
+          "train_mse": 24468218.745338656,
+          "test_mse": 22322924.767446864,
+          "train_r2": -5.674907495110214,
+          "test_r2": -4.566977572135343,
+          "A_sigma": 0.9999999847536983,
+          "A_beta_norm": 0.00012347591432724248,
+          "A_mu_frobenius_norm": 1.999999999999999,
+          "explained_variance_ratio": 0.999999934278777
+        },
+        "best_test_mse": 22322924.405293453,
+        "best_n_components": 1,
+        "all_components_tested": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "summary": {
+      "mse_comparison": {
+        "Linear Regression": 3.838357193103419e-22,
+        "PCA Regression": 3332.4134859355095,
+        "Generalized PCA": 22322924.405293453
+      },
+      "best_method": "Linear Regression",
+      "best_mse": 3.838357193103419e-22,
+      "improvements_over_lr": {
+        "PCA Regression_improvement": -8.681874349586417e+26,
+        "Generalized PCA_improvement": -5.815749624709822e+30
+      },
+      "valid_methods": [
+        "Linear Regression",
+        "PCA Regression",
+        "Generalized PCA"
+      ]
+    },
+    "timestamp": "2025-10-06T22:49:56.142232"
+  },
+  "bike_sharing_hour": {
+    "dataset_name": "bike_sharing_hour",
+    "metadata": {
+      "dataset_name": "bike_sharing_hour",
+      "target_name": "cnt",
+      "feature_names": [
+        "instant",
+        "season",
+        "yr",
+        "mnth",
+        "hr",
+        "holiday",
+        "weekday",
+        "workingday",
+        "weathersit",
+        "temp",
+        "atemp",
+        "hum",
+        "windspeed",
+        "casual",
+        "registered"
+      ],
+      "original_shape": [
+        17379,
+        16
+      ],
+      "processed_shape": [
+        13903,
+        15
+      ],
+      "preprocessing_steps": [
+        "StandardScaler/RobustScaler applied",
+        "Data centered (mean \u2248 0)",
+        "Categorical variables encoded",
+        "Train/test split (80/20)",
+        "Outliers handled with robust scaling"
+      ]
+    },
+    "data_shape": {
+      "n_samples_train": 13903,
+      "n_samples_test": 3476,
+      "n_features": 15
+    },
+    "methods": {
+      "linear_regression": {
+        "train_mse": 4.442643433658562e-23,
+        "test_mse": 4.486297547267506e-23,
+        "train_r2": 1.0,
+        "test_r2": 1.0,
+        "n_parameters": 16,
+        "operator_info": {
+          "fitted": true,
+          "type": "LinearRegression",
+          "A_sigma": 6.659376985020644e-12,
+          "A_beta": [
+            2.758728061371104e-10,
+            -3.359268743868981e-14,
+            -2.770167902557517e-10,
+            -1.3803267741788058e-10,
+            -1.2457354969903659e-12,
+            3.52575678845564e-13,
+            -8.301290318963097e-14,
+            -3.790608836326687e-13,
+            6.149005987380373e-13,
+            -1.2610838405991545e-12,
+            1.388128933937426e-12,
+            -5.351377534438678e-13,
+            2.2605025390397702e-13,
+            45.00000000000026,
+            187.50000000000003
+          ],
+          "A_mu": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "intercept": 132.99999999985027,
+          "n_features": 15,
+          "regularization": null,
+          "alpha": null
+        }
+      },
+      "pca_regression": {
+        "n_components_1": {
+          "n_components": 1,
+          "train_mse": 17747.64256010061,
+          "test_mse": 17861.041058326042,
+          "train_r2": 0.4654634440310409,
+          "test_r2": 0.43594476419251693,
+          "explained_variance_ratio": 0.25700493302404254
+        },
+        "n_components_2": {
+          "n_components": 2,
+          "train_mse": 9617.830108300319,
+          "test_mse": 9068.803905185441,
+          "train_r2": 0.710323116742088,
+          "test_r2": 0.7136053655256192,
+          "explained_variance_ratio": 0.509891356688243
+        },
+        "n_components_3": {
+          "n_components": 3,
+          "train_mse": 8846.364697637742,
+          "test_mse": 8399.433372617554,
+          "train_r2": 0.7335586795650535,
+          "test_r2": 0.7347442203301746,
+          "explained_variance_ratio": 0.6113744634414109
+        },
+        "n_components_4": {
+          "n_components": 4,
+          "train_mse": 8843.788213350785,
+          "test_mse": 8396.242455888343,
+          "train_r2": 0.7336362800143861,
+          "test_r2": 0.73484499011634,
+          "explained_variance_ratio": 0.6930640607449583
+        },
+        "n_components_5": {
+          "n_components": 5,
+          "train_mse": 6071.224771890609,
+          "test_mse": 5978.323530494363,
+          "train_r2": 0.8171423855821988,
+          "test_r2": 0.8112033516011379,
+          "explained_variance_ratio": 0.7600797561703411
+        },
+        "n_components_6": {
+          "n_components": 6,
+          "train_mse": 4664.635170226956,
+          "test_mse": 4612.738705890712,
+          "train_r2": 0.8595070860650317,
+          "test_r2": 0.8543287924834244,
+          "explained_variance_ratio": 0.8184830888864076
+        },
+        "n_components_7": {
+          "n_components": 7,
+          "train_mse": 1765.3456878951188,
+          "test_mse": 1759.3646306186513,
+          "train_r2": 0.9468300197670445,
+          "test_r2": 0.9444389143749073,
+          "explained_variance_ratio": 0.8700365456124683
+        },
+        "n_components_8": {
+          "n_components": 8,
+          "train_mse": 434.2786584378873,
+          "test_mse": 425.9620711737014,
+          "train_r2": 0.9869200758564921,
+          "test_r2": 0.9865480329104935,
+          "explained_variance_ratio": 0.9025894395704892
+        },
+        "n_components_9": {
+          "n_components": 9,
+          "train_mse": 170.6438411851299,
+          "test_mse": 171.18149864353379,
+          "train_r2": 0.9948604232446353,
+          "test_r2": 0.9945940541613476,
+          "explained_variance_ratio": 0.9341611392181518
+        },
+        "n_components_10": {
+          "n_components": 10,
+          "train_mse": 101.48466896806411,
+          "test_mse": 101.13096757914451,
+          "train_r2": 0.9969434100754432,
+          "test_r2": 0.9968062638913927,
+          "explained_variance_ratio": 0.9575290722191571
+        },
+        "best_test_mse": 101.13096757914451,
+        "best_n_components": 10,
+        "all_components_tested": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      },
+      "generalized_pca": {
+        "n_components_1": {
+          "n_components": 1,
+          "train_mse": 69518.47557414569,
+          "test_mse": 65890.27602905585,
+          "train_r2": -1.0938085936640247,
+          "test_r2": -1.0808280470115252,
+          "A_sigma": 0.9999779289382548,
+          "A_beta_norm": 0.004697933015033212,
+          "A_mu_frobenius_norm": 2.207106174550561e-05,
+          "explained_variance_ratio": 0.9999061521077505
+        },
+        "n_components_2": {
+          "n_components": 2,
+          "train_mse": 69518.47581180812,
+          "test_mse": 65890.27488110003,
+          "train_r2": -1.0938086008221166,
+          "test_r2": -1.0808280107588515,
+          "A_sigma": 0.9999779306476404,
+          "A_beta_norm": 0.004697751089992609,
+          "A_mu_frobenius_norm": 1.0000000002435276,
+          "explained_variance_ratio": 0.9999358517031465
+        },
+        "n_components_3": {
+          "n_components": 3,
+          "train_mse": 69519.25787012723,
+          "test_mse": 65891.02637556977,
+          "train_r2": -1.0938321554299493,
+          "test_r2": -1.080851743103957,
+          "A_sigma": 0.9999835554505881,
+          "A_beta_norm": 0.004055154619607428,
+          "A_mu_frobenius_norm": 1.4142135624687049,
+          "explained_variance_ratio": 0.9999499964313476
+        },
+        "n_components_4": {
+          "n_components": 4,
+          "train_mse": 69519.58311654681,
+          "test_mse": 65891.3280179397,
+          "train_r2": -1.0938419514409055,
+          "test_r2": -1.0808612690301076,
+          "A_sigma": 0.999985894700378,
+          "A_beta_norm": 0.0037556757930815726,
+          "A_mu_frobenius_norm": 1.732050807626314,
+          "explained_variance_ratio": 0.9999605063224296
+        },
+        "n_components_5": {
+          "n_components": 5,
+          "train_mse": 69519.61952475876,
+          "test_mse": 65891.3639179369,
+          "train_r2": -1.0938430480102195,
+          "test_r2": -1.0808624027591733,
+          "A_sigma": 0.9999861565561289,
+          "A_beta_norm": 0.0037206521243491283,
+          "A_mu_frobenius_norm": 2.000000000047912,
+          "explained_variance_ratio": 0.9999698738112819
+        },
+        "best_test_mse": 65890.27488110003,
+        "best_n_components": 2,
+        "all_components_tested": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "summary": {
+      "mse_comparison": {
+        "Linear Regression": 4.486297547267506e-23,
+        "PCA Regression": 101.13096757914451,
+        "Generalized PCA": 65890.27488110003
+      },
+      "best_method": "Linear Regression",
+      "best_mse": 4.486297547267506e-23,
+      "improvements_over_lr": {
+        "PCA Regression_improvement": -2.254218907988858e+26,
+        "Generalized PCA_improvement": -1.4687005083118526e+29
+      },
+      "valid_methods": [
+        "Linear Regression",
+        "PCA Regression",
+        "Generalized PCA"
+      ]
+    },
+    "timestamp": "2025-10-06T22:49:56.552430"
+  },
+  "california_housing": {
+    "dataset_name": "california_housing",
+    "metadata": {
+      "dataset_name": "california_housing",
+      "target_name": "target",
+      "feature_names": [
+        "MedInc",
+        "HouseAge",
+        "AveRooms",
+        "AveBedrms",
+        "Population",
+        "AveOccup",
+        "Latitude",
+        "Longitude"
+      ],
+      "original_shape": [
+        20640,
+        9
+      ],
+      "processed_shape": [
+        16512,
+        8
+      ],
+      "preprocessing_steps": [
+        "StandardScaler/RobustScaler applied",
+        "Data centered (mean \u2248 0)",
+        "Categorical variables encoded",
+        "Train/test split (80/20)",
+        "Outliers handled with robust scaling"
+      ]
+    },
+    "data_shape": {
+      "n_samples_train": 16512,
+      "n_samples_test": 4128,
+      "n_features": 8
+    },
+    "methods": {
+      "linear_regression": {
+        "train_mse": 0.5179331255246699,
+        "test_mse": 0.5558915986952445,
+        "train_r2": 0.6125511913966952,
+        "test_r2": 0.5757877060324507,
+        "n_parameters": 9,
+        "operator_info": {
+          "fitted": true,
+          "type": "LinearRegression",
+          "A_sigma": 0.7196757085831575,
+          "A_beta": [
+            0.9899899713046498,
+            0.1847608928401897,
+            -0.1984250381459017,
+            0.07349028010934316,
+            -0.0019017544835953364,
+            -0.003001606146641783,
+            -1.591013524170012,
+            -1.648090646863286
+          ],
+          "A_mu": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "intercept": 2.0300236007230716,
+          "n_features": 8,
+          "regularization": null,
+          "alpha": null
+        }
+      },
+      "pca_regression": {
+        "n_components_1": {
+          "n_components": 1,
+          "train_mse": 1.3361338406422059,
+          "test_mse": 1.309652923026792,
+          "train_r2": 0.0004820329517180033,
+          "test_r2": 0.0005769612591656204,
+          "explained_variance_ratio": 0.8713337945343768
+        },
+        "n_components_2": {
+          "n_components": 2,
+          "train_mse": 1.334436245726611,
+          "test_mse": 1.3096586870206368,
+          "train_r2": 0.001751948110884638,
+          "test_r2": 0.0005725626371013703,
+          "explained_variance_ratio": 0.9804322773896702
+        },
+        "n_components_3": {
+          "n_components": 3,
+          "train_mse": 1.3340129274488874,
+          "test_mse": 1.308941934770155,
+          "train_r2": 0.0020686186505374238,
+          "test_r2": 0.0011195309976538281,
+          "explained_variance_ratio": 0.9879440409154411
+        },
+        "n_components_4": {
+          "n_components": 4,
+          "train_mse": 0.9022695585964146,
+          "test_mse": 0.9199849547191753,
+          "train_r2": 0.32504169305046815,
+          "test_r2": 0.2979405895446716,
+          "explained_variance_ratio": 0.9936122505914025
+        },
+        "n_components_5": {
+          "n_components": 5,
+          "train_mse": 0.8863656652985467,
+          "test_mse": 0.9062930289952394,
+          "train_r2": 0.3369388747651363,
+          "test_r2": 0.30838917922261777,
+          "explained_variance_ratio": 0.9972484611916743
+        },
+        "n_components_6": {
+          "n_components": 6,
+          "train_mse": 0.7807852135163227,
+          "test_mse": 0.7857439039193872,
+          "train_r2": 0.41592015292413065,
+          "test_r2": 0.4003826919942397,
+          "explained_variance_ratio": 0.9989995346509417
+        },
+        "n_components_7": {
+          "n_components": 7,
+          "train_mse": 0.597095976983359,
+          "test_mse": 0.6337806176631829,
+          "train_r2": 0.5533320548484411,
+          "test_r2": 0.5163489962393469,
+          "explained_variance_ratio": 0.9999106277885969
+        },
+        "n_components_8": {
+          "n_components": 8,
+          "train_mse": 0.5179331255246699,
+          "test_mse": 0.5558915986952462,
+          "train_r2": 0.6125511913966952,
+          "test_r2": 0.5757877060324494,
+          "explained_variance_ratio": 1.0
+        },
+        "best_test_mse": 0.5558915986952462,
+        "best_n_components": 8,
+        "all_components_tested": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      },
+      "generalized_pca": {
+        "n_components_1": {
+          "n_components": 1,
+          "train_mse": 5.629119990267658,
+          "test_mse": 5.533176359700529,
+          "train_r2": -3.2109603078677136,
+          "test_r2": -3.222480501566996,
+          "A_sigma": 3.578962867756228e-06,
+          "A_beta_norm": 0.0018918113169079577,
+          "A_mu_frobenius_norm": 0.9999964210371328,
+          "explained_variance_ratio": 0.8488466394412975
+        },
+        "n_components_2": {
+          "n_components": 2,
+          "train_mse": 5.59800473086435,
+          "test_mse": 5.559376734781811,
+          "train_r2": -3.1876840013503767,
+          "test_r2": -3.242474545805348,
+          "A_sigma": 0.002580627197505745,
+          "A_beta_norm": 0.05073428387957439,
+          "A_mu_frobenius_norm": 1.4123899621711151,
+          "explained_variance_ratio": 0.9553364553317067
+        },
+        "n_components_3": {
+          "n_components": 3,
+          "train_mse": 4.8949170786910265,
+          "test_mse": 4.846905249144876,
+          "train_r2": -2.661727155276291,
+          "test_r2": -2.6987729248096186,
+          "A_sigma": 0.9167143628121387,
+          "A_beta_norm": 0.2763134810791432,
+          "A_mu_frobenius_norm": 1.416663861811189,
+          "explained_variance_ratio": 0.9829784516683281
+        },
+        "n_components_4": {
+          "n_components": 4,
+          "train_mse": 4.936506358089252,
+          "test_mse": 4.891322718456431,
+          "train_r2": -2.6928387331217687,
+          "test_r2": -2.7326688077355588,
+          "A_sigma": 0.92353692376086,
+          "A_beta_norm": 0.26573760405932056,
+          "A_mu_frobenius_norm": 1.7337377546872415,
+          "explained_variance_ratio": 0.9900317236154876
+        },
+        "n_components_5": {
+          "n_components": 5,
+          "train_mse": 5.092276468009408,
+          "test_mse": 5.028011607135294,
+          "train_r2": -2.8093652507941664,
+          "test_r2": -2.836978905535984,
+          "A_sigma": 0.9440648113764891,
+          "A_beta_norm": 0.22979652585964816,
+          "A_mu_frobenius_norm": 2.0007820334375133,
+          "explained_variance_ratio": 0.994826760592449
+        },
+        "best_test_mse": 4.846905249144876,
+        "best_n_components": 3,
+        "all_components_tested": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "summary": {
+      "mse_comparison": {
+        "Linear Regression": 0.5558915986952445,
+        "PCA Regression": 0.5558915986952462,
+        "Generalized PCA": 4.846905249144876
+      },
+      "best_method": "Linear Regression",
+      "best_mse": 0.5558915986952445,
+      "improvements_over_lr": {
+        "PCA Regression_improvement": -2.9957900800201125e-13,
+        "Generalized PCA_improvement": -771.9155426204032
+      },
+      "valid_methods": [
+        "Linear Regression",
+        "PCA Regression",
+        "Generalized PCA"
+      ]
+    },
+    "timestamp": "2025-10-06T22:49:56.982244"
+  },
+  "concrete_strength": {
+    "dataset_name": "concrete_strength",
+    "metadata": {
+      "dataset_name": "concrete_strength",
+      "target_name": "Concrete compressive strength(MPa, megapascals) ",
+      "feature_names": [
+        "Cement (component 1)(kg in a m^3 mixture)",
+        "Blast Furnace Slag (component 2)(kg in a m^3 mixture)",
+        "Fly Ash (component 3)(kg in a m^3 mixture)",
+        "Water  (component 4)(kg in a m^3 mixture)",
+        "Superplasticizer (component 5)(kg in a m^3 mixture)",
+        "Coarse Aggregate  (component 6)(kg in a m^3 mixture)",
+        "Fine Aggregate (component 7)(kg in a m^3 mixture)",
+        "Age (day)"
+      ],
+      "original_shape": [
+        1030,
+        9
+      ],
+      "processed_shape": [
+        824,
+        8
+      ],
+      "preprocessing_steps": [
+        "StandardScaler/RobustScaler applied",
+        "Data centered (mean \u2248 0)",
+        "Categorical variables encoded",
+        "Train/test split (80/20)",
+        "Outliers handled with robust scaling"
+      ]
+    },
+    "data_shape": {
+      "n_samples_train": 824,
+      "n_samples_test": 206,
+      "n_features": 8
+    },
+    "methods": {
+      "linear_regression": {
+        "train_mse": 110.66177124473403,
+        "test_mse": 95.97548435337711,
+        "train_r2": 0.6104593527939592,
+        "test_r2": 0.6275416055429018,
+        "n_parameters": 9,
+        "operator_info": {
+          "fitted": true,
+          "type": "LinearRegression",
+          "A_sigma": 10.519589880063482,
+          "A_beta": [
+            19.975930112414407,
+            15.710665873153633,
+            9.718073211508889,
+            -3.6777931511125175,
+            3.122824389956542,
+            1.9335537688599067,
+            2.2731668481433682,
+            5.094445830647471
+          ],
+          "A_mu": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "intercept": 22.441858648199236,
+          "n_features": 8,
+          "regularization": null,
+          "alpha": null
+        }
+      },
+      "pca_regression": {
+        "n_components_1": {
+          "n_components": 1,
+          "train_mse": 260.0377238848484,
+          "test_mse": 238.93527622079407,
+          "train_r2": 0.08464086449447783,
+          "test_r2": 0.07274810895779771,
+          "explained_variance_ratio": 0.38162468008893125
+        },
+        "n_components_2": {
+          "n_components": 2,
+          "train_mse": 241.63102777326338,
+          "test_mse": 215.74039825352986,
+          "train_r2": 0.14943429980263478,
+          "test_r2": 0.16276200225065884,
+          "explained_variance_ratio": 0.5635535150261108
+        },
+        "n_components_3": {
+          "n_components": 3,
+          "train_mse": 228.52219420070023,
+          "test_mse": 188.86204512691882,
+          "train_r2": 0.1955787221856763,
+          "test_r2": 0.2670706006248874,
+          "explained_variance_ratio": 0.6876250982084042
+        },
+        "n_components_4": {
+          "n_components": 4,
+          "train_mse": 227.1143885597362,
+          "test_mse": 188.92577797224624,
+          "train_r2": 0.20053434068294984,
+          "test_r2": 0.2668232683670222,
+          "explained_variance_ratio": 0.8031864514605273
+        },
+        "n_components_5": {
+          "n_components": 5,
+          "train_mse": 122.82048244789809,
+          "test_mse": 98.55123661391275,
+          "train_r2": 0.5676594574190941,
+          "test_r2": 0.6175457138009438,
+          "explained_variance_ratio": 0.8998179653215721
+        },
+        "n_components_6": {
+          "n_components": 6,
+          "train_mse": 118.79764057878769,
+          "test_mse": 104.03499968708189,
+          "train_r2": 0.581820268399023,
+          "test_r2": 0.5962645126319513,
+          "explained_variance_ratio": 0.9620750176926038
+        },
+        "n_components_7": {
+          "n_components": 7,
+          "train_mse": 113.74945240729541,
+          "test_mse": 97.12290278835286,
+          "train_r2": 0.5995904022530352,
+          "test_r2": 0.6230887431172432,
+          "explained_variance_ratio": 0.9914661730302872
+        },
+        "n_components_8": {
+          "n_components": 8,
+          "train_mse": 110.66177124473403,
+          "test_mse": 95.97548435337706,
+          "train_r2": 0.6104593527939592,
+          "test_r2": 0.6275416055429021,
+          "explained_variance_ratio": 0.9999999999999999
+        },
+        "best_test_mse": 95.97548435337706,
+        "best_n_components": 8,
+        "all_components_tested": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      },
+      "generalized_pca": {
+        "n_components_1": {
+          "n_components": 1,
+          "train_mse": 1568.528679641874,
+          "test_mse": 1527.7179097365215,
+          "train_r2": -4.521379878130297,
+          "test_r2": -4.928715688985183,
+          "A_sigma": 0.9995760465880487,
+          "A_beta_norm": 0.02058576390265442,
+          "A_mu_frobenius_norm": 0.0004239534119513349,
+          "explained_variance_ratio": 0.9968045888785686
+        },
+        "n_components_2": {
+          "n_components": 2,
+          "train_mse": 1568.816282219925,
+          "test_mse": 1528.0590389337028,
+          "train_r2": -4.5223922683453806,
+          "test_r2": -4.930039531567907,
+          "A_sigma": 0.9996678559341585,
+          "A_beta_norm": 0.018221793165355132,
+          "A_mu_frobenius_norm": 1.0000000551598383,
+          "explained_variance_ratio": 0.9980582150283109
+        },
+        "n_components_3": {
+          "n_components": 3,
+          "train_mse": 1568.8858907220206,
+          "test_mse": 1528.1829581541622,
+          "train_r2": -4.5226372973256,
+          "test_r2": -4.930520433062759,
+          "A_sigma": 0.9996900539362876,
+          "A_beta_norm": 0.017602556551535017,
+          "A_mu_frobenius_norm": 1.414213596337754,
+          "explained_variance_ratio": 0.9986738333556832
+        },
+        "n_components_4": {
+          "n_components": 4,
+          "train_mse": 1568.888403426124,
+          "test_mse": 1528.1861657973918,
+          "train_r2": -4.522646142298636,
+          "test_r2": -4.930532881175476,
+          "A_sigma": 0.9996908549886556,
+          "A_beta_norm": 0.01757980206675679,
+          "A_mu_frobenius_norm": 1.7320508351577446,
+          "explained_variance_ratio": 0.999095305368535
+        },
+        "n_components_5": {
+          "n_components": 5,
+          "train_mse": 1568.9238016838224,
+          "test_mse": 1528.2462270718624,
+          "train_r2": -4.522770747752341,
+          "test_r2": -4.930765964926072,
+          "A_sigma": 0.9997021389534264,
+          "A_beta_norm": 0.017256080823017973,
+          "A_mu_frobenius_norm": 2.000000022180301,
+          "explained_variance_ratio": 0.9994600720699238
+        },
+        "best_test_mse": 1527.7179097365215,
+        "best_n_components": 1,
+        "all_components_tested": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "summary": {
+      "mse_comparison": {
+        "Linear Regression": 95.97548435337711,
+        "PCA Regression": 95.97548435337706,
+        "Generalized PCA": 1527.7179097365215
+      },
+      "best_method": "PCA Regression",
+      "best_mse": 95.97548435337706,
+      "improvements_over_lr": {
+        "PCA Regression_improvement": 5.922701952877183e-14,
+        "Generalized PCA_improvement": -1491.7793174260394
+      },
+      "valid_methods": [
+        "Linear Regression",
+        "PCA Regression",
+        "Generalized PCA"
+      ]
+    },
+    "timestamp": "2025-10-06T22:49:57.375935"
+  },
+  "diabetes": {
+    "dataset_name": "diabetes",
+    "metadata": {
+      "dataset_name": "diabetes",
+      "target_name": "target",
+      "feature_names": [
+        "age",
+        "sex",
+        "bmi",
+        "bp",
+        "s1",
+        "s2",
+        "s3",
+        "s4",
+        "s5",
+        "s6"
+      ],
+      "original_shape": [
+        442,
+        11
+      ],
+      "processed_shape": [
+        353,
+        10
+      ],
+      "preprocessing_steps": [
+        "StandardScaler/RobustScaler applied",
+        "Data centered (mean \u2248 0)",
+        "Categorical variables encoded",
+        "Train/test split (80/20)",
+        "Outliers handled with robust scaling"
+      ]
+    },
+    "data_shape": {
+      "n_samples_train": 353,
+      "n_samples_test": 89,
+      "n_features": 10
+    },
+    "methods": {
+      "linear_regression": {
+        "train_mse": 2868.549702835577,
+        "test_mse": 2900.1936284934804,
+        "train_r2": 0.5279193863361498,
+        "test_r2": 0.4526027629719197,
+        "n_parameters": 11,
+        "operator_info": {
+          "fitted": true,
+          "type": "LinearRegression",
+          "A_sigma": 53.558843367230935,
+          "A_beta": [
+            2.616068485045784,
+            -23.064467722824922,
+            35.07817590894181,
+            25.138942884832517,
+            -57.67581329441296,
+            30.98600738336531,
+            9.626450997183856,
+            20.319078330910457,
+            49.25126750303184,
+            3.023986000477284
+          ],
+          "A_mu": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "intercept": 157.52889008371602,
+          "n_features": 10,
+          "regularization": null,
+          "alpha": null
+        }
+      },
+      "pca_regression": {
+        "n_components_1": {
+          "n_components": 1,
+          "train_mse": 4304.902052222199,
+          "test_mse": 3597.6586633512256,
+          "train_r2": 0.2915371832090192,
+          "test_r2": 0.3209596791261192,
+          "explained_variance_ratio": 0.39631505457941457
+        },
+        "n_components_2": {
+          "n_components": 2,
+          "train_mse": 3746.426766319988,
+          "test_mse": 3369.941910200719,
+          "train_r2": 0.38344612082449614,
+          "test_r2": 0.36394009266641913,
+          "explained_variance_ratio": 0.5551697206632844
+        },
+        "n_components_3": {
+          "n_components": 3,
+          "train_mse": 3438.660472869766,
+          "test_mse": 3448.1249600028805,
+          "train_r2": 0.4340955833502488,
+          "test_r2": 0.3491834277928523,
+          "explained_variance_ratio": 0.6730791698473929
+        },
+        "n_components_4": {
+          "n_components": 4,
+          "train_mse": 3335.201693137373,
+          "test_mse": 3313.8716765251293,
+          "train_r2": 0.45112191696291093,
+          "test_r2": 0.3745230726067895,
+          "explained_variance_ratio": 0.760865620409985
+        },
+        "n_components_5": {
+          "n_components": 5,
+          "train_mse": 3086.426028980367,
+          "test_mse": 2894.0150377420937,
+          "train_r2": 0.4920632219309855,
+          "test_r2": 0.45376894148938407,
+          "explained_variance_ratio": 0.8339422647620949
+        },
+        "n_components_6": {
+          "n_components": 6,
+          "train_mse": 2924.3485147930683,
+          "test_mse": 2959.7763987731337,
+          "train_r2": 0.5187365099284071,
+          "test_r2": 0.44135680907935027,
+          "explained_variance_ratio": 0.896473018036703
+        },
+        "n_components_7": {
+          "n_components": 7,
+          "train_mse": 2913.2246753363925,
+          "test_mse": 2879.5254153773667,
+          "train_r2": 0.5205671733301305,
+          "test_r2": 0.45650378621495913,
+          "explained_variance_ratio": 0.9482641985549826
+        },
+        "n_components_8": {
+          "n_components": 8,
+          "train_mse": 2903.1691527920993,
+          "test_mse": 2875.8909761981836,
+          "train_r2": 0.5222220225554126,
+          "test_r2": 0.45718976867671113,
+          "explained_variance_ratio": 0.9921242233629262
+        },
+        "n_components_9": {
+          "n_components": 9,
+          "train_mse": 2902.3306494621875,
+          "test_mse": 2887.364703926887,
+          "train_r2": 0.5223600160390718,
+          "test_r2": 0.455024159182435,
+          "explained_variance_ratio": 0.9989102397918701
+        },
+        "n_components_10": {
+          "n_components": 10,
+          "train_mse": 2868.549702835577,
+          "test_mse": 2900.193628493484,
+          "train_r2": 0.5279193863361498,
+          "test_r2": 0.4526027629719189,
+          "explained_variance_ratio": 0.9999999999999999
+        },
+        "best_test_mse": 2875.8909761981836,
+        "best_n_components": 8,
+        "all_components_tested": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      },
+      "generalized_pca": {
+        "n_components_1": {
+          "n_components": 1,
+          "train_mse": 29710.475137781716,
+          "test_mse": 26547.9093903924,
+          "train_r2": -3.889487995074318,
+          "test_r2": -4.010786902777066,
+          "A_sigma": 0.9999857318069247,
+          "A_beta_norm": 0.0037772992327941026,
+          "A_mu_frobenius_norm": 1.4268193075400551e-05,
+          "explained_variance_ratio": 0.9998343582483687
+        },
+        "n_components_2": {
+          "n_components": 2,
+          "train_mse": 29710.811976738856,
+          "test_mse": 26548.13902419893,
+          "train_r2": -3.8895434290594553,
+          "test_r2": -4.010830245024972,
+          "A_sigma": 0.9999914009506541,
+          "A_beta_norm": 0.0029324009620880654,
+          "A_mu_frobenius_norm": 1.0000000000369724,
+          "explained_variance_ratio": 0.9998990823391779
+        },
+        "n_components_3": {
+          "n_components": 3,
+          "train_mse": 29710.829666690643,
+          "test_mse": 26548.12467844406,
+          "train_r2": -3.8895463403157207,
+          "test_r2": -4.010827537334527,
+          "A_sigma": 0.9999916986628977,
+          "A_beta_norm": 0.0028811921473991,
+          "A_mu_frobenius_norm": 1.4142135623974603,
+          "explained_variance_ratio": 0.9999272636860099
+        },
+        "n_components_4": {
+          "n_components": 4,
+          "train_mse": 29710.83216108815,
+          "test_mse": 26548.1130749946,
+          "train_r2": -3.8895467508216655,
+          "test_r2": -4.010825347240695,
+          "A_sigma": 0.9999917406417969,
+          "A_beta_norm": 0.0028738980472943626,
+          "A_mu_frobenius_norm": 1.7320508075885714,
+          "explained_variance_ratio": 0.999948398420823
+        },
+        "n_components_5": {
+          "n_components": 5,
+          "train_mse": 29710.845903591904,
+          "test_mse": 26548.129852850434,
+          "train_r2": -3.8895490124417442,
+          "test_r2": -4.010828513978199,
+          "A_sigma": 0.9999919719155083,
+          "A_beta_norm": 0.002833376085460462,
+          "A_mu_frobenius_norm": 2.0000000000161138,
+          "explained_variance_ratio": 0.9999619880123201
+        },
+        "best_test_mse": 26547.9093903924,
+        "best_n_components": 1,
+        "all_components_tested": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "summary": {
+      "mse_comparison": {
+        "Linear Regression": 2900.1936284934804,
+        "PCA Regression": 2875.8909761981836,
+        "Generalized PCA": 26547.9093903924
+      },
+      "best_method": "PCA Regression",
+      "best_mse": 2875.8909761981836,
+      "improvements_over_lr": {
+        "PCA Regression_improvement": 0.8379665432173574,
+        "Generalized PCA_improvement": -815.3840326234646
+      },
+      "valid_methods": [
+        "Linear Regression",
+        "PCA Regression",
+        "Generalized PCA"
+      ]
+    },
+    "timestamp": "2025-10-06T22:49:57.754925"
+  },
+  "energy_efficiency": {
+    "dataset_name": "energy_efficiency",
+    "metadata": {
+      "dataset_name": "energy_efficiency",
+      "target_name": "Y2",
+      "feature_names": [
+        "X1",
+        "X2",
+        "X3",
+        "X4",
+        "X5",
+        "X6",
+        "X7",
+        "X8",
+        "Y1"
+      ],
+      "original_shape": [
+        768,
+        10
+      ],
+      "processed_shape": [
+        614,
+        9
+      ],
+      "preprocessing_steps": [
+        "StandardScaler/RobustScaler applied",
+        "Data centered (mean \u2248 0)",
+        "Categorical variables encoded",
+        "Train/test split (80/20)",
+        "Outliers handled with robust scaling"
+      ]
+    },
+    "data_shape": {
+      "n_samples_train": 614,
+      "n_samples_test": 154,
+      "n_features": 9
+    },
+    "methods": {
+      "linear_regression": {
+        "train_mse": 3.652932285646588,
+        "test_mse": 4.160173597573888,
+        "train_r2": 0.9592575113488806,
+        "test_r2": 0.9551014714156053,
+        "n_parameters": 10,
+        "operator_info": {
+          "fitted": true,
+          "type": "LinearRegression",
+          "A_sigma": 1.9112645776151944,
+          "A_beta": [
+            -2.599184879875614,
+            -28.72485499549341,
+            8.40831730567414,
+            26.0834114541248,
+            1.3694374356848906,
+            0.08396145189432702,
+            -0.9197212723811633,
+            -0.42175243169390547,
+            16.45675596372747
+          ],
+          "A_mu": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "intercept": 33.41873383387254,
+          "n_features": 9,
+          "regularization": null,
+          "alpha": null
+        }
+      },
+      "pca_regression": {
+        "n_components_1": {
+          "n_components": 1,
+          "train_mse": 33.239471284771874,
+          "test_mse": 38.10647880116414,
+          "train_r2": 0.6292680302587876,
+          "test_r2": 0.5887371554152285,
+          "explained_variance_ratio": 0.4279663055187477
+        },
+        "n_components_2": {
+          "n_components": 2,
+          "train_mse": 20.200569948335495,
+          "test_mse": 22.69763436478119,
+          "train_r2": 0.774695661592171,
+          "test_r2": 0.755036572050845,
+          "explained_variance_ratio": 0.6827259685353189
+        },
+        "n_components_3": {
+          "n_components": 3,
+          "train_mse": 13.915568128592504,
+          "test_mse": 14.575862609083108,
+          "train_r2": 0.8447945835785714,
+          "test_r2": 0.8426905107090294,
+          "explained_variance_ratio": 0.859439557493409
+        },
+        "n_components_4": {
+          "n_components": 4,
+          "train_mse": 12.901849740039427,
+          "test_mse": 13.55332056016322,
+          "train_r2": 0.856100955203181,
+          "test_r2": 0.8537262601400024,
+          "explained_variance_ratio": 0.9281689971072132
+        },
+        "n_components_5": {
+          "n_components": 5,
+          "train_mse": 10.305062216569768,
+          "test_mse": 11.698529382798114,
+          "train_r2": 0.8850638753810469,
+          "test_r2": 0.8737440292887648,
+          "explained_variance_ratio": 0.9663201838352133
+        },
+        "n_components_6": {
+          "n_components": 6,
+          "train_mse": 7.670764915457906,
+          "test_mse": 7.417372854053847,
+          "train_r2": 0.914445155815931,
+          "test_r2": 0.9199482619419861,
+          "explained_variance_ratio": 0.992270996213369
+        },
+        "n_components_7": {
+          "n_components": 7,
+          "train_mse": 3.6689420164525006,
+          "test_mse": 4.119160376345839,
+          "train_r2": 0.9590789489708615,
+          "test_r2": 0.9555441051765424,
+          "explained_variance_ratio": 0.9986581876880793
+        },
+        "n_components_8": {
+          "n_components": 8,
+          "train_mse": 3.652932285646589,
+          "test_mse": 4.160173597573923,
+          "train_r2": 0.9592575113488806,
+          "test_r2": 0.9551014714156049,
+          "explained_variance_ratio": 0.9996851357961477
+        },
+        "n_components_9": {
+          "n_components": 9,
+          "train_mse": 3.652932285646589,
+          "test_mse": 4.1601735975739675,
+          "train_r2": 0.9592575113488806,
+          "test_r2": 0.9551014714156044,
+          "explained_variance_ratio": 1.0000000000000002
+        },
+        "best_test_mse": 4.119160376345839,
+        "best_n_components": 7,
+        "all_components_tested": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      },
+      "generalized_pca": {
+        "n_components_1": {
+          "n_components": 1,
+          "train_mse": 682.68729243635,
+          "test_mse": 729.2017493563792,
+          "train_r2": -6.614260842896562,
+          "test_r2": -6.869884469811848,
+          "A_sigma": 0.9979107984842437,
+          "A_beta_norm": 0.04566001262354939,
+          "A_mu_frobenius_norm": 0.0020892015157561276,
+          "explained_variance_ratio": 0.9946421961185334
+        },
+        "n_components_2": {
+          "n_components": 2,
+          "train_mse": 682.7098386831357,
+          "test_mse": 729.2255147839155,
+          "train_r2": -6.614512309425903,
+          "test_r2": -6.870140957360393,
+          "A_sigma": 0.9979273243135386,
+          "A_beta_norm": 0.04547944263026942,
+          "A_mu_frobenius_norm": 1.000002147989944,
+          "explained_variance_ratio": 0.9965440251740649
+        },
+        "n_components_3": {
+          "n_components": 3,
+          "train_mse": 683.6369607407703,
+          "test_mse": 730.326270563009,
+          "train_r2": -6.624852840527397,
+          "test_r2": -6.88202082574879,
+          "A_sigma": 0.9986062069850848,
+          "A_beta_norm": 0.037307510717635564,
+          "A_mu_frobenius_norm": 1.4142142492065928,
+          "explained_variance_ratio": 0.9980205936290097
+        },
+        "n_components_4": {
+          "n_components": 4,
+          "train_mse": 684.8771264681911,
+          "test_mse": 731.7174006477242,
+          "train_r2": -6.638684862071703,
+          "test_r2": -6.897034548712088,
+          "A_sigma": 0.9995131123376979,
+          "A_beta_norm": 0.022060158718971164,
+          "A_mu_frobenius_norm": 1.7320508760020863,
+          "explained_variance_ratio": 0.9991460834508146
+        },
+        "n_components_5": {
+          "n_components": 5,
+          "train_mse": 684.8963121906571,
+          "test_mse": 731.734061785983,
+          "train_r2": -6.638898847445289,
+          "test_r2": -6.897214363466164,
+          "A_sigma": 0.9995271227974862,
+          "A_beta_norm": 0.02174059773016575,
+          "A_mu_frobenius_norm": 2.0000000559032114,
+          "explained_variance_ratio": 0.9996507835255777
+        },
+        "best_test_mse": 729.2017493563792,
+        "best_n_components": 1,
+        "all_components_tested": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "summary": {
+      "mse_comparison": {
+        "Linear Regression": 4.160173597573888,
+        "PCA Regression": 4.119160376345839,
+        "Generalized PCA": 729.2017493563792
+      },
+      "best_method": "PCA Regression",
+      "best_mse": 4.119160376345839,
+      "improvements_over_lr": {
+        "PCA Regression_improvement": 0.9858536012046865,
+        "Generalized PCA_improvement": -17428.156752440136
+      },
+      "valid_methods": [
+        "Linear Regression",
+        "PCA Regression",
+        "Generalized PCA"
+      ]
+    },
+    "timestamp": "2025-10-06T22:49:58.128130"
+  },
+  "wine_quality_combined": {
+    "dataset_name": "wine_quality_combined",
+    "metadata": {
+      "dataset_name": "wine_quality_combined",
+      "target_name": "quality",
+      "feature_names": [
+        "fixed acidity",
+        "volatile acidity",
+        "citric acid",
+        "residual sugar",
+        "chlorides",
+        "free sulfur dioxide",
+        "total sulfur dioxide",
+        "density",
+        "pH",
+        "sulphates",
+        "alcohol",
+        "wine_type_white"
+      ],
+      "original_shape": [
+        6497,
+        13
+      ],
+      "processed_shape": [
+        5197,
+        12
+      ],
+      "preprocessing_steps": [
+        "StandardScaler/RobustScaler applied",
+        "Data centered (mean \u2248 0)",
+        "Categorical variables encoded",
+        "Train/test split (80/20)",
+        "Outliers handled with robust scaling"
+      ]
+    },
+    "data_shape": {
+      "n_samples_train": 5197,
+      "n_samples_test": 1300,
+      "n_features": 12
+    },
+    "methods": {
+      "linear_regression": {
+        "train_mse": 0.5355919708534945,
+        "test_mse": 0.5412384543695585,
+        "train_r2": 0.30294471018671976,
+        "test_r2": 0.26715748512627235,
+        "n_parameters": 13,
+        "operator_info": {
+          "fitted": true,
+          "type": "LinearRegression",
+          "A_sigma": 0.7318414929843036,
+          "A_beta": [
+            0.11977293928924666,
+            -0.2564976888164006,
+            -0.013704296004094755,
+            0.4020585698201159,
+            -0.015148422296246097,
+            0.14346970144186882,
+            -0.1273295746504735,
+            -0.4746798590750682,
+            0.11080295579824184,
+            0.12971261794810351,
+            0.41866866954471893,
+            -0.33520837224547867
+          ],
+          "A_mu": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "intercept": 5.539918497669283,
+          "n_features": 12,
+          "regularization": null,
+          "alpha": null
+        }
+      },
+      "pca_regression": {
+        "n_components_1": {
+          "n_components": 1,
+          "train_mse": 0.7371170800625867,
+          "test_mse": 0.692995314860175,
+          "train_r2": 0.04066642550567112,
+          "test_r2": 0.06167711248566221,
+          "explained_variance_ratio": 0.32771930131739074
+        },
+        "n_components_2": {
+          "n_components": 2,
+          "train_mse": 0.7364822473595122,
+          "test_mse": 0.6919312789815181,
+          "train_r2": 0.04149263933617242,
+          "test_r2": 0.06311782816825184,
+          "explained_variance_ratio": 0.5165222994369676
+        },
+        "n_components_3": {
+          "n_components": 3,
+          "train_mse": 0.6848927590362567,
+          "test_mse": 0.649704614764206,
+          "train_r2": 0.10863465731149846,
+          "test_r2": 0.12029317214078816,
+          "explained_variance_ratio": 0.6472210538494253
+        },
+        "n_components_4": {
+          "n_components": 4,
+          "train_mse": 0.6609311140363309,
+          "test_mse": 0.6257732214686184,
+          "train_r2": 0.139819948183596,
+          "test_r2": 0.15269652837976633,
+          "explained_variance_ratio": 0.7405940762297617
+        },
+        "n_components_5": {
+          "n_components": 5,
+          "train_mse": 0.6452980250434026,
+          "test_mse": 0.614764093475036,
+          "train_r2": 0.1601658980328391,
+          "test_r2": 0.16760300255995242,
+          "explained_variance_ratio": 0.8086613261070136
+        },
+        "n_components_6": {
+          "n_components": 6,
+          "train_mse": 0.6274332854385871,
+          "test_mse": 0.6034411695422469,
+          "train_r2": 0.18341626756849394,
+          "test_r2": 0.18293435971618888,
+          "explained_variance_ratio": 0.8635523454104702
+        },
+        "n_components_7": {
+          "n_components": 7,
+          "train_mse": 0.610997958878389,
+          "test_mse": 0.5950647663678098,
+          "train_r2": 0.20480630315909187,
+          "test_r2": 0.19427609701957593,
+          "explained_variance_ratio": 0.9077844389934552
+        },
+        "n_components_8": {
+          "n_components": 8,
+          "train_mse": 0.5895143405677398,
+          "test_mse": 0.5718758202814217,
+          "train_r2": 0.23276652400389597,
+          "test_r2": 0.22567417199008888,
+          "explained_variance_ratio": 0.9454458022104887
+        },
+        "n_components_9": {
+          "n_components": 9,
+          "train_mse": 0.5381770301179635,
+          "test_mse": 0.5439736346720915,
+          "train_r2": 0.299580340792034,
+          "test_r2": 0.2634540224558748,
+          "explained_variance_ratio": 0.9755526193129499
+        },
+        "n_components_10": {
+          "n_components": 10,
+          "train_mse": 0.5372010627070997,
+          "test_mse": 0.5443875806814231,
+          "train_r2": 0.30085053019637453,
+          "test_r2": 0.26289353523984005,
+          "explained_variance_ratio": 0.9902119997065701
+        },
+        "best_test_mse": 0.5439736346720915,
+        "best_n_components": 9,
+        "all_components_tested": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      },
+      "generalized_pca": {
+        "n_components_1": {
+          "n_components": 1,
+          "train_mse": 33.74105604587462,
+          "test_mse": 33.88019573560759,
+          "train_r2": -42.9128718886205,
+          "test_r2": -44.87413855546862,
+          "A_sigma": 0.9871899144658732,
+          "A_beta_norm": 0.11245437849516825,
+          "A_mu_frobenius_norm": 0.012810085534126192,
+          "explained_variance_ratio": 0.7996132654218329
+        },
+        "n_components_2": {
+          "n_components": 2,
+          "train_mse": 33.99264432101648,
+          "test_mse": 34.18435198335108,
+          "train_r2": -43.240305733013585,
+          "test_r2": -45.2859692886905,
+          "A_sigma": 0.9913901841484658,
+          "A_beta_norm": 0.09238878136730828,
+          "A_mu_frobenius_norm": 1.0000370637776363,
+          "explained_variance_ratio": 0.865041362503474
+        },
+        "n_components_3": {
+          "n_components": 3,
+          "train_mse": 34.02463128292596,
+          "test_mse": 34.20084188800775,
+          "train_r2": -43.28193570922201,
+          "test_r2": -45.30829679166274,
+          "A_sigma": 0.9918943200648126,
+          "A_beta_norm": 0.08966592378364906,
+          "A_mu_frobenius_norm": 1.4142367913638831,
+          "explained_variance_ratio": 0.9043275803697931
+        },
+        "n_components_4": {
+          "n_components": 4,
+          "train_mse": 34.04981375065636,
+          "test_mse": 34.228556100563324,
+          "train_r2": -43.31470986062323,
+          "test_r2": -45.345822124652294,
+          "A_sigma": 0.9922813512559517,
+          "A_beta_norm": 0.08751611969011054,
+          "A_mu_frobenius_norm": 1.7320680060374172,
+          "explained_variance_ratio": 0.9314547831561789
+        },
+        "n_components_5": {
+          "n_components": 5,
+          "train_mse": 34.05485403354633,
+          "test_mse": 34.236773238237085,
+          "train_r2": -43.3212696226096,
+          "test_r2": -45.35694821480588,
+          "A_sigma": 0.9923576374061837,
+          "A_beta_norm": 0.08708591670184401,
+          "A_mu_frobenius_norm": 2.000014601373204,
+          "explained_variance_ratio": 0.9510056987643704
+        },
+        "best_test_mse": 33.88019573560759,
+        "best_n_components": 1,
+        "all_components_tested": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "summary": {
+      "mse_comparison": {
+        "Linear Regression": 0.5412384543695585,
+        "PCA Regression": 0.5439736346720915,
+        "Generalized PCA": 33.88019573560759
+      },
+      "best_method": "Linear Regression",
+      "best_mse": 0.5412384543695585,
+      "improvements_over_lr": {
+        "PCA Regression_improvement": -0.5053558704949965,
+        "Generalized PCA_improvement": -6159.753988668762
+      },
+      "valid_methods": [
+        "Linear Regression",
+        "PCA Regression",
+        "Generalized PCA"
+      ]
+    },
+    "timestamp": "2025-10-06T22:49:58.508334"
+  },
+  "wine_quality_red": {
+    "dataset_name": "wine_quality_red",
+    "metadata": {
+      "dataset_name": "wine_quality_red",
+      "target_name": "quality",
+      "feature_names": [
+        "fixed acidity",
+        "volatile acidity",
+        "citric acid",
+        "residual sugar",
+        "chlorides",
+        "free sulfur dioxide",
+        "total sulfur dioxide",
+        "density",
+        "pH",
+        "sulphates",
+        "alcohol"
+      ],
+      "original_shape": [
+        1599,
+        12
+      ],
+      "processed_shape": [
+        1279,
+        11
+      ],
+      "preprocessing_steps": [
+        "StandardScaler/RobustScaler applied",
+        "Data centered (mean \u2248 0)",
+        "Categorical variables encoded",
+        "Train/test split (80/20)",
+        "Outliers handled with robust scaling"
+      ]
+    },
+    "data_shape": {
+      "n_samples_train": 1279,
+      "n_samples_test": 320,
+      "n_features": 11
+    },
+    "methods": {
+      "linear_regression": {
+        "train_mse": 0.4241911573139901,
+        "test_mse": 0.39002514396395505,
+        "train_r2": 0.3479926193529862,
+        "test_r2": 0.40318034127962177,
+        "n_parameters": 12,
+        "operator_info": {
+          "fitted": true,
+          "type": "LinearRegression",
+          "A_sigma": 0.6512995910592836,
+          "A_beta": [
+            0.04847920120947111,
+            -0.24031306417627557,
+            -0.04647108220396182,
+            0.004595017729033731,
+            -0.03613006298094682,
+            0.07878268141916309,
+            -0.14942240628863648,
+            -0.02266998995952972,
+            -0.07480066914457974,
+            0.15141089206967634,
+            0.4510233078547019
+          ],
+          "A_mu": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "intercept": 5.565627412511746,
+          "n_features": 11,
+          "regularization": null,
+          "alpha": null
+        }
+      },
+      "pca_regression": {
+        "n_components_1": {
+          "n_components": 1,
+          "train_mse": 0.6436314445786167,
+          "test_mse": 0.6507188851372906,
+          "train_r2": 0.01069966913259579,
+          "test_r2": 0.004264650726123365,
+          "explained_variance_ratio": 0.41406897599692205
+        },
+        "n_components_2": {
+          "n_components": 2,
+          "train_mse": 0.6427610870746965,
+          "test_mse": 0.6478441397894399,
+          "train_r2": 0.012037461084579926,
+          "test_r2": 0.00866360952138201,
+          "explained_variance_ratio": 0.6864112197387344
+        },
+        "n_components_3": {
+          "n_components": 3,
+          "train_mse": 0.6143977101503191,
+          "test_mse": 0.6171902989603874,
+          "train_r2": 0.055633681269524615,
+          "test_r2": 0.0555703669579094,
+          "explained_variance_ratio": 0.7820291100627647
+        },
+        "n_components_4": {
+          "n_components": 4,
+          "train_mse": 0.576242977357309,
+          "test_mse": 0.5506286417153022,
+          "train_r2": 0.11427980568470886,
+          "test_r2": 0.15742355815766906,
+          "explained_variance_ratio": 0.8447021419286566
+        },
+        "n_components_5": {
+          "n_components": 5,
+          "train_mse": 0.44763235393004036,
+          "test_mse": 0.403670413574575,
+          "train_r2": 0.3119620870296794,
+          "test_r2": 0.3823002383473083,
+          "explained_variance_ratio": 0.903928720872728
+        },
+        "n_components_6": {
+          "n_components": 6,
+          "train_mse": 0.44156587032329647,
+          "test_mse": 0.3943790110772495,
+          "train_r2": 0.32128663804393676,
+          "test_r2": 0.39651801828613187,
+          "explained_variance_ratio": 0.9374821264152514
+        },
+        "n_components_7": {
+          "n_components": 7,
+          "train_mse": 0.43964215994403716,
+          "test_mse": 0.39388672867629426,
+          "train_r2": 0.3242434968654324,
+          "test_r2": 0.39727131283413486,
+          "explained_variance_ratio": 0.9606188594404943
+        },
+        "n_components_8": {
+          "n_components": 8,
+          "train_mse": 0.43335391655907257,
+          "test_mse": 0.3967572362229378,
+          "train_r2": 0.33390890602733725,
+          "test_r2": 0.3928788387568728,
+          "explained_variance_ratio": 0.979755181130868
+        },
+        "n_components_9": {
+          "n_components": 9,
+          "train_mse": 0.4285751143591223,
+          "test_mse": 0.39617448520425685,
+          "train_r2": 0.34125421309302284,
+          "test_r2": 0.39377056912213426,
+          "explained_variance_ratio": 0.99146100541395
+        },
+        "n_components_10": {
+          "n_components": 10,
+          "train_mse": 0.4262288288343322,
+          "test_mse": 0.3901869682067871,
+          "train_r2": 0.34486059538763536,
+          "test_r2": 0.40293271650241336,
+          "explained_variance_ratio": 0.9966236437706122
+        },
+        "best_test_mse": 0.3901869682067871,
+        "best_n_components": 10,
+        "all_components_tested": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      },
+      "generalized_pca": {
+        "n_components_1": {
+          "n_components": 1,
+          "train_mse": 31.067944702903077,
+          "test_mse": 32.07146641709441,
+          "train_r2": -46.75330390216513,
+          "test_r2": -48.07601968216004,
+          "A_sigma": 0.9759641439398217,
+          "A_beta_norm": 0.1531604834271334,
+          "A_mu_frobenius_norm": 0.024035856060178832,
+          "explained_variance_ratio": 0.6769908247871863
+        },
+        "n_components_2": {
+          "n_components": 2,
+          "train_mse": 31.578041991302435,
+          "test_mse": 32.30990633490197,
+          "train_r2": -47.53735418503848,
+          "test_r2": -48.44088239056114,
+          "A_sigma": 0.9874526262493268,
+          "A_beta_norm": 0.11131009461245928,
+          "A_mu_frobenius_norm": 1.0000787151959776,
+          "explained_variance_ratio": 0.8095081751134523
+        },
+        "n_components_3": {
+          "n_components": 3,
+          "train_mse": 31.96106975384521,
+          "test_mse": 32.63804959895634,
+          "train_r2": -48.12609094643623,
+          "test_r2": -48.943009891557395,
+          "A_sigma": 0.9949229061752759,
+          "A_beta_norm": 0.07107261739249206,
+          "A_mu_frobenius_norm": 1.4142226758476553,
+          "explained_variance_ratio": 0.8973371485264235
+        },
+        "n_components_4": {
+          "n_components": 4,
+          "train_mse": 31.96133586652983,
+          "test_mse": 32.639086951004124,
+          "train_r2": -48.12649997767477,
+          "test_r2": -48.944597256127885,
+          "A_sigma": 0.9949273752365864,
+          "A_beta_norm": 0.07104148957773737,
+          "A_mu_frobenius_norm": 1.7320582356035226,
+          "explained_variance_ratio": 0.9295613293759275
+        },
+        "n_components_5": {
+          "n_components": 5,
+          "train_mse": 31.983978378519776,
+          "test_mse": 32.66291829228768,
+          "train_r2": -48.161302883580014,
+          "test_r2": -48.981064169073925,
+          "A_sigma": 0.9952967293458519,
+          "A_beta_norm": 0.0684189293931325,
+          "A_mu_frobenius_norm": 2.000005530181065,
+          "explained_variance_ratio": 0.9497908121623757
+        },
+        "best_test_mse": 32.07146641709441,
+        "best_n_components": 1,
+        "all_components_tested": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "summary": {
+      "mse_comparison": {
+        "Linear Regression": 0.39002514396395505,
+        "PCA Regression": 0.3901869682067871,
+        "Generalized PCA": 32.07146641709441
+      },
+      "best_method": "Linear Regression",
+      "best_mse": 0.39002514396395505,
+      "improvements_over_lr": {
+        "PCA Regression_improvement": -0.04149072062057112,
+        "Generalized PCA_improvement": -8122.92278162927
+      },
+      "valid_methods": [
+        "Linear Regression",
+        "PCA Regression",
+        "Generalized PCA"
+      ]
+    },
+    "timestamp": "2025-10-06T22:49:58.937091"
+  },
+  "wine_quality_white": {
+    "dataset_name": "wine_quality_white",
+    "metadata": {
+      "dataset_name": "wine_quality_white",
+      "target_name": "quality",
+      "feature_names": [
+        "fixed acidity",
+        "volatile acidity",
+        "citric acid",
+        "residual sugar",
+        "chlorides",
+        "free sulfur dioxide",
+        "total sulfur dioxide",
+        "density",
+        "pH",
+        "sulphates",
+        "alcohol"
+      ],
+      "original_shape": [
+        4898,
+        12
+      ],
+      "processed_shape": [
+        3918,
+        11
+      ],
+      "preprocessing_steps": [
+        "StandardScaler/RobustScaler applied",
+        "Data centered (mean \u2248 0)",
+        "Categorical variables encoded",
+        "Train/test split (80/20)",
+        "Outliers handled with robust scaling"
+      ]
+    },
+    "data_shape": {
+      "n_samples_train": 3918,
+      "n_samples_test": 980,
+      "n_features": 11
+    },
+    "methods": {
+      "linear_regression": {
+        "train_mse": 0.5628259699588584,
+        "test_mse": 0.5690247717229231,
+        "train_r2": 0.28431266263894317,
+        "test_r2": 0.2652750042179185,
+        "n_parameters": 12,
+        "operator_info": {
+          "fitted": true,
+          "type": "LinearRegression",
+          "A_sigma": 0.7502172818316427,
+          "A_beta": [
+            0.045907236977258375,
+            -0.2297861178143252,
+            -0.006743381682253603,
+            0.5912882705801034,
+            -0.0003706518608732693,
+            0.11774743545069057,
+            -0.014287083759645922,
+            -0.5542179973261818,
+            0.11413297229298851,
+            0.09087018926373282,
+            0.43511649884008474
+          ],
+          "A_mu": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "intercept": 5.797690404441019,
+          "n_features": 11,
+          "regularization": null,
+          "alpha": null
+        }
+      },
+      "pca_regression": {
+        "n_components_1": {
+          "n_components": 1,
+          "train_mse": 0.733165814392951,
+          "test_mse": 0.7017957046945518,
+          "train_r2": 0.06770917201031457,
+          "test_r2": 0.09384112644104159,
+          "explained_variance_ratio": 0.3135926403469634
+        },
+        "n_components_2": {
+          "n_components": 2,
+          "train_mse": 0.731881026525128,
+          "test_mse": 0.7022531866310439,
+          "train_r2": 0.06934290331852577,
+          "test_r2": 0.09325042559537933,
+          "explained_variance_ratio": 0.48003327409603214
+        },
+        "n_components_3": {
+          "n_components": 3,
+          "train_mse": 0.7193160580432605,
+          "test_mse": 0.6792940764519625,
+          "train_r2": 0.08532046888372291,
+          "test_r2": 0.12289523715324913,
+          "explained_variance_ratio": 0.6080180316191879
+        },
+        "n_components_4": {
+          "n_components": 4,
+          "train_mse": 0.6852893222190674,
+          "test_mse": 0.6630704230406888,
+          "train_r2": 0.1285887352056998,
+          "test_r2": 0.14384322444047426,
+          "explained_variance_ratio": 0.709004381172097
+        },
+        "n_components_5": {
+          "n_components": 5,
+          "train_mse": 0.6806178664276703,
+          "test_mse": 0.6630429863162274,
+          "train_r2": 0.13452894041191865,
+          "test_r2": 0.1438786507492501,
+          "explained_variance_ratio": 0.7925032367147589
+        },
+        "n_components_6": {
+          "n_components": 6,
+          "train_mse": 0.680601599857138,
+          "test_mse": 0.6631165560285643,
+          "train_r2": 0.13454962492040556,
+          "test_r2": 0.14378365750946054,
+          "explained_variance_ratio": 0.8617803236678241
+        },
+        "n_components_7": {
+          "n_components": 7,
+          "train_mse": 0.6583356944940882,
+          "test_mse": 0.6587645425624628,
+          "train_r2": 0.16286286448960885,
+          "test_r2": 0.1494029789070922,
+          "explained_variance_ratio": 0.9141660190244267
+        },
+        "n_components_8": {
+          "n_components": 8,
+          "train_mse": 0.6568955902648628,
+          "test_mse": 0.6573291054490584,
+          "train_r2": 0.16469409548524339,
+          "test_r2": 0.15125641583901706,
+          "explained_variance_ratio": 0.9562861521789614
+        },
+        "n_components_9": {
+          "n_components": 9,
+          "train_mse": 0.5760056082159777,
+          "test_mse": 0.59265586040931,
+          "train_r2": 0.26755348535309564,
+          "test_r2": 0.23476253376279055,
+          "explained_variance_ratio": 0.9818382461416136
+        },
+        "n_components_10": {
+          "n_components": 10,
+          "train_mse": 0.5659345920849598,
+          "test_mse": 0.5794037340852627,
+          "train_r2": 0.28035975070694086,
+          "test_r2": 0.2518736841755539,
+          "explained_variance_ratio": 0.9987666832154392
+        },
+        "best_test_mse": 0.5794037340852627,
+        "best_n_components": 10,
+        "all_components_tested": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      },
+      "generalized_pca": {
+        "n_components_1": {
+          "n_components": 1,
+          "train_mse": 35.01475368563996,
+          "test_mse": 35.39067360425533,
+          "train_r2": -43.52462603220091,
+          "test_r2": -44.69645085200782,
+          "A_sigma": 0.9963423699748252,
+          "A_beta_norm": 0.060367638414743456,
+          "A_mu_frobenius_norm": 0.0036576300251742674,
+          "explained_variance_ratio": 0.8038163634592181
+        },
+        "n_components_2": {
+          "n_components": 2,
+          "train_mse": 35.081516587128604,
+          "test_mse": 35.457944830320805,
+          "train_r2": -43.609521480796495,
+          "test_r2": -44.78331148399323,
+          "A_sigma": 0.997415924575641,
+          "A_beta_norm": 0.05076808031194099,
+          "A_mu_frobenius_norm": 1.0000033387173262,
+          "explained_variance_ratio": 0.8653977840242709
+        },
+        "n_components_3": {
+          "n_components": 3,
+          "train_mse": 35.0887887165237,
+          "test_mse": 35.468776079379936,
+          "train_r2": -43.61876869254848,
+          "test_r2": -44.79729679678584,
+          "A_sigma": 0.9975261289303397,
+          "A_beta_norm": 0.049676463557609435,
+          "A_mu_frobenius_norm": 1.41421572613165,
+          "explained_variance_ratio": 0.8984324280935079
+        },
+        "n_components_4": {
+          "n_components": 4,
+          "train_mse": 35.09141231839371,
+          "test_mse": 35.46806892708509,
+          "train_r2": -43.62210485458944,
+          "test_r2": -44.79638372148109,
+          "A_sigma": 0.9975652905625244,
+          "A_beta_norm": 0.04928267066048745,
+          "A_mu_frobenius_norm": 1.7320525187793951,
+          "explained_variance_ratio": 0.9238697838809262
+        },
+        "n_components_5": {
+          "n_components": 5,
+          "train_mse": 35.10060345535182,
+          "test_mse": 35.48616107273091,
+          "train_r2": -43.63379226897324,
+          "test_r2": -44.819744306632884,
+          "A_sigma": 0.9977010082643206,
+          "A_beta_norm": 0.047892654683971116,
+          "A_mu_frobenius_norm": 2.000001321340314,
+          "explained_variance_ratio": 0.9438278346378715
+        },
+        "best_test_mse": 35.39067360425533,
+        "best_n_components": 1,
+        "all_components_tested": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    "summary": {
+      "mse_comparison": {
+        "Linear Regression": 0.5690247717229231,
+        "PCA Regression": 0.5794037340852627,
+        "Generalized PCA": 35.39067360425533
+      },
+      "best_method": "Linear Regression",
+      "best_mse": 0.5690247717229231,
+      "improvements_over_lr": {
+        "PCA Regression_improvement": -1.8239913054951242,
+        "Generalized PCA_improvement": -6119.531268752605
+      },
+      "valid_methods": [
+        "Linear Regression",
+        "PCA Regression",
+        "Generalized PCA"
+      ]
+    },
+    "timestamp": "2025-10-06T22:49:59.309373"
+  }
+}

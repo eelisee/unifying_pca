@@ -9,7 +9,7 @@
 
 \begin{defn}{(Linear Model)}
 
-Let $(\Omega, \mathcal{F}, \mathbb{P}_\theta)_{\theta \in \Theta}$ be a family of distributions. In the linear model, we observe
+Let $(\Omega, \mathcal{F}, \mathbb{P})$ be a probability space. The linear model is defined as
 \[ Y = X\beta + \varepsilon, \quad \varepsilon \sim (0, \Sigma), \]
 with $X \in \mathbb{R}^{n \times p}$ fixed, $Y \in \mathbb{R}^n$, $\beta \in \mathbb{R}^p$ and $\Sigma \in \mathbb{R}^{p\times p}$ the covariance matrix.
 
@@ -30,20 +30,23 @@ with known \( C_0 \in \mathbb{R}^{n \times n} \), the parameter becomes \( \thet
 \]
 
 \paragraph{Remark.}
-Linear regression is a method used to estimate the unknown parameter \( \beta \) in the linear model. A common assumption on the covariance matrix of the errors is that 
-\(\Sigma = \sigma^2 I_n\) (i.e., the errors are uncorrelated and have equal variance). In the special case \(\Sigma = \sigma^2 I_n\), the Ordinary Least Squares (OLS) estimator is obtained by minimizing the residual sum of squares:
+Linear regression is a method used to estimate the unknown parameter \( \beta \) in the linear model. We assume the covariance matrix of the errors is \(\Sigma = \sigma^2 I_n\) (i.e., the errors are uncorrelated and have equal variance). Then the Ordinary Least Squares (OLS) estimator is obtained by minimizing the residual sum of squares:
 \[
 \hat{\beta}_{\text{OLS}} := \arg\min_{\beta \in \mathbb{R}^p} \| Y - X\beta \|_2^2.
 \]
-The unique solution is given by
+
+The unique OLS solution is
 \[
 \hat{\beta}_{\text{OLS}} = (X^\top X)^{-1} X^\top Y,
 \]
-provided that \( X \) has full rank (i.e., \( X^\top X \) is invertible). Regarding optimality, the OLS estimator is the Best Linear Unbiased Estimator (BLUE) under the Gauss-Markov assumptions (the covariance matrix \(\Sigma\) is positive definite). In the general case of positiv definite matrices $\Sigma$, the estimator is given by
+assuming \(X\) has full rank. Under the Gauss-Markov assumptions (errors with zero mean and covariance matrix \(\Sigma\) positive definite), the OLS estimator is the Best Linear Unbiased Estimator (BLUE).  
+
+More generally, assuming \(X\) has full rank and \(\Sigma\) is positive definite, the generalized least squares (GLS) estimator is
 \[
-\hat\beta_{\text{GLS}} = (X^\top \Sigma^{-1} X)^{-1} X^\top \Sigma^{-1}.
-\]    
-If \(X\) is rank-deficient and thus $X^TX$ is singular or \(\Sigma\) only positive semidefinite, then certain linear combinations of the errors have zero variance (i.e., vectors in the null space of $\Sigma$), which implies redundancy in the information contained in the sample. One may replace it by the pseudoinverse $\Sigma^+$, which yields a generalized estimator that is no longer unique in the parameter space, but still provides a well-defined projection of $Y$ onto the column space of $X$.
+\hat{\beta}_{\text{GLS}} = (X^\top \Sigma^{-1} X)^{-1} X^\top \Sigma^{-1} Y.
+\]
+
+%If \(X\) is rank-deficient and thus $X^TX$ is singular or \(\Sigma\) only positive semidefinite, then certain linear combinations of the errors have zero variance (i.e., vectors in the null space of $\Sigma$), which is caused by redundancy in the information contained in the sample. One may replace it by the pseudoinverse $\Sigma^+$, which yields a generalized estimator that is no longer unique in the parameter space, but still provides a well-defined projection of $Y$ onto the column space of $X$.
 
 
 \subsection{Pearson's original formulation of PCA}
@@ -55,7 +58,7 @@ Formally, let $X \in \mathbb{R}^{n \times p}$ be the data matrix with centered a
 \min_{U \in \mathbb{R}^{p \times k}, \, U^\top U = I_k} 
 \sum_{i=1}^n \| x_{i,\cdot} - U U^\top x_{i,\cdot} \|^2,
 \]
-i.e.\ find the orthogonal projection $UU^Tx_{i,\cdot}$ onto a $k$-dimensional subspace that minimizes the total squared distance between the original points and their projections, quantifying the information loss as the squared reconstruction error.
+i.e.\ find the orthogonal projection $UU^Tx_{i,\cdot}$ onto a $k$-dimensional subspace that minimizes the total squared deviation between the original points and their projections, quantifying the information loss as the squared reconstruction error.
 
 \paragraph{Low-rank reconstruction of $X$.} 
 
@@ -79,10 +82,9 @@ and called the reconstructed data matrix, which is precisely the orthogonal proj
 \paragraph{Variance of principal components.} 
 By construction, the columns of $Z$ are mutually orthogonal. The empirical variance of the $j$-th component $Z_j = X q_j$, $j = 1, \dots, k$ is
 \[
-\mathrm{Var}(Z_j) = \frac{1}{n} Z_j^\top Z_j = \frac{1}{n} (X q_j)^\top (X q_j) = \frac{1}{n} ||X q_j||^2 = q_j^\top \underbrace{\frac{1}{n} X^\top X}_{R} q_j = q_j^\top R q_j.
+\mathrm{Var}(Z_j) = \frac{1}{n} Z_j^\top Z_j = \frac{1}{n} (X q_j)^\top (X q_j) = \frac{1}{n} ||X q_j||^2 = q_j^\top \underbrace{\frac{1}{n} X^\top X}_{R} q_j = q_j^\top R q_j,
 \]
-
-Since $q_j$ is an eigenvector of $R$ with eigenvalue $\lambda_j$, this gives
+where the empirical mean of $Z_j$ is zero, since $X$ has centered columns. Since $q_j$ is an eigenvector of $R$ with eigenvalue $\lambda_j$, this gives
 \[
 \mathrm{Var}(Z_j) = q_j^\top R q_j = q_j^\top (\lambda_j q_j) = \lambda_j.
 \]

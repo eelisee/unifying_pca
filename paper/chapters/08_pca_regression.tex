@@ -1,0 +1,60 @@
+\section{PCA-Regression}
+
+%7. PCA-Regression
+
+\subsection{PCA Regression and Generalized Models}
+
+Allowing off-diagonal structure in $A_X$, that is, nonzero entries beyond the diagonal, enables transformations of the predictors prior to regression. This yields a class of models commonly referred to as \emph{principal component regression} (PCR).
+
+\paragraph{Definition (PCA Regression).}
+Let $V \in \mathbb{R}^{(k-1) \times r}$ be a matrix of orthonormal eigenvectors of the empirical covariance matrix of $X$, corresponding to the $r$ largest eigenvalues. Define transformed predictors:
+\[
+Z := V^\top X.
+\]
+A regression is then performed on the transformed variables:
+\[
+Y = \alpha_0 + \alpha^\top Z + \varepsilon = \alpha_0 + \alpha^\top V^\top X + \varepsilon.
+\]
+This corresponds to a transformation matrix $A \in \mathcal{A}$ of the form:
+\[
+A = 
+\begin{bmatrix}
+A_\sigma & A_\beta \\
+0 & A_X
+\end{bmatrix}, \quad \text{with } A_X = V^\top.
+\]
+The first row of $A$ performs a regression on the principal components; the remaining rows may perform identity operations, further transformations, or be omitted entirely.
+
+\paragraph{Interpretation.}
+PCA regression performs variable selection and regularization implicitly by discarding low-variance components in $X$. Compared to standard regression:
+\begin{itemize}
+    \item PCA regression avoids multicollinearity by orthogonalizing the input space,
+    \item it introduces bias by truncating directions with small variance, which may still be predictive.
+\end{itemize}
+
+
+
+\paragraph{Example.}
+Let $X \in \mathbb{R}^{n \times p}$, and compute the eigenvalue decomposition:
+\[
+\frac{1}{n} X^\top X = Q \Lambda Q^\top.
+\]
+Choose the top $r$ eigenvectors $V = Q_{[:,1:r]}$, and define:
+\[
+Z = X V.
+\]
+Then PCR fits the model:
+\[
+Y = Z \alpha + \varepsilon = X V \alpha + \varepsilon,
+\]
+which can be interpreted as linear regression with restricted parameter space $\beta = V \alpha$.
+
+\paragraph{Relation to Generalized Models.}
+Allowing more flexible structures in $A_X$ (e.g., non-orthogonal, sparse, or structured matrices) leads to hybrid models:
+\begin{itemize}
+    \item Sparse PCA regression
+    \item Supervised PCA (SPCA)
+    \item Partial least squares (PLS)
+\end{itemize}
+
+All these models can be written in the general form $Y = A \tilde{X}$ with specific choices of $A \in \mathcal{A}$, where $A_X$ encodes dimension reduction or selection, and $A_\beta$ encodes regression.

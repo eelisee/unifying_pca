@@ -6,11 +6,11 @@
 
 \subsection{Lack of Statistical Model in PCA}
 
-Although PCA is often regarded as a statistical approach, it can be naturally interpreted as a statistical model. From this perspective, PCA is no longer just a procedure to solve an optimization problem, but rather a parametric model. This interpretation allows us to formulate PCA in analogy to the linear model
+PCA is regarded as a numerical approach since the deep statistical model is often not explicitly defined. However, there exists a statistical model. From this perspective, PCA is no longer just a procedure to solve an optimization problem, but rather a parametric model. This interpretation allows us to formulate PCA in analogy to the linear model
 \[
 Y = X \beta + \varepsilon,
 \]
-while still being distinct in its formulation. Concretely, let $X \in \mathbb{R}^{n \times p}$ denote the centered data matrix. In PCA, we do not posit an external response Y, but instead seek to explain X by a low-rank linear transformation of itself. Thus, PCA can be viewed as a statistical model of self-approximation. The data are modeled as their own low-rank linear reconstruction plus noise. That is, we consider
+while still being distinct in its formulation. Concretely, let $X \in \mathbb{R}^{n \times p}$ be a centered data matrix. In PCA, we do not posit an external response Y, but instead seek to explain X by a low-rank linear transformation of itself. Thus, PCA can be viewed as a statistical model of self-approximation. The data are modeled as their own low-rank linear reconstruction plus noise. That is, we consider
 \[
 X \approx X \beta + \varepsilon,
 \]
@@ -35,7 +35,8 @@ and hence the familiar PCA projection
 
 \subsection{Sufficient Statistic of the Linear Model vs. PCA}
 
-Comparing the linear regression model and PCA, we observe that both rely on the same statistical model, yet pursue fundamentally different goals. To understand those despite their shared statistical model, we examine the sufficient statistics in the classical linear model and their relation to the estimator.
+Comparing the linear model and PCA, we observe that both can be framed within the same multivariate Gaussian model for the data, 
+\((X,Y) \sim \mathcal{N}(\mu, \Sigma)\), yet they pursue fundamentally different inferential goals. Linear Regression focuses on prediction of \(Y\) given \(X\), while PCA aims at approximating \(X\) itself. To understand those despite their shared statistical model, we examine the sufficient statistics in the classical linear model and their relation to the estimator.
 
 \begin{defn}
 Let $X : \Omega \rightarrow \Omega'$ be a random variable. A measurable function $T: \Omega' \rightarrow \Omega''$ is called a \emph{statistic}. A statistic $T(X)$ is \emph{sufficient} for a parameter $\theta$ if the conditional distribution of $X$ given $T(X)$ does not depend on $\theta$. Formally, for a parametric family $(\mathbb{P}_\theta)_{\theta \in \Theta}$:
@@ -90,7 +91,7 @@ T(X) = R
 \]
 is the sufficient statistic underlying PCA. PCA does not aim to preserve inferential information about a specific parameter, but rather to retain the structural variance captured by $S$. In PCA, $X$ itself is the object of approximation. The direction of approximation is not fixed beforehand and can be reinterpreted, as long as the optimization goal of maximizing variance is retained. 
 
-Thus, PCA allows not only the direction $X \to Y$ with $X$ explanatory and $Y$ response as in linear regression, but in principle any direction in the space of predictors: for each $X_j$, $j=1,\dots,p$, or more generally any linear combination of the $X_j$, depending on the chosen optimization criterion (variance, correlation, etc.). Hence, the interpretation of PCA is fundamentally multivalent. It is not fixed by a target variable, but by the optimization criterion and the projection space. The PCA estimator depends on the selection order of the predictors $X_j$, $j = 1, \dots, p$, or in other words the ordering of components, i.e. the two main strategies are:
+Thus, PCA allows not only the direction $X \to Y$ with $X$ explanatory and $Y$ response as in linear regression, but in principle any direction in the space of predictors: for each $X_j$, $j=1,\dots,p$, or more generally any linear combination of the $X_j$, depending on the chosen optimization criterion (variance, correlation, etc.). Hence, the interpretation of PCA is fundamentally multivalent. It is not fixed by a target variable, but by the optimization criterion and the projection space. It is important to note that in the linear model all predictors \(X_j\) are part of the model by design, and variable selection (subset selection) is an external procedure applied on top of the model, whereas in PCA the selection of directions (principal components) is intrinsic to the method. The PCA estimator depends on the selection order of the predictors $X_j$, $j = 1, \dots, p$, or in other words the ordering of components, i.e. the two main strategies are:
 
 \begin{itemize}
     \item \textbf{Forward selection}: starting with a null model and adding the principal components with the largest variance in a decreasing order,

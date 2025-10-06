@@ -1,0 +1,60 @@
+\section{Introduction: Questions Aimed to Answer}
+
+Linear regression and PCA are two tools in multivariate analysis. Both reduce dimensionality, but they do so under conceptually different paradigms. Linear regression is a statistical approach utilizing its well-defined statistical model. PCA, is indeed, a numerical approach, since the deep statistical model is missing in many papers.
+
+\paragraph{1. Motivation and Overview.} 
+
+The starting point of this work stems from a conceptual imbalance between two fundamental approaches in multivariate analysis. Linear regression is grounded in a well-defined statistical model with clear inferential meaning, while PCA is introduced as a numerical procedure without explicit model formulation. Although both methods reduce complexity through linear transformations; their interpretation differs fundamentally. One optimizes reconstruction, the other one explanation.
+
+This difference, although well known in practice, raises a structural question from a theoretical perspective:
+can these two transformations be described within a single statistical model? If so, what algebraic framework would allow us to move between them without referring to specific estimation procedures or data realizations? Such a formulation would not treat PCA and regression as competing techniques, but as special instances of a broader model class defined by its transformation properties.
+
+The aim of this paper is to develop exactly this formulation.
+We propose a generalized model that unifies PCA and the linear model through an algebraic representation of their sufficient structures. This model provides a bridge between explanatory and reconstructive aspects of statistical modeling, extending McCullagh’s view of model consistency to a setting in which regression and PCA appear as structurally related cases of the same underlying model \cite{mccullagh}.
+
+\paragraph{2. The Linear Model: Sufficiency and Explanatory Structure.}
+
+Linear regression models the dependence of a response variable $Y$ on predictors $X$ via a parameter vector $\beta$. Its statistical foundation lies in the sufficiency of the statistics $(X^\top X, X^\top Y)$ for the parameters $\theta =(\beta,\sigma^2)\in \Theta \subseteq \mathbb{R}^p \times \mathcal{S}^n $ under a Gaussian model.
+This sufficiency implies that extending the dataset (more rows of $X$, $Y$) naturally extends the model without altering its structure. Regression is therefore a stable model in the sense of McCullagh \cite{mccullagh}, which grows consistently with data, and its inferential meaning remains invariant.
+
+\paragraph{3. Principal Component Analysis as a Statistical Model.}
+
+PCA, in contrast, is not usually introduced as a statistical model but as an algorithmic procedure of optimal approximation via projection. From a model-theoretic standpoint, however, PCA corresponds to a family of Gaussian distributions $X \sim N(X\beta, \Sigma)$, where $\Sigma$ is approximated by a low-rank structure $Q_k Q_k^\top$ of size $k \times k$. Unlike the linear model, however, this family does not have a naturally extendable model. Enlarging the parameter space or increasing the rank $k$ alters the projection structure itself and may change the associated covariance representation. This lack of model extendability is the sense in which PCA fails McCullagh’s criterion of natural model growth. It therefore motivates the search for a unified framework in which both regression and PCA can be described as morphisms within a common algebraic model class.
+
+\paragraph{4. A Generalized Model Bridging PCA and Regression.}
+
+We introduce a unified operator-based model that captures both linear model and PCA as special cases within a single algebraic framework. Following the operator formalism of Schlather and Reinbott~\cite{reinbott2021}, we represent a statistical model by a structured linear map acting on an augmented random vector $Z = (\varepsilon, X_1, \dots, X_{k-1})^\top \in \mathbb{R}^k$.
+Each operator $A \in P \subset \mathbb{R}^{k\times k}$ has the block form
+\[
+A =
+\begin{bmatrix}
+A_\sigma & A_\beta \\[4pt]
+0 & A_\mu \mathbb{1}_{(k-1)\times(k-1)}
+\end{bmatrix},
+\qquad
+A_\sigma \ge 0,\; A_\beta \in \mathbb{R}^{1\times (k-1)},\; A_\mu \in \mathbb{R}^{(k-1)\times(k-1)},
+\]
+and acts by $AZ$, where the first coordinate $y = (AZ)_1 = A\sigma_ \varepsilon + A_\beta X$ represents the modeled response, while the lower block $A_\mu$ transforms or reconstructs the predictor space. Within this formulation, classical linear regression corresponds to operators where $A_\mu$ acts as the identity, emphasizing explanatory structure through $A_\beta$.
+Conversely, PCA arises from operators with $A_\sigma = 0$ and $A_\mu = Q_k Q_k^\top$, a projection onto an $k$-dimensional subspace spanned by principal directions. 
+
+\paragraph{5. Algebraic Foundations: Operators and Semiring Structure.}
+
+Building on Schlather and Reinbott, we represent both regression and PCA as linear operators within a common algebraic semiring.
+This formalizes how model transformations interact on the level of model structure. Regression models correspond to operator subsets that are closed under addition and composition, forming a semiring; PCA operators, in contrast, form semigroups under composition but not under addition. Their intersection defines a family of hybrid operators that combine projection and regression components, including principal component regression as a limiting case.
+
+%Within this framework, PCA and regression appear as elements of distinct algebraic substructures whose intersection and commutation properties encode their compatibility.
+%The algebraic viewpoint thus provides a structural explanation of when and why these models coincide, diverge, or give rise to new hybrid forms within a single unified model family.
+
+%This paper addresses the following guiding questions:
+%\begin{itemize}
+%    \item Why do variable selection procedures in PCA and linear regression produce different outcomes, even though both are grounded in the same statistical model?
+%    \item Under which structural conditions do PCA-based and regression-based variable selections coincide?
+%    \item How can the differences be explained and formalized in an algebraic framework?
+%    \item What are the implications for practical selection methods such as forward selection, backward selection, and regularized regression?
+%\end{itemize}
+
+%Our contribution is threefold: 
+%(i) we present the theoretical groundwork of linear regression and PCA as statistical models; 
+%(ii) we interpret their sufficient statistics and explain the divergence of their estimators; 
+%(iii) we develop an algebraic operator framework that unifies linear regression and PCA and provides formal conditions for coincidence or divergence. 
+%Examples and comparisons with classical selection methods illustrate the theory. 

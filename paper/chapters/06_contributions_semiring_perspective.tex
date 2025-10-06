@@ -1,7 +1,6 @@
 \section{Novel Contributions from the Semiring Perspective}
 
-The algebraic framework developed in this paper does not merely unify linear regression and PCA in a common operator language. It also to design several novel 
-conceptual tools for statistical modeling, each highlighting different aspects of coincidence and contradiction between the two methods. 
+The algebraic framework developed in this paper does not merely unify linear regression and PCA in a common operator language. It also to design several novel conceptual tools for statistical modeling, each highlighting different aspects of coincidence and contradiction between the two methods. 
 We describe three aspects below.
 
 \subsection{Non-commutativity as a diagnostic measure}
@@ -11,8 +10,9 @@ Within the semiring of structured operators, the composition of two modeling pro
 \begin{defn}[Degree of Contradiction]
 Let $\|\cdot\|_F$ denote the Frobenius norm. The degree of contradiction between $A$ and $B$ is defined as
 \[
-\Delta(A,B) := \| AB - BA \|_F.
+\Delta(A,B) := \| AB - BA \|_F,
 \]
+interpreted as a Euclidean proxy for the underlying model-level divergence.
 \end{defn}
 
 \paragraph{Interpretation.}
@@ -33,7 +33,7 @@ Formally, consider the problem of finding a joint optimal operator
 \[
 H^* := \arg\min_{H \in \mathcal{A}} \left\{ \rho_\mathrm{reg}(H) + \rho_\mathrm{PCA}(H) \right\},
 \]
-where $\rho_\mathrm{reg}$ and $\rho_\mathrm{PCA}$ denote the loss functionals corresponding to regression and PCA, respectively. 
+where $\rho_\mathrm{reg}$ and $\rho_\mathrm{PCA}$ denote the model-level loss functionals corresponding to regression and PCA, respectively. 
 \begin{itemize}
     \item If $\Delta(A,B) = 0$, then the minimization above admits a clear solution 
           $H^* = AB = BA$; the semiring structure guarantees closure under $\otimes$, and the joint loss is minimized by the common operator.
