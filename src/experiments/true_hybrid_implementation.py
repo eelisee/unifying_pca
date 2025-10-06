@@ -1,10 +1,10 @@
 """
-True Hybrid Implementation Based on the Algebraic Framework.
+Generalized PCA-Implementation Based on the Algebraic Framework.
 
-This implements the actual hybrid model from the paper's operator class P,
+This implements the generalized PCA model from the paper's operator class P,
 not the regularized regression currently in compare_methods.py.
 
-The true hybrid finds an operator A ∈ P with block structure:
+The model finds an operator A ∈ P with block structure:
     A = [A_σ   A_β]
         [0     A_μI]
 
@@ -13,8 +13,8 @@ Where:
 - A_β: regression coefficients  
 - A_μ: predictor transformation (low-rank projection)
 
-The hybrid should satisfy BOTH:
-1. Good prediction: minimize ||y - A_β (A_μ X)||²  
+The model should satisfy BOTH:
+1. Good prediction: minimize ||y - A_β (A_μ X)||²
 2. Good reconstruction: minimize ||X - A_μ X||²_F
 
 This is fundamentally different from PCR or regularized regression.
@@ -28,9 +28,9 @@ from sklearn.model_selection import train_test_split
 import matplotlib.pyplot as plt
 
 
-class TrueHybridEstimator:
+class GeneralizedEstimator:
     """
-    True hybrid estimator based on operator class P framework.
+    Generalized estimator based on operator class P framework.
     
     The estimator finds A ∈ L_ℓ ∩ H_r that belongs to both:
     - L_ℓ: regression-type operators (good for prediction)
@@ -207,7 +207,7 @@ def compare_true_hybrid_vs_others(X, y, test_size=0.3, r=2):
     recon_error = np.mean(np.sum((X_test - X_test_reconstructed) ** 2, axis=1))
     
     # 3. True Hybrid (A ∈ L_ℓ ∩ H_r)
-    hybrid = TrueHybridEstimator(r=r, lambda_pred=1.0, lambda_recon=0.1, n_iter=100)
+    hybrid = GeneralizedEstimator(r=r, lambda_pred=1.0, lambda_recon=0.1, n_iter=100)
     history = hybrid.fit(X_train, y_train)
     y_pred_hybrid = hybrid.predict(X_test)
     mse_hybrid = mean_squared_error(y_test, y_pred_hybrid)

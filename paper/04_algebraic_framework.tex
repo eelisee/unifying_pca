@@ -1,4 +1,4 @@
-\section{Algebric Framework}
+\section{Algebraic Framework}
 
 %4. Algebraic Framework:
 %	•	Matrix model formulation with PCA and Regression as an Operator
@@ -14,22 +14,21 @@ We now develop a generalized matrix-based framework that captures both linear re
 
 We adopt the algebraic operator viewpoint introduced in Schlather and Reinbott~\cite{reinbott2021} and represent both linear regression and PCA as linear operators acting on an augmented data vector. This representation makes precise how both procedures can be embedded into a single algebraic framework.
 
-\begin{defn}[Augmented data vector] Let $Z = ( \varepsilon, X_1, \dots, X_{k-1} )^T \in \mathbb{R}^k,$ so that $p=k-1$ is the number of predictors denote the augmented vector that collects the noise component \(\varepsilon\) and the predictor variables \(X_1,\dots,X_{k-1}\).
-\end{defn}
+Let $Z = ( \varepsilon, X_1, \dots, X_{k-1} )^T \in \mathbb{R}^k,$ so that $p=k-1$ is the number of predictors denote the augmented vector that collects the noise component \(\varepsilon\) and the predictor variables \(X_1,\dots,X_{k-1}\).
 
-\begin{defn}[Operator class \(P\)] We consider a class \(P\) of \(k\times k\) real matrices with the following block structure:
+\begin{defn}[Operator class \(P\)] Let \(P \subseteq \mathbb{R}^{k\times k}\) denote the set of all block matrices of the form
 \begin{equation} \label{eq:block-A}
 A \;=\;
 \begin{bmatrix}
 A_\sigma & A_\beta \\[4pt]
-0_{(k-1)\times 1} & A_\mu \mathbb{1}_{(k-1)\times(k-1)}
+0_{(k-1)\times 1} & A_\mu\mathbb{1}_{(k-1)\times(k-1)}
 \end{bmatrix},
 \qquad
-A_\sigma \in \mathbb{R}_{\geq 0},\;
+A_\sigma \geq 0,\;
 A_\beta \in \mathbb{R}^{1\times (k-1)},\;
-A_\mu \in \mathbb{R}_{\geq 0}.
+A_\mu \in \mathbb{R}^{(k-1)\times(k-1)}.
 \end{equation}
-Here $A_\mu$ and $A_\sigma$ are scalars, and $I_{k-1}$ denotes the $(k-1) \times (k-1)$ identity matrix. This scalar assumption is essential for the selector-closure properties below. 
+$\mathbb{1}_{(k-1)\times(k-1)}$ denotes the unity matrix. 
 
 The action of \(A\) on \(Z\) is the vector \(AZ\). The first coordinate of \(AZ\) plays the role of the modeled response:
 \begin{equation} \label{eq:response}
@@ -96,8 +95,7 @@ The set $(P, \oplus, \otimes)$ forms a semiring. Specifically:
 
 \begin{proof}
 
-\textbf{1. Additive closure and commutative monoid:}
-Let $A, B \in P$ with block structures
+First, we verify additive disclosure. Let $A, B \in P$ with block structures
 \[
 A = \begin{bmatrix} A_\sigma & A_\beta \\ 0 & A_\mu \end{bmatrix}, \quad
 B = \begin{bmatrix} B_\sigma & B_\beta \\ 0 & B_\mu \end{bmatrix}.
@@ -109,8 +107,7 @@ A \oplus B = \begin{bmatrix} A_\sigma + B_\sigma & A_\beta + B_\beta \\ 0 & A_\m
 Clearly, $A_\sigma + B_\sigma \ge 0$, $A_\mu + B_\mu \ge 0$, and the lower-left block remains zero. Hence $A \oplus B \in P$, showing additive closure.  
 Matrix addition is commutative and associative in general, and the zero matrix $0$ serves as additive identity. Therefore, $(P, \oplus)$ is a commutative monoid.
 
-\textbf{2. Multiplicative closure and monoid:}
-Computing the product of two block matrices in $P$ gives 
+Proceeding to multiplication, we compute the product of two block matrices in $P$ as 
 \[
 A \otimes B = AB =
 \begin{bmatrix} 
@@ -121,7 +118,7 @@ A_\sigma B_\sigma & A_\sigma B_\beta + A_\beta B_\mu \\
 The lower-left block remains zero. The upper-left scalar $A_\sigma B_\sigma \ge 0$, and $A_\mu B_\mu \ge 0$ since both factors are nonnegative. Thus $A \otimes B \in P$, verifying multiplicative closure.  
 Matrix multiplication is associative in general, and the identity matrix $I_{k \times k}$ is in $P$, serving as multiplicative identity. Therefore, $(P, \otimes)$ is a monoid.
 
-\textbf{3. Distributivity:} For any $A,B,C \in P$:
+Finally, distributivity can be seen as follows. For any $A,B,C \in P$:
 \[
 A \otimes (B \oplus C) = A(B+C) = AB + AC = A \otimes B \oplus A \otimes C,
 \]
@@ -141,7 +138,7 @@ D = \operatorname{diag}(d_1,\dots,d_{k-1}),\qquad d_j\in\{0,1\}.
 Setting \(A_\mu \mathbb{1}_{(k-1)\times(k-1)}= D\) implements hard selection of predictors. Only those \(j\) with \(d_j=1\) are kept. Equivalently, restricting the coefficients \(A_{\beta,j}\) to be zero for certain indices removes predictors from the linear relation of Eq.~\eqref{eq:response}.
 
 \begin{defn}[$S_\ell$, $L_\ell$]
-Following the construction in Schlather and Reinbott~\cite{reinbott2021}[Ex.\ 2.12], we introduce two families of operator-subsets that encode common selection patterns:
+Following the construction of the operator class, we introduce two families of operator-subsets that encode common selection patterns:
 \[
 \begin{aligned}
 S_\ell &\;:=\; \{\, A\in P : A_{\beta,j}=0 \text{ for all } j\neq \ell \,\}, \\[3pt]
@@ -153,91 +150,200 @@ Intuitively, \(S_\ell\) corresponds to a \emph{simple regression model} that use
 \end{defn}
 
 \begin{prop}[Subsemiring structure of $S_\ell$ and $L_\ell$]
-Let $1 \le \ell \le k-1$. Then $S_\ell$ and $L_\ell$ are subsemirings of $P$ under
-\[
-A \oplus B := A + B, \qquad A \otimes B := AB.
-\]
+Let $1 \le \ell \le k-1$. Then $S_\ell$ and $L_\ell$ are subsemirings of $P$ under matrix addition and matrix multiplication.
+%\[
+%A \oplus B := A + B, \qquad A \otimes B := AB.
+%\]
 \end{prop}
 
-\begin{proof}
-We prove the claim for $L_\ell$; the argument for $S_\ell$ is analogous.
-
-\textbf{1. Additive closure:}  
-Let $A, B \in L_\ell$. By definition, $A_{\beta,j} = B_{\beta,j} = 0$ for all $j > \ell$. Then
-\[
-(A \oplus B)_{\beta,j} = A_{\beta,j} + B_{\beta,j} = 0 \quad \forall j > \ell,
-\]
-so $A \oplus B \in L_\ell$.
-
-\textbf{2. Multiplicative closure:}  
-Consider $A, B \in L_\ell$ with block form
-\[
-A = \begin{bmatrix} A_\sigma & A_\beta \\ 0 & A_\mu \end{bmatrix}, \quad
-B = \begin{bmatrix} B_\sigma & B_\beta \\ 0 & B_\mu \end{bmatrix}.
-\]
-Then the $\beta$-block of the product is
-\[
-(A \otimes B)_\beta = A_\beta B_\mu + A_\sigma B_\beta.
-\]
-$A_\beta$ has zeros in positions $j>\ell$, and $B_\mu$ maps the predictor block to itself (upper-left $(k-1)\times(k-1)$), so $A_\beta B_\mu$ has zeros for $j>\ell$. $B_\beta$ has zeros for $j>\ell$ and $A_\sigma \ge 0$, so $A_\sigma B_\beta$ also has zeros for $j>\ell$. Hence $(A \otimes B)_\beta$ has zeros in positions $j>\ell$, i.e., $A \otimes B \in L_\ell$.
-
-\textbf{3. Identities:}  
-The zero matrix $0 \in L_\ell$ and the identity matrix $I_{k\times k} \in L_\ell$ (acting on positions $j>\ell$) serve as additive and multiplicative identities.
-\end{proof}
+%\begin{proof}
+%We prove the claim for $L_\ell$; the argument for $S_\ell$ is analogous.
+%
+%\textbf{1. Additive closure:}  
+%Let $A, B \in L_\ell$. By definition, $A_{\beta,j} = B_{\beta,j} = 0$ for all $j > \ell$. Then
+%\[
+%(A \oplus B)_{\beta,j} = A_{\beta,j} + B_{\beta,j} = 0 \quad \forall j > \ell,
+%\]
+%so $A \oplus B \in L_\ell$.
+%
+%\textbf{2. Multiplicative closure:}  
+%Consider $A, B \in L_\ell$ with block form
+%\[
+%A = \begin{bmatrix} A_\sigma & A_\beta \\ 0 & A_\mu \end{bmatrix}, \quad
+%B = \begin{bmatrix} B_\sigma & B_\beta \\ 0 & B_\mu \end{bmatrix}.
+%\]
+%Then the $\beta$-block of the product is
+%\[
+%(A \otimes B)_\beta = A_\beta B_\mu + A_\sigma B_\beta.
+%\]
+%$A_\beta$ has zeros in positions $j>\ell$, and $B_\mu$ maps the predictor block to itself (upper-left $(k-1)\times(k-1)$), so $A_\beta B_\mu$ has zeros for $j>\ell$. $B_\beta$ has zeros for $j>\ell$ and $A_\sigma \ge 0$, so $A_\sigma B_\beta$ also has zeros for $j>\ell$. Hence $(A \otimes B)_\beta$ has zeros in positions $j>\ell$, i.e., $A \otimes B \in L_\ell$.
+%
+%\textbf{3. Identities:}  
+%The zero matrix $0 \in L_\ell$ and the identity matrix $I_{k\times k} \in L_\ell$ (acting on positions $j>\ell$) serve as additive and multiplicative identities.
+%\end{proof}
 
 This shows that variable selection can be encoded algebraically as restricting the operator $A$ to particular subsemirings of $P$, with $S_\ell$ representing \emph{single-predictor models} and $L_\ell$ representing \emph{restricted multi-predictor models}.
 
 \subsection{PCA as an Operator-Choice Problem}
 \label{subsec:pca-operator}
 
-In Chapter~\ref{sec:theoretical-groundwork}, we have seen that PCA can be interpreted as a best low-rank approximation problem in the Frobenius norm, i.e.\ in the least-squares sense. We now reformulate this problem in the \emph{operator class} $P$ introduced in Section~\ref{subsec:operator-formulation}, allowing a unified algebraic treatment of linear regression and PCA.
+Within the algebraic framework of Section~\ref{subsec:operator-formulation}, PCA can be regarded as the problem of selecting an operator from an admissible class that provides an optimal lower-dimensional representation of a statistical model, while preserving its algebraic structure. This view treats PCA not as a data-reduction method, but as a problem of model construction within a consistent operator algebra.
 
-Let \(P \subset \mathbb{R}^{k \times k}\) denote the class of structured block matrices representing linear operators as in \eqref{eq:block-A}. Classical PCA can then be expressed as a search over \emph{reconstruction operators} \(H \in P\) that minimize a reconstruction loss measured by a (semi-)metric \(\rho\):
-\begin{equation} \label{eq:general-pca}
-\operatorname{PCA}_r(X) \;=\; \arg\min_{\substack{H\in\mathcal{H}\\ \operatorname{rank}(H)\le r}} \rho(X,\, H X),
+Let $\mathcal{M}$ denote a family of probability distributions on $\mathbb{R}^{k-1}$, equipped with an algebraic structure induced by addition and scalar multiplication of random variables. Each $\mu \in \mathcal{M}$ defines an element of this algebra and can be represented by an operator $A_\mu \in P$, where $P \subset \mathbb{R}^{k \times k}$ denotes the class of structured block operators introduced earlier. An admissible operator $H \in P$ acts on $\mu$ by mapping it to a lower-dimensional distribution $H\mu$. Crucially, this mapping must preserve the underlying algebra: addition and multiplication of random variables must correspond to the same operators before and after the transformation. In this sense, $H$ is not fitted to data, but chosen such that the model algebra remains internally consistent.
+
+The PCA problem is then formulated as an \emph{operator-choice problem}:
+\begin{equation}
+\label{eq:model-pca}
+\operatorname{PCA}_r(\mu)
+    = \arg\min_{\substack{H \in \mathcal{H} \\ \operatorname{rank}(H) \le r}}
+    \mathcal{L}(\mu, H\mu),
 \end{equation}
-where
-\begin{itemize}
-    \item \(\mathcal{H} \subseteq P\) is an admissible class of operators. In the Euclidean setting, this contains the orthogonal projectors \(H = Q_r Q_r^\top\), with \(Q_r \in \mathbb{R}^{(k-1) \times r}\) collecting the first \(r\) principal directions. The set $\mathcal{H}_r$ containing the orthogonal projections onto a subspace of rank $r$ is not a subsemiring under standard matrix multiplication (idempotent projections do not compose additively), but it is a semigroup under multiplication. Hence, the PCA operators naturally form a semigroup embedded in the same overarching structure \(P\).
-    (\item \(\mathcal{H} \subseteq P\) is an admissible class of operators. In the Euclidean setting, this contains operators with rank-$\le r$ reconstruction blocks. The set of orthogonal projection operators $\mathcal{P}_r$ (rank-$r$ idempotent symmetric matrices) contains the PCA minimizers but is in general neither closed under addition nor under multiplication (unless special commuting conditions hold). By contrast, the larger class of operators with $\operatorname{rank}\le r$ is closed under multiplication (since $\operatorname{rank}(AB)\le\min\{\operatorname{rank}A,\operatorname{rank}B\}$) and therefore forms a semigroup. For algebraic analysis of operator composition it is useful to consider the rank-$\le r$ class as the semigroup that contains orthogonal projectors as extremal elements.)
-    \item \(\rho : \mathbb{R}^{n \times (k-1)} \times \mathbb{R}^{n \times (k-1)} \to \mathbb{R}_{\ge 0}\) is a reconstruction loss, typically the Frobenius norm:
-    \[
-        \rho(X, HX) = \| X - HX \|_F^2 = \sum_{i=1}^n \| x_{i,\cdot} - H x_{i,\cdot} \|_2^2.
-    \]
-    This reproduces the standard PCA criterion of minimizing the total squared reconstruction error.
-\end{itemize}
+where $\mathcal{H} \subseteq P$ is the admissible operator class and $\mathcal{L}$ is a loss functional defined on the space of models. While the Frobenius norm $\mathcal{L}(X,HX)=\|X - HX\|_F^2$ provides a natural notion of reconstruction error on the data level, it has no direct analogue on the model level, since distributions cannot be subtracted or compared by Euclidean distance. In the space of models, such deviations are quantified by information-geometric functionals. Typical choices of $\mathcal{L}$ are based on information-theoretic quantities such as the entropy difference
+\[
+    \mathcal{L}(\mu, H\mu)
+        = \mathrm{Entropy}(\mu) - \mathrm{Entropy}(H\mu),
+\]
+or, more generally, a (e.g., Kullback–Leibler-)divergence $\mathcal{D}(\mu, H\mu)$ measuring how much information is lost when restricting $\mu$ to a lower-dimensional submodel. These global measures serve as analogues of the squared error, while their local quadratic approximation is given by the Fisher information metric
+\[
+{\displaystyle g_{jk}(\theta )=-\int _{R}{\frac {\partial ^{2}\log p(x\mid \theta )}{\partial \theta _{j}\,\partial \theta _{k}}}p(x\mid \theta )\,dx=\mathbb {E} _{x|\theta }\left[-{\frac {\partial ^{2}\log p(x\mid \theta )}{\partial \theta _{j}\,\partial \theta _{k}}}\right].}
+\]
+In this sense, the Fisher metric plays the role of the Frobenius norm within the statistical model. It defines the infinitesimal geometry underlying the operator-choice problem. 
 
-The operator \(H\) acts only on the predictor block \(X\) (i.e., \(A_\mu\) in the block notation), with \(A_\sigma = 0\) since PCA does not involve an explicit noise term in the reconstruction. In this sense, PCA is a \emph{constrained operator selection problem}: one searches for \(H \in P\) that is idempotent, low-rank, and provides the optimal reconstruction in \(\rho\). The classical solution \(H = Q_r Q_r^\top\) arises as the unique minimizer of \(\rho\) in the least-squares sense (Eckart–Young theorem).
+From this perspective, PCA seeks the operator $H$ that produces the best lower-dimensional approximation of $\mu$ within the same algebraic framework. The transition from $\mu$ to $H\mu$ corresponds to a mapping from a higher- to a lower-dimensional model that retains the same probabilistic and algebraic relations among its components.
+
+The operator $H$ acts only on the structural block $A_\mu$ of the model operator, with the stochastic component $A_\sigma$ set to zero, since PCA does not introduce an explicit noise term. In this sense, PCA is a \emph{constrained operator-selection problem}: one searches for $H \in P$ that is idempotent, of low rank, and minimizes the model-level loss $\mathcal{L}(\mu,H\mu)$. The corresponding optimal operator is the projection in the model algebra that preserves as much entropy (or information) of $\mu$ as possible. The classical orthogonal projector $H = Q_r Q_r^\top$ arises as a particular realization when the model algebra coincides with the Euclidean one and $\mathcal{L}$ corresponds to a quadratic loss.
 
 \paragraph{Interpretation.}
-From a statistical perspective:
+From a model-theoretic perspective, the families of operator subsets introduced in the algebraic framework correspond to familiar forms of model restriction or extension:
 \begin{itemize}
-  \item The family \(\{L_\ell\}\) formalizes \emph{forward selection}, since enlarging \(\ell\) increases the number of predictors admitted into the model.  
-  \item The family \(\{S_\ell\}\) can be interpreted as \emph{exhaustive selection}, if all permutations of predictors are included.
+  \item The families $\{L_\ell\}$ describe \emph{forward selection}, in which the admissible operator enlarges with $\ell$, admitting additional components of the model while preserving the same operator algebra.
+  \item The families $\{S_\ell\}$ represent \emph{exhaustive selection}, in which all permutations of model components are included.
 \end{itemize}
-Thus, familiar selection strategies arise naturally as algebraic restrictions in the semiring.
+Thus, standard model-selection strategies arise naturally as algebraic restrictions within the operator semiring.
 
-\paragraph{Algebraic classification of operator subsets and their statistical interpretation}
-
-The semiring $P$ contains a variety of algebraically distinguished subsets that correspond to different statistical procedures. They can be split into:
-
+\paragraph{Algebraic classification of operator subsets and their statistical interpretation.}
+The semiring $P$ contains several algebraically distinguished subsets that correspond to different forms of statistical modeling. They can be grouped as follows:
 \begin{itemize}
-  \item \textbf{Regression-type subsets.}  
-  The families $S_\ell$ and $L_\ell$ are subsemirings of $P$. They encode regression models with restricted sets of predictors: $S_\ell$ corresponds to simple regression using a single predictor, while $L_\ell$ corresponds to all regression models involving predictors up to index $\ell$. Algebraically, these subsets are nested,
+  \item \textbf{Regression-type subsets.}
+  The families $S_\ell$ and $L_\ell$ are subsemirings of $P$. They encode regression-type models with restricted predictor structures: $S_\ell$ corresponds to models involving a single component, while $L_\ell$ includes all models using components up to index~$\ell$. Algebraically, these subsets are nested,
   \[
-  S_1 \subset L_1 \subset L_2 \subset \dots \subset L_{k-1} \subset P,
+      S_1 \subset L_1 \subset L_2 \subset \dots \subset L_{k-1} \subset P,
   \]
-  mirroring the inclusion of models with increasing numbers of predictors.
+  mirroring the inclusion of models with increasing structural complexity.
 
-  \item \textbf{PCA-type subsets.}  
-  The families $\mathcal{H}_r$, consisting of operators with a projection block $A_\mu$ of rank at most $r$, form semigroups but not subsemirings. Their nesting
+  \item \textbf{PCA-type subsets.}
+  The families $\mathcal{H}_r$, consisting of operators whose structural block $A_\mu$ has rank at most~$r$, form semigroups but not subsemirings. Their nesting
   \[
-  \mathcal{H}_1 \subset \mathcal{H}_2 \subset \dots \subset \mathcal{H}_{k-1}
+      \mathcal{H}_1 \subset \mathcal{H}_2 \subset \dots \subset \mathcal{H}_{k-1}
   \]
-  corresponds to projections onto subspaces of increasing dimension, i.e.\ principal components of higher order.
+  corresponds to successively larger model subspaces, representing principal components of higher order.
 
-  \item \textbf{Hybrid subsets.}  
-  Operators with both nontrivial regression part ($A_\beta\neq 0$) and projection block ($A_\mu$ low-rank) fall into the hybrid category. These include principal component regression and related methods, which combine supervised and unsupervised features.
+  \item \textbf{Hybrid subsets.}
+  Operators with both a nontrivial regression component ($A_\beta \neq 0$) and a projection block ($A_\mu$ low rank) define hybrid classes such as principal component regression, which combine supervised and unsupervised model restrictions within the same algebra.
 \end{itemize}
 
-Linear regression classes are closed under addition and multiplication (semiring), PCA classes are stable under composition (semigroup), and hybrid classes are at the intersection. The overlap or divergence of regression-type subsets and PCA-type subsets can now be studied using semiring-theoretic tools, e.g.\ whether certain \(L_\ell\) and \(\mathcal{H}_r\) coincide, intersect nontrivially, or generate the same semimodule of operators.
+Regression-type subsets are closed under addition and multiplication (forming a semiring), PCA-type subsets are closed under composition (forming a semigroup), and hybrid subsets occupy the intersection of these classes. The overlap and divergence of regression-type and PCA-type operator families can thus be analyzed algebraically within $P$, providing a unified framework for comparing model classes that differ by the type of operator constraint imposed.
+
+\paragraph{Example: PCA operators on a Gaussian model.}
+
+To illustrate the operator perspective, consider the family of centred Gaussian models
+\[
+    \mathcal{M} = \bigl\{ \mu_\Sigma = \mathcal{N}(0,\Sigma) \;\big|\;
+        \Sigma \in \mathcal{S}_{+}^{k-1} \bigr\},
+\]
+where $\mathcal{S}_{+}^{k-1}$ denotes the cone of positive definite covariance matrices. Each model $\mu_\Sigma$ is determined by its covariance operator
+\[
+    A_\mu : \mathbb{R}^{k-1} \to \mathbb{R}^{k-1}, \qquad
+    A_\mu(v) = \Sigma v,
+\]
+which represents the second-moment structure of the distribution.  
+The algebra on~$\mathcal{M}$ is inherited from the linear operations on random variables, i.e.\
+addition and scalar multiplication correspond to the same matrix operations on~$A_\mu$.
+
+An admissible PCA operator $H \in \mathcal{H}_r$ is an idempotent projection $H^2 = H$
+of rank~$r$.  
+It acts on the model by conjugation,
+\[
+    H : \mu_\Sigma \longmapsto H\mu_\Sigma = \mu_{H\Sigma H^\top},
+\]
+which maps the original distribution to another Gaussian distribution
+whose covariance is projected onto the subspace spanned by the principal directions of~$H$.  
+The algebraic structure is preserved because the same addition and multiplication operations
+apply to $A_\mu$ and to $A_{H\mu}$:
+\[
+    H(a\,A_\mu + b\,A_\gamma)
+        = a\,H A_\mu H^\top + b\,H A_\gamma H^\top
+        = a\,A_{H\mu} + b\,A_{H\gamma}.
+\]
+Thus the operator acts homomorphically on the model space.
+
+In this example, the loss functional $\mathcal{L}(\mu_\Sigma,H\mu_\Sigma)$
+can be chosen as the differencial entropy of a multivariate Gaussian
+\[
+    \mathcal{L}(\mu_\Sigma,H\mu_\Sigma)
+        = \tfrac{1}{2}\log(\det(\Sigma)
+        - \tfrac{1}{2}\log(\det(H\Sigma H^\top)),
+\]
+so that the optimal operator $H^\ast$
+minimizes the information loss between the full Gaussian model and its
+low-rank projection.  
+The resulting operator $H^\ast = Q_r Q_r^\top$,
+where $Q_r$ collects the $r$ leading eigenvectors of~$\Sigma$,
+is the model-level analogue of classical PCA. It preserves the same linear and multiplicative structure,
+and the induced submodel $H^\ast \mu_\Sigma$ remains within the same Gaussian family.
+
+%%%%%%%%%%%%%%%%%%%
+
+%\subsection{OLD: PCA as an Operator-Choice Problem}
+%\label{subsec:pca-operator}
+%
+%In Chapter~\ref{sec:theoretical-groundwork}, we have seen that PCA can be interpreted as a best low-rank approximation problem in the Frobenius norm, i.e.\ in the least-squares sense. We now reformulate this problem in the \emph{operator class} $P$ introduced in Section~\ref{subsec:operator-formulation}, allowing a unified algebraic treatment of linear regression and PCA.
+%
+%Let \(P \subset \mathbb{R}^{k \times k}\) denote the class of structured block matrices representing linear operators as in \eqref{eq:block-A}. Classical PCA can then be expressed as a search over \emph{reconstruction operators} \(H \in P\) that minimize a reconstruction loss measured by a (semi-)metric \(\rho\):
+%\begin{equation} \label{eq:general-pca}
+%\operatorname{PCA}_r(X) \;=\; \arg\min_{\substack{H\in\mathcal{H}\\ \operatorname{rank}(H)\le r}} \rho(X,\, H X),
+%\end{equation}
+%where
+%\begin{itemize}
+%    \item \(\mathcal{H} \subseteq P\) is an admissible class of operators. In the Euclidean setting, this contains the orthogonal projectors \(H = Q_r Q_r^\top\), with \(Q_r \in \mathbb{R}^{(k-1) \times r}\) collecting the first \(r\) principal directions. The set $\mathcal{H}_r$ containing the orthogonal projections onto a subspace of rank $r$ is not a subsemiring under standard matrix multiplication (idempotent projections do not compose additively), but it is a semigroup under multiplication. Hence, the PCA operators naturally form a semigroup embedded in the same overarching structure \(P\).
+%    \item \(\rho : \mathbb{R}^{n \times (k-1)} \times \mathbb{R}^{n \times (k-1)} \to \mathbb{R}_{\ge 0}\) is a reconstruction loss, typically the Frobenius norm:
+%    \[
+%        \rho(X, HX) = \| X - HX \|_F^2 = \sum_{i=1}^n \| x_{i,\cdot} - H x_{i,\cdot} \|_2^2.
+%    \]
+%    This reproduces the standard PCA criterion of minimizing the total squared reconstruction error.
+%\end{itemize}
+%
+%The operator \(H\) acts only on the predictor block \(X\) (i.e., \(A_\mu\) in the block notation), with \(A_\sigma = 0\) since PCA does not involve an explicit noise term in the reconstruction. In this sense, PCA is a \emph{constrained operator selection problem}: one searches for \(H \in P\) that is idempotent, low-rank, and provides the optimal reconstruction in \(\rho\). The classical solution \(H = Q_r Q_r^\top\) arises as the unique minimizer of \(\rho\) in the least-squares sense (Eckart–Young theorem).
+%
+%\paragraph{Interpretation.}
+%From a statistical perspective:
+%\begin{itemize}
+%  \item The family \(\{L_\ell\}\) formalizes \emph{forward selection}, since enlarging \(\ell\) increases the number of predictors admitted into the model.  
+%  \item The family \(\{S_\ell\}\) can be interpreted as \emph{exhaustive selection}, if all permutations of predictors are included.
+%\end{itemize}
+%Thus, familiar selection strategies arise naturally as algebraic restrictions in the semiring.
+%
+%\paragraph{Algebraic classification of operator subsets and their statistical interpretation}
+%
+%The semiring $P$ contains a variety of algebraically distinguished subsets that correspond to different statistical procedures. They can be split into:
+%
+%\begin{itemize}
+%  \item \textbf{Regression-type subsets.}  
+%  The families $S_\ell$ and $L_\ell$ are subsemirings of $P$. They encode regression models with restricted sets of predictors: $S_\ell$ corresponds to simple regression using a single predictor, while $L_\ell$ corresponds to all regression models involving predictors up to index $\ell$. Algebraically, these subsets are nested,
+%  \[
+%  S_1 \subset L_1 \subset L_2 \subset \dots \subset L_{k-1} \subset P,
+%  \]
+%  mirroring the inclusion of models with increasing numbers of predictors.
+%
+%  \item \textbf{PCA-type subsets.}  
+%  The families $\mathcal{H}_r$, consisting of operators with a projection block $A_\mu$ of rank at most $r$, form semigroups but not subsemirings. Their nesting
+%  \[
+%  \mathcal{H}_1 \subset \mathcal{H}_2 \subset \dots \subset \mathcal{H}_{k-1}
+%  \]
+%  corresponds to projections onto subspaces of increasing dimension, i.e.\ principal components of higher order.
+%
+%  \item \textbf{Hybrid subsets.}  
+%  Operators with both nontrivial regression part ($A_\beta\neq 0$) and projection block ($A_\mu$ low-rank) fall into the hybrid category. These include principal component regression and related methods, which combine supervised and unsupervised features.
+%\end{itemize}
+
+%Linear regression classes are closed under addition and multiplication (semiring), PCA classes are stable under composition (semigroup), and hybrid classes are at the intersection. The overlap or divergence of regression-type subsets and PCA-type subsets can now be studied using semiring-theoretic tools, e.g.\ whether certain \(L_\ell\) and \(\mathcal{H}_r\) coincide, intersect nontrivially, or generate the same semimodule of operators.
