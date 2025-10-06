@@ -1,0 +1,30 @@
+{
+  "dataset_name": "energy_efficiency",
+  "target_name": "Y2",
+  "feature_names": [
+    "X1",
+    "X2",
+    "X3",
+    "X4",
+    "X5",
+    "X6",
+    "X7",
+    "X8",
+    "Y1"
+  ],
+  "original_shape": [
+    768,
+    10
+  ],
+  "processed_shape": [
+    614,
+    9
+  ],
+  "preprocessing_steps": [
+    "StandardScaler/RobustScaler applied",
+    "Data centered (mean \u2248 0)",
+    "Categorical variables encoded",
+    "Train/test split (80/20)",
+    "Outliers handled with robust scaling"
+  ]
+}

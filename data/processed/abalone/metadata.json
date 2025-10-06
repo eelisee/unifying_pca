@@ -1,0 +1,30 @@
+{
+  "dataset_name": "abalone",
+  "target_name": "Rings",
+  "feature_names": [
+    "Length",
+    "Diameter",
+    "Height",
+    "Whole_weight",
+    "Shucked_weight",
+    "Viscera_weight",
+    "Shell_weight",
+    "Sex_I",
+    "Sex_M"
+  ],
+  "original_shape": [
+    4177,
+    10
+  ],
+  "processed_shape": [
+    3341,
+    9
+  ],
+  "preprocessing_steps": [
+    "StandardScaler/RobustScaler applied",
+    "Data centered (mean \u2248 0)",
+    "Categorical variables encoded",
+    "Train/test split (80/20)",
+    "Outliers handled with robust scaling"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "dataset_name": "wine_quality_combined",
+  "target_name": "quality",
+  "feature_names": [
+    "fixed acidity",
+    "volatile acidity",
+    "citric acid",
+    "residual sugar",
+    "chlorides",
+    "free sulfur dioxide",
+    "total sulfur dioxide",
+    "density",
+    "pH",
+    "sulphates",
+    "alcohol",
+    "wine_type_white"
+  ],
+  "original_shape": [
+    6497,
+    13
+  ],
+  "processed_shape": [
+    5197,
+    12
+  ],
+  "preprocessing_steps": [
+    "StandardScaler/RobustScaler applied",
+    "Data centered (mean \u2248 0)",
+    "Categorical variables encoded",
+    "Train/test split (80/20)",
+    "Outliers handled with robust scaling"
+  ]
+}

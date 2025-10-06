@@ -1,0 +1,31 @@
+{
+  "dataset_name": "diabetes",
+  "target_name": "target",
+  "feature_names": [
+    "age",
+    "sex",
+    "bmi",
+    "bp",
+    "s1",
+    "s2",
+    "s3",
+    "s4",
+    "s5",
+    "s6"
+  ],
+  "original_shape": [
+    442,
+    11
+  ],
+  "processed_shape": [
+    353,
+    10
+  ],
+  "preprocessing_steps": [
+    "StandardScaler/RobustScaler applied",
+    "Data centered (mean \u2248 0)",
+    "Categorical variables encoded",
+    "Train/test split (80/20)",
+    "Outliers handled with robust scaling"
+  ]
+}

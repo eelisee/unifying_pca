@@ -1,0 +1,36 @@
+{
+  "dataset_name": "bike_sharing_hour",
+  "target_name": "cnt",
+  "feature_names": [
+    "instant",
+    "season",
+    "yr",
+    "mnth",
+    "hr",
+    "holiday",
+    "weekday",
+    "workingday",
+    "weathersit",
+    "temp",
+    "atemp",
+    "hum",
+    "windspeed",
+    "casual",
+    "registered"
+  ],
+  "original_shape": [
+    17379,
+    16
+  ],
+  "processed_shape": [
+    13903,
+    15
+  ],
+  "preprocessing_steps": [
+    "StandardScaler/RobustScaler applied",
+    "Data centered (mean \u2248 0)",
+    "Categorical variables encoded",
+    "Train/test split (80/20)",
+    "Outliers handled with robust scaling"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "dataset_name": "airfoil_noise",
+  "target_name": "Scaled_sound_pressure_level",
+  "feature_names": [
+    "Frequency",
+    "Angle_of_attack",
+    "Chord_length",
+    "Free_stream_velocity",
+    "Suction_side_displacement"
+  ],
+  "original_shape": [
+    1503,
+    6
+  ],
+  "processed_shape": [
+    1202,
+    5
+  ],
+  "preprocessing_steps": [
+    "StandardScaler/RobustScaler applied",
+    "Data centered (mean \u2248 0)",
+    "Categorical variables encoded",
+    "Train/test split (80/20)",
+    "Outliers handled with robust scaling"
+  ]
+}
