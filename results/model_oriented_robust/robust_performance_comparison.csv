@@ -1,0 +1,6 @@
+,test_r2,test_r2,test_r2,test_mse,test_mse,test_mse,test_mse_improvement,test_mse_improvement,kl_divergence,kl_divergence,kl_divergence
+,mean,std,count,mean,std,count,mean,std,mean,std,count
+model,,,,,,,,,,,
+LinearRegression,-4.484694,10.502496,6,12725.394926,25367.436892,6,-2.581963,6.010206,inf,,6
+ModelOrientedGeneralizedPCA,-13.067134,16.874876,6,4582377.833276,11207940.278428,6,-9.542108,8.737492,72940.464731,52749.914775,5
+PCA,-12.602851,17.708035,6,3483694.699281,8518637.690897,6,-9.006883,9.363785,inf,,6

@@ -1,5 +1,0 @@
-,test_r2,test_r2,test_r2,test_mse,test_mse,fit_time,fit_time
-,mean,std,count,mean,std,mean,std
-model,,,,,,,
-ModelOrientedPCA,-43.2425,91.3184,11,4505.5623,10073.0102,0.073,0.1315
-PLSRegression,-130.3203,434.1139,11,12407.4532,40153.6341,0.0027,0.002

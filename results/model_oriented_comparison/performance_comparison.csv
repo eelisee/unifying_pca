@@ -1,0 +1,6 @@
+,test_r2,test_r2,test_r2,test_mse,test_mse,kl_divergence,kl_divergence
+,mean,std,count,mean,std,mean,std
+model,,,,,,,
+LinearRegression,-20.3722,48.0978,11,7685.971,18987.8083,inf,
+ModelOrientedGeneralizedPCA,-44.0664,90.9026,11,2507288.7575,8276064.5589,inf,
+PCA,-43.6254,90.6977,11,1918970.7248,6336784.5873,inf,

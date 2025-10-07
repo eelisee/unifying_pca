@@ -1,0 +1,917 @@
+[
+  {
+    "dataset": "bike_sharing_day",
+    "metadata": {
+      "dataset_name": "bike_sharing_day",
+      "target_name": "cnt",
+      "feature_names": [
+        "instant",
+        "season",
+        "yr",
+        "mnth",
+        "holiday",
+        "weekday",
+        "workingday",
+        "weathersit",
+        "temp",
+        "atemp",
+        "hum",
+        "windspeed",
+        "casual",
+        "registered"
+      ],
+      "original_shape": [
+        731,
+        15
+      ],
+      "processed_shape": [
+        584,
+        14
+      ],
+      "preprocessing_steps": [
+        "StandardScaler/RobustScaler applied",
+        "Data centered (mean \u2248 0)",
+        "Categorical variables encoded",
+        "Train/test split (80/20)",
+        "Outliers handled with robust scaling"
+      ]
+    },
+    "data_info": {
+      "n_train_samples": 584,
+      "n_test_samples": 147,
+      "n_features": 14,
+      "train_target_mean": 4560.977739726028,
+      "train_target_std": 1914.60219083809,
+      "test_target_mean": 4279.374149659864,
+      "test_target_std": 2002.4690480962397
+    },
+    "models": {
+      "LinearRegression": {
+        "model": "LinearRegression",
+        "train_mse": 59574.12163128034,
+        "test_mse": 63465.141540399796,
+        "train_r2": 0.9837482345923936,
+        "test_r2": 0.9841728168128298,
+        "kl_divergence": 4.995989205673669,
+        "beta_coefficients": "[ 1.00725874e+04 -3.79582303e+01 -1.03010488e+04 -4.19400747e+03\n -2.03816521e+00 -1.70992628e+01 -1.12287181e+02  1.11579254e+02\n -7.36528008e+01  3.77822569e+01 -6.48328032e+01  2.26455801e+00\n  7.97980219e+02  2.19096914e+03]",
+        "residual_std": 243.71043702203363
+      },
+      "PCA": {
+        "model": "PCA",
+        "n_components": 8,
+        "train_reconstruction_mse": 0.01908429878320958,
+        "test_reconstruction_mse": 0.020528612709949306,
+        "train_mse": 20893791.33291447,
+        "test_mse": 21025053.161508042,
+        "train_r2": -4.699806995386962,
+        "test_r2": -4.243309316427689,
+        "kl_divergence": 13358968.893461999,
+        "explained_variance_ratio": "[0.35979828 0.17064268 0.11144142 0.09416226 0.08235502 0.07535203\n 0.04263629 0.02020132]",
+        "cumulative_variance_explained": 0.9565893018886064,
+        "residual_std": 302.1148633187888
+      },
+      "ModelOrientedGeneralizedPCA": {
+        "model": "ModelOrientedGeneralizedPCA",
+        "train_mse": 24468219.491438363,
+        "test_mse": 27460476.22423537,
+        "train_r2": -5.674907698645526,
+        "test_r2": -5.8482000836827845,
+        "kl_divergence": 826911.534265904,
+        "r_beta_optimal": 0,
+        "r_H_optimal": 6,
+        "n_iterations": 2,
+        "aic_score": 965823718.6355855,
+        "bic_score": 965824024.5286543,
+        "residual_scale": 3.84032504020084e-12
+      }
+    }
+  },
+  {
+    "dataset": "wine_quality_red",
+    "metadata": {
+      "dataset_name": "wine_quality_red",
+      "target_name": "quality",
+      "feature_names": [
+        "fixed acidity",
+        "volatile acidity",
+        "citric acid",
+        "residual sugar",
+        "chlorides",
+        "free sulfur dioxide",
+        "total sulfur dioxide",
+        "density",
+        "pH",
+        "sulphates",
+        "alcohol"
+      ],
+      "original_shape": [
+        1599,
+        12
+      ],
+      "processed_shape": [
+        1279,
+        11
+      ],
+      "preprocessing_steps": [
+        "StandardScaler/RobustScaler applied",
+        "Data centered (mean \u2248 0)",
+        "Categorical variables encoded",
+        "Train/test split (80/20)",
+        "Outliers handled with robust scaling"
+      ]
+    },
+    "data_info": {
+      "n_train_samples": 1279,
+      "n_test_samples": 320,
+      "n_features": 11,
+      "train_target_mean": 5.623924941360438,
+      "train_target_std": 0.8065931873105368,
+      "test_target_mean": 5.684375,
+      "test_target_std": 0.8083970926314616
+    },
+    "models": {
+      "LinearRegression": {
+        "model": "LinearRegression",
+        "train_mse": 17.11327870673105,
+        "test_mse": 17.48452638987879,
+        "train_r2": -25.304141025737575,
+        "test_r2": -25.75496499235775,
+        "kl_divergence": 0.6088321204004989,
+        "beta_coefficients": "[ 7.76056198 -0.04852243 -2.56330273  0.94095724  0.41290284 -0.66833928\n  2.05181625 -5.26202519  3.71207578  1.14661972 -1.37224527]",
+        "residual_std": 2.8498560971294222
+      },
+      "PCA": {
+        "model": "PCA",
+        "n_components": 8,
+        "train_reconstruction_mse": 0.028499498551239198,
+        "test_reconstruction_mse": 0.029890433586414168,
+        "train_mse": 32.06127571050424,
+        "test_mse": 32.46967317866747,
+        "train_r2": -48.28011354261714,
+        "test_r2": -48.685358918925104,
+        "kl_divergence": 15674698.949286137,
+        "explained_variance_ratio": "[0.40930211 0.2725481  0.0992779  0.06200718 0.06114699 0.03484802\n 0.02256274 0.01846459]",
+        "cumulative_variance_explained": 0.9801576319873352,
+        "residual_std": 0.6578327784841947
+      },
+      "ModelOrientedGeneralizedPCA": {
+        "model": "ModelOrientedGeneralizedPCA",
+        "train_mse": 32.27912431587178,
+        "test_mse": 31.605758630041066,
+        "train_r2": -48.614959981809065,
+        "test_r2": -47.36338982525449,
+        "kl_divergence": 480815.6581920238,
+        "r_beta_optimal": 0,
+        "r_H_optimal": 6,
+        "n_iterations": 2,
+        "aic_score": 1229933605.6207805,
+        "bic_score": 1229933873.6201382,
+        "residual_scale": 0.6541185282938026
+      }
+    }
+  },
+  {
+    "dataset": "airfoil_noise",
+    "metadata": {
+      "dataset_name": "airfoil_noise",
+      "target_name": "Scaled_sound_pressure_level",
+      "feature_names": [
+        "Frequency",
+        "Angle_of_attack",
+        "Chord_length",
+        "Free_stream_velocity",
+        "Suction_side_displacement"
+      ],
+      "original_shape": [
+        1503,
+        6
+      ],
+      "processed_shape": [
+        1202,
+        5
+      ],
+      "preprocessing_steps": [
+        "StandardScaler/RobustScaler applied",
+        "Data centered (mean \u2248 0)",
+        "Categorical variables encoded",
+        "Train/test split (80/20)",
+        "Outliers handled with robust scaling"
+      ]
+    },
+    "data_info": {
+      "n_train_samples": 1202,
+      "n_test_samples": 301,
+      "n_features": 5,
+      "train_target_mean": 124.87696006655574,
+      "train_target_std": 6.849499771385182,
+      "test_target_mean": 124.67214617940199,
+      "test_target_std": 7.078034895268007
+    },
+    "models": {
+      "LinearRegression": {
+        "model": "LinearRegression",
+        "train_mse": 8558.98663724958,
+        "test_mse": 8126.13387355161,
+        "train_r2": -181.4335197953234,
+        "test_r2": -161.20288482075537,
+        "kl_divergence": 3.67368405635977,
+        "beta_coefficients": "[ 40.72735826  40.47378781  84.39038553 -49.47416803  24.92002766]",
+        "residual_std": 64.9466081001139
+      },
+      "PCA": {
+        "model": "PCA",
+        "n_components": 5,
+        "train_reconstruction_mse": 9.658297641950839e-32,
+        "test_reconstruction_mse": 1.010255520764427e-31,
+        "train_mse": 15617.551235588317,
+        "test_mse": 15617.834451245819,
+        "train_r2": -331.88576828620387,
+        "test_r2": -310.7420709607217,
+        "kl_divergence": 1.0956053941761357,
+        "explained_variance_ratio": "[0.52360286 0.27244147 0.0982497  0.07536886 0.03033712]",
+        "cumulative_variance_explained": 1.0000000000000002,
+        "residual_std": 4.826601301553781
+      },
+      "ModelOrientedGeneralizedPCA": {
+        "model": "ModelOrientedGeneralizedPCA",
+        "train_mse": 15641.17080258236,
+        "test_mse": 15695.54875338551,
+        "train_r2": -332.38921582332364,
+        "test_r2": -312.2932986656845,
+        "kl_divergence": 1.0976003395409726,
+        "r_beta_optimal": 0,
+        "r_H_optimal": 5,
+        "n_iterations": 2,
+        "aic_score": 4321.697954649014,
+        "bic_score": 4403.165828490536,
+        "residual_scale": 4.836671417449041
+      }
+    }
+  },
+  {
+    "dataset": "abalone",
+    "metadata": {
+      "dataset_name": "abalone",
+      "target_name": "Rings",
+      "feature_names": [
+        "Length",
+        "Diameter",
+        "Height",
+        "Whole_weight",
+        "Shucked_weight",
+        "Viscera_weight",
+        "Shell_weight",
+        "Sex_I",
+        "Sex_M"
+      ],
+      "original_shape": [
+        4177,
+        10
+      ],
+      "processed_shape": [
+        3341,
+        9
+      ],
+      "preprocessing_steps": [
+        "StandardScaler/RobustScaler applied",
+        "Data centered (mean \u2248 0)",
+        "Categorical variables encoded",
+        "Train/test split (80/20)",
+        "Outliers handled with robust scaling"
+      ]
+    },
+    "data_info": {
+      "n_train_samples": 3341,
+      "n_test_samples": 836,
+      "n_features": 9,
+      "train_target_mean": 9.94462735707872,
+      "train_target_std": 3.206863526696529,
+      "test_target_mean": 9.889952153110048,
+      "test_target_std": 3.290168695607805
+    },
+    "models": {
+      "LinearRegression": {
+        "model": "LinearRegression",
+        "train_mse": 33.08531879052426,
+        "test_mse": 34.522266754919244,
+        "train_r2": -2.217172643931067,
+        "test_r2": -2.1890620698936414,
+        "kl_divergence": 1.147062882383561,
+        "beta_coefficients": "[-6.23006026  2.09408644  1.62433907 -2.74764665 -1.4141654   5.08179165\n  6.72546156 10.16662603  8.83346903]",
+        "residual_std": 5.092574012658934
+      },
+      "PCA": {
+        "model": "PCA",
+        "n_components": 8,
+        "train_reconstruction_mse": 0.00031224610556248,
+        "test_reconstruction_mse": 0.0005310552346555243,
+        "train_mse": 103.83956476624702,
+        "test_mse": 104.19529134646392,
+        "train_r2": -9.097221950279554,
+        "test_r2": -8.625244305464857,
+        "kl_divergence": 140504.37438711536,
+        "explained_variance_ratio": "[0.82235471 0.0645659  0.04713169 0.02261327 0.02039801 0.01363926\n 0.00705777 0.00157166]",
+        "cumulative_variance_explained": 0.9993322731229142,
+        "residual_std": 2.2234998302425244
+      },
+      "ModelOrientedGeneralizedPCA": {
+        "model": "ModelOrientedGeneralizedPCA",
+        "train_mse": 109.17958695001496,
+        "test_mse": 110.81126175292646,
+        "train_r2": -9.61647864526185,
+        "test_r2": -9.236407541893474,
+        "kl_divergence": 19549.525582206705,
+        "r_beta_optimal": 0,
+        "r_H_optimal": 6,
+        "n_iterations": 2,
+        "aic_score": 130584059.67856795,
+        "bic_score": 130584304.23958564,
+        "residual_scale": 2.1901542568635244
+      }
+    }
+  },
+  {
+    "dataset": "bike_sharing_hour",
+    "metadata": {
+      "dataset_name": "bike_sharing_hour",
+      "target_name": "cnt",
+      "feature_names": [
+        "instant",
+        "season",
+        "yr",
+        "mnth",
+        "hr",
+        "holiday",
+        "weekday",
+        "workingday",
+        "weathersit",
+        "temp",
+        "atemp",
+        "hum",
+        "windspeed",
+        "casual",
+        "registered"
+      ],
+      "original_shape": [
+        17379,
+        16
+      ],
+      "processed_shape": [
+        13903,
+        15
+      ],
+      "preprocessing_steps": [
+        "StandardScaler/RobustScaler applied",
+        "Data centered (mean \u2248 0)",
+        "Categorical variables encoded",
+        "Train/test split (80/20)",
+        "Outliers handled with robust scaling"
+      ]
+    },
+    "data_info": {
+      "n_train_samples": 13903,
+      "n_test_samples": 3476,
+      "n_features": 15,
+      "train_target_mean": 190.57706969718765,
+      "train_target_std": 182.21395349583094,
+      "test_target_mean": 185.00747986191024,
+      "test_target_std": 177.94777699217465
+    },
+    "models": {
+      "LinearRegression": {
+        "model": "LinearRegression",
+        "train_mse": 34.904318481087564,
+        "test_mse": 35.120258162294775,
+        "train_r2": 0.9989487260560865,
+        "test_r2": 0.9988908952487896,
+        "kl_divergence": 1.2896708921898474,
+        "beta_coefficients": "[ 2.44747123e+02 -1.85828587e-01 -2.45994387e+02 -1.22209580e+02\n -8.07206002e-01  2.82413544e-01 -7.00083650e-02 -5.34788065e-01\n  5.67013032e-01 -2.17930474e+00  2.31743503e+00 -5.01298797e-01\n -5.52875163e-02  4.50502026e+01  1.87841204e+02]",
+        "residual_std": 5.902155921591094
+      },
+      "PCA": {
+        "model": "PCA",
+        "n_components": 8,
+        "train_reconstruction_mse": 0.044745321700930166,
+        "test_reconstruction_mse": 0.04418535368968362,
+        "train_mse": 38363.365139294765,
+        "test_mse": 38017.476120631196,
+        "train_r2": -0.155456056064609,
+        "test_r2": -0.20059947166583214,
+        "kl_divergence": 33558939.062227555,
+        "explained_variance_ratio": "[0.29450793 0.20809159 0.09462418 0.07951762 0.06783672 0.06646084\n 0.05699877 0.03645806]",
+        "cumulative_variance_explained": 0.9044957117389016,
+        "residual_std": 45.207805132831155
+      },
+      "ModelOrientedGeneralizedPCA": {
+        "model": "ModelOrientedGeneralizedPCA",
+        "train_mse": 69521.54434294756,
+        "test_mse": 70138.9233822015,
+        "train_r2": -1.093901021100562,
+        "test_r2": -1.2150011770556035,
+        "kl_divergence": 1163924.8782838308,
+        "r_beta_optimal": 0,
+        "r_H_optimal": 6,
+        "n_iterations": 2,
+        "aic_score": 32363919410.089344,
+        "bic_score": 32363919983.1187,
+        "residual_scale": 2.2382875226566797e-12
+      }
+    }
+  },
+  {
+    "dataset": "wine_quality_combined",
+    "metadata": {
+      "dataset_name": "wine_quality_combined",
+      "target_name": "quality",
+      "feature_names": [
+        "fixed acidity",
+        "volatile acidity",
+        "citric acid",
+        "residual sugar",
+        "chlorides",
+        "free sulfur dioxide",
+        "total sulfur dioxide",
+        "density",
+        "pH",
+        "sulphates",
+        "alcohol",
+        "wine_type_white"
+      ],
+      "original_shape": [
+        6497,
+        13
+      ],
+      "processed_shape": [
+        5197,
+        12
+      ],
+      "preprocessing_steps": [
+        "StandardScaler/RobustScaler applied",
+        "Data centered (mean \u2248 0)",
+        "Categorical variables encoded",
+        "Train/test split (80/20)",
+        "Outliers handled with robust scaling"
+      ]
+    },
+    "data_info": {
+      "n_train_samples": 5197,
+      "n_test_samples": 1300,
+      "n_features": 12,
+      "train_target_mean": 5.814508370213585,
+      "train_target_std": 0.8765635656378775,
+      "test_target_mean": 5.833846153846154,
+      "test_target_std": 0.8593874246008782
+    },
+    "models": {
+      "LinearRegression": {
+        "model": "LinearRegression",
+        "train_mse": 3.713843332524544,
+        "test_mse": 3.413106435335033,
+        "train_r2": -3.8334446394868396,
+        "test_r2": -3.621381728162941,
+        "kl_divergence": 0.25735742791559435,
+        "beta_coefficients": "[  2.42685394  -0.16459058   0.17560055   6.88524956   0.18379612\n  -0.2884761    1.14166373 -11.46345716   1.87912051   0.47412577\n  -3.51043917  -8.04326519]",
+        "residual_std": 1.8397585759447508
+      },
+      "PCA": {
+        "model": "PCA",
+        "n_components": 8,
+        "train_reconstruction_mse": 0.03467439877776679,
+        "test_reconstruction_mse": 0.03742293084364128,
+        "train_mse": 34.43386146283972,
+        "test_mse": 34.8463426136213,
+        "train_r2": -43.81453529469668,
+        "test_r2": -46.182311509745674,
+        "kl_divergence": 20804606.22778343,
+        "explained_variance_ratio": "[0.32418698 0.19659886 0.1345273  0.09752311 0.07138016 0.04755688\n 0.04405056 0.03658748]",
+        "cumulative_variance_explained": 0.9524113317115841,
+        "residual_std": 0.7907931939235989
+      },
+      "ModelOrientedGeneralizedPCA": {
+        "model": "ModelOrientedGeneralizedPCA",
+        "train_mse": 34.57687127188763,
+        "test_mse": 34.322548873135894,
+        "train_r2": -44.000657845662445,
+        "test_r2": -45.47308931950132,
+        "kl_divergence": 560539.2245601978,
+        "r_beta_optimal": 0,
+        "r_H_optimal": 6,
+        "n_iterations": 2,
+        "aic_score": 5826243588.32993,
+        "bic_score": 5826243968.568465,
+        "residual_scale": 0.7326878789568064
+      }
+    }
+  },
+  {
+    "dataset": "diabetes",
+    "metadata": {
+      "dataset_name": "diabetes",
+      "target_name": "target",
+      "feature_names": [
+        "age",
+        "sex",
+        "bmi",
+        "bp",
+        "s1",
+        "s2",
+        "s3",
+        "s4",
+        "s5",
+        "s6"
+      ],
+      "original_shape": [
+        442,
+        11
+      ],
+      "processed_shape": [
+        353,
+        10
+      ],
+      "preprocessing_steps": [
+        "StandardScaler/RobustScaler applied",
+        "Data centered (mean \u2248 0)",
+        "Categorical variables encoded",
+        "Train/test split (80/20)",
+        "Outliers handled with robust scaling"
+      ]
+    },
+    "data_info": {
+      "n_train_samples": 353,
+      "n_test_samples": 89,
+      "n_features": 10,
+      "train_target_mean": 153.73654390934846,
+      "train_target_std": 77.9512540821802,
+      "test_target_mean": 145.77528089887642,
+      "test_target_std": 72.78840394263774
+    },
+    "models": {
+      "LinearRegression": {
+        "model": "LinearRegression",
+        "train_mse": 12646.875332337331,
+        "test_mse": 12700.61442094656,
+        "train_r2": -1.081311215182466,
+        "test_r2": -1.3971783036419314,
+        "kl_divergence": 4.0409574243510535,
+        "beta_coefficients": "[ -36.53916963  131.16568629   67.88164317   24.01549869 -259.40355359\n  175.14925186  161.47666872   80.26890144  137.63607171  -10.52968597]",
+        "residual_std": 93.77521287695157
+      },
+      "PCA": {
+        "model": "PCA",
+        "n_components": 8,
+        "train_reconstruction_mse": 0.00416139074908474,
+        "test_reconstruction_mse": 0.004967164633302531,
+        "train_mse": 26537.450661800067,
+        "test_mse": 27787.356855011774,
+        "train_r2": -3.367299608269959,
+        "test_r2": -4.2447264959505535,
+        "kl_divergence": 2080683.701113123,
+        "explained_variance_ratio": "[0.41455874 0.16736818 0.12420401 0.07776457 0.06657203 0.05568359\n 0.05325671 0.03239123]",
+        "cumulative_variance_explained": 0.991799056536175,
+        "residual_std": 53.87509376891185
+      },
+      "ModelOrientedGeneralizedPCA": {
+        "model": "ModelOrientedGeneralizedPCA",
+        "train_mse": 29711.32294617565,
+        "test_mse": 31444.332511196153,
+        "train_r2": -3.8896275199033568,
+        "test_r2": -4.934962606535396,
+        "kl_divergence": 238087.5728963056,
+        "r_beta_optimal": 0,
+        "r_H_optimal": 6,
+        "n_iterations": 2,
+        "aic_score": 168088579.29769576,
+        "bic_score": 168088757.15522638,
+        "residual_scale": 54.33397546201795
+      }
+    }
+  },
+  {
+    "dataset": "wine_quality_white",
+    "metadata": {
+      "dataset_name": "wine_quality_white",
+      "target_name": "quality",
+      "feature_names": [
+        "fixed acidity",
+        "volatile acidity",
+        "citric acid",
+        "residual sugar",
+        "chlorides",
+        "free sulfur dioxide",
+        "total sulfur dioxide",
+        "density",
+        "pH",
+        "sulphates",
+        "alcohol"
+      ],
+      "original_shape": [
+        4898,
+        12
+      ],
+      "processed_shape": [
+        3918,
+        11
+      ],
+      "preprocessing_steps": [
+        "StandardScaler/RobustScaler applied",
+        "Data centered (mean \u2248 0)",
+        "Categorical variables encoded",
+        "Train/test split (80/20)",
+        "Outliers handled with robust scaling"
+      ]
+    },
+    "data_info": {
+      "n_train_samples": 3918,
+      "n_test_samples": 980,
+      "n_features": 11,
+      "train_target_mean": 5.871362940275651,
+      "train_target_std": 0.8867994142404612,
+      "test_target_mean": 5.904081632653061,
+      "test_target_std": 0.8800415536741734
+    },
+    "models": {
+      "LinearRegression": {
+        "model": "LinearRegression",
+        "train_mse": 24.748711768162792,
+        "test_mse": 25.566340983161652,
+        "train_r2": -30.470366638851836,
+        "test_r2": -32.01126893674738,
+        "kl_divergence": 0.5651492300264875,
+        "beta_coefficients": "[  2.94760507   0.90286934   0.34588271  11.55530647   0.71204538\n   0.53346606  -0.02661571 -12.65176213   2.84326286   1.52394008\n  -3.33836591]",
+        "residual_std": 2.710372502700398
+      },
+      "PCA": {
+        "model": "PCA",
+        "n_components": 8,
+        "train_reconstruction_mse": 0.03266389961705108,
+        "test_reconstruction_mse": 0.03323307006118409,
+        "train_mse": 35.128435216997104,
+        "test_mse": 35.09862006418783,
+        "train_r2": -43.6691830299707,
+        "test_r2": -44.31935121301578,
+        "kl_divergence": 17965119.67655322,
+        "explained_variance_ratio": "[0.31171556 0.16869981 0.1297663  0.10237981 0.07924751 0.07041381\n 0.05324444 0.04282403]",
+        "cumulative_variance_explained": 0.9582912710108262,
+        "residual_std": 0.809649578864071
+      },
+      "ModelOrientedGeneralizedPCA": {
+        "model": "ModelOrientedGeneralizedPCA",
+        "train_mse": 35.25931597753955,
+        "test_mse": 34.864239789708456,
+        "train_r2": -43.8356105013812,
+        "test_r2": -44.016719315889674,
+        "kl_divergence": 593413.9026272129,
+        "r_beta_optimal": 0,
+        "r_H_optimal": 6,
+        "n_iterations": 2,
+        "aic_score": 4650001359.056401,
+        "bic_score": 4650001685.269904,
+        "residual_scale": 0.7512726426833569
+      }
+    }
+  },
+  {
+    "dataset": "energy_efficiency",
+    "metadata": {
+      "dataset_name": "energy_efficiency",
+      "target_name": "Y2",
+      "feature_names": [
+        "X1",
+        "X2",
+        "X3",
+        "X4",
+        "X5",
+        "X6",
+        "X7",
+        "X8",
+        "Y1"
+      ],
+      "original_shape": [
+        768,
+        10
+      ],
+      "processed_shape": [
+        614,
+        9
+      ],
+      "preprocessing_steps": [
+        "StandardScaler/RobustScaler applied",
+        "Data centered (mean \u2248 0)",
+        "Categorical variables encoded",
+        "Train/test split (80/20)",
+        "Outliers handled with robust scaling"
+      ]
+    },
+    "data_info": {
+      "n_train_samples": 614,
+      "n_test_samples": 154,
+      "n_features": 9,
+      "train_target_mean": 24.410765472312704,
+      "train_target_std": 9.46884558488885,
+      "test_target_mean": 25.293441558441558,
+      "test_target_std": 9.625862914927378
+    },
+    "models": {
+      "LinearRegression": {
+        "model": "LinearRegression",
+        "train_mse": 3.6529322856465902,
+        "test_mse": 4.160173597573953,
+        "train_r2": 0.9592575113488805,
+        "test_r2": 0.9551014714156045,
+        "kl_divergence": Infinity,
+        "beta_coefficients": "[ -2.59918488  38.11261267 -13.87083858 -40.75405621   1.36943744\n   0.08396145  -0.91972127  -0.42175243  16.45675596]",
+        "residual_std": 1.911264577615195
+      },
+      "PCA": {
+        "model": "PCA",
+        "n_components": 8,
+        "train_reconstruction_mse": 2.1501968932706967e-30,
+        "test_reconstruction_mse": 2.3052045877325826e-30,
+        "train_mse": 599.5384032299006,
+        "test_mse": 607.6272010359519,
+        "train_r2": -5.686870896973348,
+        "test_r2": -5.557795393509153,
+        "kl_divergence": Infinity,
+        "explained_variance_ratio": "[0.35825498 0.29001831 0.21367489 0.08128465 0.04594155 0.00845089\n 0.00197911 0.00039561]",
+        "cumulative_variance_explained": 1.0,
+        "residual_std": 1.9112645776151949
+      },
+      "ModelOrientedGeneralizedPCA": {
+        "model": "ModelOrientedGeneralizedPCA",
+        "train_mse": 685.5445076547232,
+        "test_mse": 646.2282270212313,
+        "train_r2": -6.64612840832223,
+        "test_r2": -5.974395621345258,
+        "kl_divergence": Infinity,
+        "r_beta_optimal": 0,
+        "r_H_optimal": 6,
+        "n_iterations": 20,
+        "aic_score": 6149926.679231286,
+        "bic_score": 6150103.479028412,
+        "residual_scale": 1.925428115273577
+      }
+    }
+  },
+  {
+    "dataset": "concrete_strength",
+    "metadata": {
+      "dataset_name": "concrete_strength",
+      "target_name": "Concrete compressive strength(MPa, megapascals) ",
+      "feature_names": [
+        "Cement (component 1)(kg in a m^3 mixture)",
+        "Blast Furnace Slag (component 2)(kg in a m^3 mixture)",
+        "Fly Ash (component 3)(kg in a m^3 mixture)",
+        "Water  (component 4)(kg in a m^3 mixture)",
+        "Superplasticizer (component 5)(kg in a m^3 mixture)",
+        "Coarse Aggregate  (component 6)(kg in a m^3 mixture)",
+        "Fine Aggregate (component 7)(kg in a m^3 mixture)",
+        "Age (day)"
+      ],
+      "original_shape": [
+        1030,
+        9
+      ],
+      "processed_shape": [
+        824,
+        8
+      ],
+      "preprocessing_steps": [
+        "StandardScaler/RobustScaler applied",
+        "Data centered (mean \u2248 0)",
+        "Categorical variables encoded",
+        "Train/test split (80/20)",
+        "Outliers handled with robust scaling"
+      ]
+    },
+    "data_info": {
+      "n_train_samples": 824,
+      "n_test_samples": 206,
+      "n_features": 8,
+      "train_target_mean": 35.857718068042345,
+      "train_target_std": 16.854753985178572,
+      "test_target_mean": 35.658306858398646,
+      "test_target_std": 16.052448040526595
+    },
+    "models": {
+      "LinearRegression": {
+        "model": "LinearRegression",
+        "train_mse": 149.6986821536096,
+        "test_mse": 130.4466275585845,
+        "train_r2": 0.4730454711135539,
+        "test_r2": 0.4937671657490954,
+        "kl_divergence": 1.997511518881561,
+        "beta_coefficients": "[43.04555707 40.90016905 36.08436741  7.57814493  0.86940466 15.25119452\n 16.84618312  6.09700234]",
+        "residual_std": 12.110860033917765
+      },
+      "PCA": {
+        "model": "PCA",
+        "n_components": 8,
+        "train_reconstruction_mse": 4.203179432575488e-31,
+        "test_reconstruction_mse": 4.70879424795796e-31,
+        "train_mse": 1396.4377162919445,
+        "test_mse": 1383.0432818439501,
+        "train_r2": -3.9156022506116823,
+        "test_r2": -4.367267315094803,
+        "kl_divergence": 1.8577574939679828,
+        "explained_variance_ratio": "[0.39735138 0.19179782 0.12792172 0.10674396 0.09104136 0.06803087\n 0.01449704 0.00261585]",
+        "cumulative_variance_explained": 1.0,
+        "residual_std": 10.519589880063483
+      },
+      "ModelOrientedGeneralizedPCA": {
+        "model": "ModelOrientedGeneralizedPCA",
+        "train_mse": 1569.858676948103,
+        "test_mse": 1557.7976598415707,
+        "train_r2": -4.5260616034056405,
+        "test_r2": -5.045448159837289,
+        "kl_divergence": 44444.9349873748,
+        "r_beta_optimal": 0,
+        "r_H_optimal": 6,
+        "n_iterations": 2,
+        "aic_score": 73245362.16072062,
+        "bic_score": 73245522.44251864,
+        "residual_scale": 10.57103072413768
+      }
+    }
+  },
+  {
+    "dataset": "california_housing",
+    "metadata": {
+      "dataset_name": "california_housing",
+      "target_name": "target",
+      "feature_names": [
+        "MedInc",
+        "HouseAge",
+        "AveRooms",
+        "AveBedrms",
+        "Population",
+        "AveOccup",
+        "Latitude",
+        "Longitude"
+      ],
+      "original_shape": [
+        20640,
+        9
+      ],
+      "processed_shape": [
+        16512,
+        8
+      ],
+      "preprocessing_steps": [
+        "StandardScaler/RobustScaler applied",
+        "Data centered (mean \u2248 0)",
+        "Categorical variables encoded",
+        "Train/test split (80/20)",
+        "Outliers handled with robust scaling"
+      ]
+    },
+    "data_info": {
+      "n_train_samples": 16512,
+      "n_test_samples": 4128,
+      "n_features": 8,
+      "train_target_mean": 2.071946937378876,
+      "train_target_std": 1.1561912522543263,
+      "test_target_mean": 2.0550030959302323,
+      "test_target_std": 1.1447309632576992
+    },
+    "models": {
+      "LinearRegression": {
+        "model": "LinearRegression",
+        "train_mse": 2.784878463895444,
+        "test_mse": 3.0780964766169396,
+        "train_r2": -1.0832763725012935,
+        "test_r2": -1.3489586287397035,
+        "kl_divergence": 0.040320747409824165,
+        "beta_coefficients": "[ 2.05540063  0.46918008 -1.09193113  0.32879358  0.31699097 -0.00554044\n  1.88944869  0.54359017]",
+        "residual_std": 1.2400966852289343
+      },
+      "PCA": {
+        "model": "PCA",
+        "n_components": 8,
+        "train_reconstruction_mse": 1.1023705220251344e-29,
+        "test_reconstruction_mse": 3.519825522725733e-30,
+        "train_mse": 4.810897236838373,
+        "test_mse": 4.863273551280754,
+        "train_r2": -2.598874663283484,
+        "test_r2": -2.711263912285796,
+        "kl_divergence": 0.136421014333568,
+        "explained_variance_ratio": "[8.73664255e-01 1.08173820e-01 7.18072982e-03 5.62197220e-03\n 2.69220206e-03 1.74850830e-03 8.39968585e-04 7.85435236e-05]",
+        "cumulative_variance_explained": 1.0,
+        "residual_std": 0.7196757085831575
+      },
+      "ModelOrientedGeneralizedPCA": {
+        "model": "ModelOrientedGeneralizedPCA",
+        "train_mse": 5.62974232310313,
+        "test_mse": 5.67387366411154,
+        "train_r2": -3.2114258546801793,
+        "test_r2": -3.3298495037237767,
+        "kl_divergence": 97254.94062160821,
+        "r_beta_optimal": 0,
+        "r_H_optimal": 6,
+        "n_iterations": 2,
+        "aic_score": 3211921724.9031987,
+        "bic_score": 3211921987.1058493,
+        "residual_scale": 0.719850112004737
+      }
+    }
+  }
+]
